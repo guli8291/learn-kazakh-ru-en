@@ -1,5 +1,13 @@
 import { LessonData } from "@/lib/types";
 
+import computerLabImg from "@/assets/lesson-01/computer-lab.jpg";
+import classroomRulesImg from "@/assets/lesson-01/classroom-rules.jpg";
+import correctPostureImg from "@/assets/lesson-01/correct-posture.jpg";
+import prohibitedActionsImg from "@/assets/lesson-01/prohibited-actions.jpg";
+import safetyTipsImg from "@/assets/lesson-01/safety-tips.jpg";
+import quizTimeImg from "@/assets/lesson-01/quiz-time.jpg";
+import futureCityImg from "@/assets/lesson-01/future-city.jpg";
+
 export const lesson01: LessonData = {
   id: "lesson-01",
   title: { kk: "Денсаулық және компьютер", ru: "Здоровье и компьютер", en: "Health and Computer" },
@@ -34,10 +42,7 @@ export const lesson01: LessonData = {
         ru: "На рисунке изображена компьютерная комната. В комнате установлены компьютеры для работы каждого ученика отдельно. Урок цифровой грамотности проходит в компьютерной комнате.",
         en: "The picture shows a computer lab. Computers are set up for each student to work individually. The digital literacy lesson takes place in the computer lab.",
       },
-      // ВАЖНО: Здесь должен быть путь к файлу изображения — "1-сурет"
-      image: "/images/lesson-01/1.jpg",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Жаңа білім"
-      audio: "/audio/lesson-01/6101280793952256.mp3",
+      image: computerLabImg,
     },
     {
       type: "rules",
@@ -55,10 +60,7 @@ export const lesson01: LessonData = {
         { kk: "Сабақтан кейін қолыңды жу", ru: "После занятия вымой руки", en: "Wash your hands after class" },
       ],
       emoji: "📋",
-      // ВАЖНО: Здесь должен быть путь к файлу изображения — "2-сурет. 2-ереже"
-      image: "/images/lesson-01/2.jpg",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "1-сурет. 1-ереже"
-      audio: "/audio/lesson-01/5255898723647488.mp3",
+      image: classroomRulesImg,
     },
     {
       type: "topic",
@@ -72,10 +74,7 @@ export const lesson01: LessonData = {
         ru: "Правильная посадка очень важна при работе за компьютером. Держи спину прямо и поставь ноги на пол. Найдите ученика, который правильно сидит за компьютером.",
         en: "Good posture is very important when working at the computer. Keep your back straight and feet on the floor. Find the student who is sitting correctly.",
       },
-      // ВАЖНО: Здесь должен быть путь к файлу изображения — "3-сурет"
-      image: "/images/lesson-01/3.jpg",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Компьютердің алдында дұрыс отырған оқушыны белгіле"
-      audio: "/audio/lesson-01/6335875699310592.mp3",
+      image: correctPostureImg,
     },
     {
       type: "topic",
@@ -89,8 +88,7 @@ export const lesson01: LessonData = {
         ru: "Что нельзя делать во время работы с компьютером? Объясните причину.",
         en: "What can't you do while working with a computer? Explain why.",
       },
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Компьютермен жұмыс барысында не істеуге болмайды?"
-      audio: "/audio/lesson-01/6308848510304256.mp3",
+      image: prohibitedActionsImg,
     },
     {
       type: "topic",
@@ -104,14 +102,12 @@ export const lesson01: LessonData = {
         ru: "Чем отличается компьютерный класс от других кабинетов школы? Ты научишься соблюдать правила поведения в компьютерном классе.",
         en: "How is the computer lab different from other classrooms? You will learn to follow the rules in the computer lab.",
       },
-      // ВАЖНО: Здесь должен быть путь к файлу изображения — "5-сурет"
-      image: "/images/lesson-01/5.jpg",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Компьютермен жұмыс істегенде есіңде сақта!"
-      audio: "/audio/lesson-01/6702826464346112.mp3",
+      image: safetyTipsImg,
     },
     {
       type: "interactive",
       title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
+      image: quizTimeImg,
       items: [
         {
           type: "choice",
@@ -142,10 +138,6 @@ export const lesson01: LessonData = {
           correctIndex: 1,
         },
       ],
-      // ВАЖНО: Здесь должен быть путь к файлу изображения — "4-сурет. Компьютердің алдында отыру түрлері"
-      image: "/images/lesson-01/4.jpg",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Төмендегі суреттерден информатика кабинетін тауып"
-      audio: "/audio/lesson-01/6511797559754752.mp3",
     },
     {
       type: "game",
@@ -165,16 +157,11 @@ export const lesson01: LessonData = {
           ],
         },
       ],
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Компьютермен жұмыс кезіндегі қауіпсіздік ережелерін дұрыс сәйкестендір."
-      audio: "/audio/lesson-01/6359852689784832.mp3",
     },
     {
       type: "video",
       title: { kk: "Болашақтың қаласы", ru: "Город будущего", en: "Future City" },
-      // ВАЖНО: Здесь должен быть путь к видеофайлу — "Болашақтың қаласы"
-      video: "/video/lesson-01/6511797559754752.mp4",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Бейнежазбаны тамашалап, қалаға «саяхат» жаса"
-      audio: "/audio/lesson-01/5644566353281024.mp3",
+      image: futureCityImg,
     },
     {
       type: "summary",
@@ -186,8 +173,6 @@ export const lesson01: LessonData = {
         { kk: "Информатика кабинетіндегі тәртіп ережелерін сақтауды үйренесің", ru: "Ты научишься соблюдать правила поведения в компьютерном классе", en: "You will learn to follow the rules in the computer lab" },
       ],
       emoji: "⭐",
-      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Информатика кабинетіндегі тәртіп ережелерін сақтауды үйренесің"
-      audio: "/audio/lesson-01/5167496384872448.mp3",
     },
   ],
 };
