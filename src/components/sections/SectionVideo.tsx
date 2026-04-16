@@ -94,6 +94,11 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
         </p>
       </div>
 
+      {/* Audio (TTS) */}
+      {slide.title && (
+        <AudioButton text={slide.title} />
+      )}
+
       {/* Teacher note */}
       <div className="flex items-start gap-3 rounded-xl bg-blue-50 border border-blue-200 p-4 dark:bg-blue-950/30 dark:border-blue-800">
         <BookOpen className="mt-0.5 h-5 w-5 shrink-0 text-blue-600 dark:text-blue-400" />
