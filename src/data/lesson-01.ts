@@ -30,8 +30,10 @@ export const lesson01: LessonData = {
         ru: "Очень важно соблюдать правила в компьютерном классе. Это защитит твоё здоровье и оборудование.",
         en: "It's very important to follow rules in the computer classroom. It protects your health and the equipment.",
       },
-      image: "/lessons/lesson-01/images/classroom.jpg",
-      audio: "/lessons/lesson-01/audio/rules.mp3",
+      // ВАЖНО: Здесь должен быть путь к файлу изображения — "1-сурет"
+      image: "/images/lesson-01/1.jpg",
+      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "1-сурет"
+      audio: "/audio/lesson-01/5255898723647488.mp3",
     },
     {
       type: "rules",
@@ -45,6 +47,8 @@ export const lesson01: LessonData = {
         { kk: "Сабақтан кейін қолыңды жу", ru: "После занятия вымой руки", en: "Wash your hands after class" },
       ],
       emoji: "📋",
+      // ВАЖНО: Здесь должен быть путь к файлу изображения — "2-сурет"
+      // image: "/images/lesson-01/2.jpg",
     },
     {
       type: "topic",
@@ -54,7 +58,10 @@ export const lesson01: LessonData = {
         ru: "Правильная посадка очень важна при работе за компьютером. Держи спину прямо и поставь ноги на пол.",
         en: "Good posture is very important when working at the computer. Keep your back straight and feet on the floor.",
       },
-      image: "/lessons/lesson-01/images/posture.jpg",
+      // ВАЖНО: Здесь должен быть путь к файлу изображения — "3-сурет"
+      image: "/images/lesson-01/3.jpg",
+      // ВАЖНО: Здесь должен быть путь к аудиофайлу — "Болашақтың қаласы"
+      audio: "/audio/lesson-01/6101280793952256.mp3",
     },
     {
       type: "interactive",
@@ -89,6 +96,8 @@ export const lesson01: LessonData = {
           correctIndex: 1,
         },
       ],
+      // ВАЖНО: Здесь должен быть путь к файлу изображения для интерактивного раздела — "4-сурет"
+      // image: "/images/lesson-01/4.jpg",
     },
     {
       type: "game",
@@ -112,7 +121,11 @@ export const lesson01: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-01/video.mp4",
+      // ВАЖНО: Здесь должен быть путь к видеофайлу — "Болашақтың қаласы"
+      // Доступные видеофайлы:
+      // /video/lesson-01/6511797559754752.mp4 — для "Болашақтың қаласы"
+      // /video/lesson-01/1.mp4 — для "1-сурет"
+      video: "/video/lesson-01/6511797559754752.mp4",
     },
     {
       type: "summary",
