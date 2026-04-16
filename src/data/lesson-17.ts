@@ -2,41 +2,41 @@ import { LessonData } from "@/lib/types";
 
 export const lesson17: LessonData = {
   id: "lesson-17",
-  title: { kk: "Кодтау және декодтау", ru: "Кодирование и декодирование", en: "Encoding and Decoding" },
+  title: { kk: "Шығармашылық тапсырмалар", ru: "Творческие задания", en: "Creative Tasks" },
   description: {
-    kk: "Ақпаратты кодтау және декодтау тәсілдері",
-    ru: "Способы кодирования и декодирования информации",
-    en: "Methods of encoding and decoding information",
+    kk: "Scratch-те шығармашылық тапсырмаларды орындау",
+    ru: "Выполнение творческих заданий в Scratch",
+    en: "Completing creative tasks in Scratch",
   },
-  emoji: "🔐",
-  color: "from-emerald-400 to-teal-500",
+  emoji: "✨",
+  color: "from-pink-400 to-rose-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Кодтау және декодтау", ru: "Кодирование и декодирование", en: "Encoding and Decoding" },
-      subtitle: { kk: "Құпия хабарлама жазуды үйрен!", ru: "Научись писать секретные послания!", en: "Learn to write secret messages!" },
-      emoji: "🔐",
-      color: "from-emerald-400 to-teal-500",
+      title: { kk: "Шығармашылық тапсырмалар", ru: "Творческие задания", en: "Creative Tasks" },
+      subtitle: { kk: "Өз идеяларыңды жүзеге асыр!", ru: "Воплоти свои идеи!", en: "Bring your ideas to life!" },
+      emoji: "✨",
+      color: "from-pink-400 to-rose-500",
     },
     {
       type: "topic",
-      title: { kk: "Кодтау дегеніміз не?", ru: "Что такое кодирование?", en: "What is Encoding?" },
+      title: { kk: "Шығармашылық жоба дегеніміз не?", ru: "Что такое творческий проект?", en: "What is a Creative Project?" },
       text: {
-        kk: "Кодтау — ақпаратты бір түрден екінші түрге ауыстыру. Мысалы: бағдаршам — қызыл = тоқта, жасыл = жүр. Бұл кодтау! Декодтау — кодталған ақпаратты оқу.",
-        ru: "Кодирование — преобразование информации из одной формы в другую. Например: светофор — красный = стой, зелёный = иди. Это кодирование! Декодирование — чтение закодированной информации.",
-        en: "Encoding is transforming information from one form to another. Example: traffic light — red = stop, green = go. That's encoding! Decoding is reading encoded information.",
+        kk: "Шығармашылық жоба — өз қиялыңнан жасалған Scratch жобасы. Сен өзің тақырып таңдайсың, спрайттар мен фон қосасың, анимация немесе ойын жасайсың. Бұл — бағдарламалаудағы шынайы шығармашылық!",
+        ru: "Творческий проект — проект в Scratch, созданный по твоей фантазии. Ты сам выбираешь тему, добавляешь спрайты и фон, создаёшь анимацию или игру. Это настоящее творчество в программировании!",
+        en: "A creative project is a Scratch project made from your imagination. You choose the topic, add sprites and backgrounds, create animations or games. This is real creativity in programming!",
       },
     },
     {
       type: "rules",
-      title: { kk: "Кодтау мысалдары", ru: "Примеры кодирования", en: "Encoding Examples" },
+      title: { kk: "Шығармашылық жоба идеялары", ru: "Идеи для творческих проектов", en: "Creative Project Ideas" },
       points: [
-        { kk: "🚦 Бағдаршам — түстер арқылы кодтау", ru: "🚦 Светофор — кодирование цветами", en: "🚦 Traffic light — encoding with colors" },
-        { kk: "🔢 Сандар — мөлшерді кодтау", ru: "🔢 Числа — кодирование количества", en: "🔢 Numbers — encoding quantity" },
-        { kk: "🎵 Нота — музыканы кодтау", ru: "🎵 Ноты — кодирование музыки", en: "🎵 Notes — encoding music" },
-        { kk: "🏳️ Жалаулар — хабарларды кодтау", ru: "🏳️ Флаги — кодирование сообщений", en: "🏳️ Flags — encoding messages" },
+        { kk: "🎬 Мультфильм — кейіпкерлер сөйлесетін анимация", ru: "🎬 Мультфильм — анимация с говорящими персонажами", en: "🎬 Cartoon — animation with talking characters" },
+        { kk: "🎮 Қарапайым ойын — спрайтты басқару, ұпай жинау", ru: "🎮 Простая игра — управление спрайтом, набор очков", en: "🎮 Simple game — control sprite, collect points" },
+        { kk: "🎵 Музыкалық жоба — дыбыстар мен ырғақ", ru: "🎵 Музыкальный проект — звуки и ритмы", en: "🎵 Music project — sounds and rhythms" },
+        { kk: "📖 Интерактивті әңгіме — таңдау жасау арқылы оқиға", ru: "📖 Интерактивная история — сюжет с выбором", en: "📖 Interactive story — story with choices" },
       ],
-      emoji: "📡",
+      emoji: "💡",
     },
     {
       type: "interactive",
@@ -44,21 +44,21 @@ export const lesson17: LessonData = {
       items: [
         {
           type: "choice",
-          question: { kk: "Бағдаршамның қызыл түсі нені білдіреді?", ru: "Что означает красный цвет светофора?", en: "What does the red traffic light mean?" },
+          question: { kk: "Шығармашылық жобада нені өзің таңдайсың?", ru: "Что ты выбираешь сам в творческом проекте?", en: "What do you choose yourself in a creative project?" },
           options: [
-            { kk: "Жүр", ru: "Иди", en: "Go" },
-            { kk: "Тоқта", ru: "Стой", en: "Stop" },
-            { kk: "Дайын бол", ru: "Приготовься", en: "Get ready" },
+            { kk: "Тек фонды", ru: "Только фон", en: "Only the backdrop" },
+            { kk: "Тақырып, спрайт, фон, командалар — бәрін", ru: "Тему, спрайт, фон, команды — всё", en: "Topic, sprite, backdrop, commands — everything" },
+            { kk: "Ештеңе", ru: "Ничего", en: "Nothing" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Кодтау дегеніміз не?", ru: "Что такое кодирование?", en: "What is encoding?" },
+          question: { kk: "Мультфильм жобасында не болады?", ru: "Что есть в проекте-мультфильме?", en: "What does a cartoon project have?" },
           options: [
-            { kk: "Ойын ойнау", ru: "Играть в игру", en: "Play a game" },
-            { kk: "Ақпаратты бір түрден екіншіге ауыстыру", ru: "Преобразование информации из одной формы в другую", en: "Transforming info from one form to another" },
-            { kk: "Суретті жою", ru: "Удалить рисунок", en: "Delete a picture" },
+            { kk: "Тек сандар", ru: "Только числа", en: "Only numbers" },
+            { kk: "Кейіпкерлер сөйлесетін анимация", ru: "Анимация с говорящими персонажами", en: "Animation with talking characters" },
+            { kk: "Бос сахна", ru: "Пустая сцена", en: "Empty stage" },
           ],
           correctIndex: 1,
         },
@@ -66,15 +66,15 @@ export const lesson17: LessonData = {
     },
     {
       type: "game",
-      title: { kk: "Кодты тап", ru: "Найди код", en: "Find the Code" },
+      title: { kk: "Жоба түрлерін сәйкестендір", ru: "Соедини типы проектов", en: "Match Project Types" },
       items: [
         {
           type: "match",
-          instruction: { kk: "Кодты мағынасымен сәйкестендір", ru: "Соедини код со значением", en: "Match code with meaning" },
+          instruction: { kk: "Жоба түрін сипаттамамен сәйкестендір", ru: "Соедини тип проекта с описанием", en: "Match project type with description" },
           pairs: [
-            { left: { kk: "🔴", ru: "🔴", en: "🔴" }, right: { kk: "Тоқта", ru: "Стой", en: "Stop" } },
-            { left: { kk: "🟢", ru: "🟢", en: "🟢" }, right: { kk: "Жүр", ru: "Иди", en: "Go" } },
-            { left: { kk: "🟡", ru: "🟡", en: "🟡" }, right: { kk: "Дайын бол", ru: "Приготовься", en: "Get ready" } },
+            { left: { kk: "Мультфильм", ru: "Мультфильм", en: "Cartoon" }, right: { kk: "Кейіпкерлер сөйлеседі", ru: "Персонажи разговаривают", en: "Characters talk" } },
+            { left: { kk: "Ойын", ru: "Игра", en: "Game" }, right: { kk: "Спрайтты басқару", ru: "Управление спрайтом", en: "Control sprite" } },
+            { left: { kk: "Музыкалық", ru: "Музыкальный", en: "Musical" }, right: { kk: "Дыбыстар мен ырғақ", ru: "Звуки и ритмы", en: "Sounds and rhythms" } },
           ],
         },
       ],
@@ -88,8 +88,8 @@ export const lesson17: LessonData = {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Кодтау — ақпаратты басқа түрге ауыстыру", ru: "Кодирование — преобразование информации", en: "Encoding — transforming information" },
-        { kk: "Декодтау — кодталған ақпаратты оқу", ru: "Декодирование — чтение закодированного", en: "Decoding — reading encoded info" },
+        { kk: "Шығармашылық жоба — өз идеяңнан жасалған Scratch жобасы", ru: "Творческий проект — проект из твоей идеи в Scratch", en: "Creative project — a Scratch project from your idea" },
+        { kk: "Мультфильм, ойын, музыка, интерактивті әңгіме — жоба түрлері", ru: "Мультфильм, игра, музыка, интерактивная история — виды проектов", en: "Cartoon, game, music, interactive story — project types" },
       ],
       emoji: "🎓",
     },

@@ -2,39 +2,42 @@ import { LessonData } from "@/lib/types";
 
 export const lesson15: LessonData = {
   id: "lesson-15",
-  title: { kk: "Файл және бума", ru: "Файл и папка", en: "File and Folder" },
+  title: { kk: "Менің алғашқы жобам", ru: "Мой первый проект", en: "My First Project" },
   description: {
-    kk: "Файл мен бума ұғымы, құру және атау",
-    ru: "Понятие файла и папки, создание и именование",
-    en: "Understanding files and folders, creating and naming them",
+    kk: "Scratch-те алғашқы жобаны жасау",
+    ru: "Создание первого проекта в Scratch",
+    en: "Creating your first project in Scratch",
   },
-  emoji: "📁",
-  color: "from-yellow-400 to-orange-500",
+  emoji: "🚀",
+  color: "from-green-400 to-emerald-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Файл және бума", ru: "Файл и папка", en: "File and Folder" },
-      subtitle: { kk: "Файлдар мен бумаларды үйренеміз!", ru: "Изучим файлы и папки!", en: "Let's learn about files and folders!" },
-      emoji: "📁",
-      color: "from-yellow-400 to-orange-500",
+      title: { kk: "Менің алғашқы жобам", ru: "Мой первый проект", en: "My First Project" },
+      subtitle: { kk: "Алғашқы бағдарламаңды жаса!", ru: "Создай свою первую программу!", en: "Create your first program!" },
+      emoji: "🚀",
+      color: "from-green-400 to-emerald-500",
     },
     {
       type: "topic",
-      title: { kk: "Файл дегеніміз не?", ru: "Что такое файл?", en: "What is a File?" },
+      title: { kk: "Жоба дегеніміз не?", ru: "Что такое проект?", en: "What is a Project?" },
       text: {
-        kk: "Файл — компьютерде сақталатын ақпарат. Мысалы: сурет, мәтін, ән, видео — бәрі файл. Әр файлдың аты және кеңейтімі бар: surat.jpg, atym.txt.",
-        ru: "Файл — это информация, хранящаяся в компьютере. Например: картинка, текст, песня, видео — всё это файлы. У каждого файла есть имя и расширение: risunok.jpg, imya.txt.",
-        en: "A file is information stored on a computer. For example: a picture, text, song, video — all are files. Each file has a name and extension: picture.jpg, name.txt.",
+        kk: "Жоба — Scratch-те жасалған бағдарлама. Жобада спрайттар, фон, блоктар (командалар) бар. Мысалы: мысық «Сәлем!» деп айтатын анимация — бұл қарапайым жоба. Жобаны сақтап, достарыңмен бөлісуге болады.",
+        ru: "Проект — программа, созданная в Scratch. В проекте есть спрайты, фон и блоки (команды). Например: анимация, где кот говорит «Привет!» — это простой проект. Проект можно сохранить и поделиться с друзьями.",
+        en: "A project is a program created in Scratch. It has sprites, backgrounds, and blocks (commands). For example: an animation where the cat says 'Hello!' — that's a simple project. You can save and share projects.",
       },
     },
     {
-      type: "topic",
-      title: { kk: "Бума дегеніміз не?", ru: "Что такое папка?", en: "What is a Folder?" },
-      text: {
-        kk: "Бума — файлдарды сақтайтын контейнер. Бума ішіне файлдар мен басқа бумалар салуға болады. Бума файлдарды реттеуге көмектеседі.",
-        ru: "Папка — контейнер для хранения файлов. В папку можно положить файлы и другие папки. Папка помогает организовать файлы.",
-        en: "A folder is a container for storing files. You can put files and other folders inside. Folders help organize files.",
-      },
+      type: "rules",
+      title: { kk: "Алғашқы жоба жасау қадамдары", ru: "Шаги создания первого проекта", en: "Steps to Create Your First Project" },
+      points: [
+        { kk: "1️⃣ Scratch-ты аш", ru: "1️⃣ Открой Scratch", en: "1️⃣ Open Scratch" },
+        { kk: "2️⃣ Спрайт таңда (мысалы, мысық)", ru: "2️⃣ Выбери спрайт (например, кота)", en: "2️⃣ Choose a sprite (e.g., cat)" },
+        { kk: "3️⃣ Фон таңда", ru: "3️⃣ Выбери фон", en: "3️⃣ Choose a backdrop" },
+        { kk: "4️⃣ Блоктарды қос: «Жасыл жалауша басылғанда» → «Айту: Сәлем!»", ru: "4️⃣ Добавь блоки: «Когда нажат зелёный флажок» → «Сказать: Привет!»", en: "4️⃣ Add blocks: 'When green flag clicked' → 'Say: Hello!'" },
+        { kk: "5️⃣ Жасыл жалаушаны бас — жобаңды тексер!", ru: "5️⃣ Нажми зелёный флажок — проверь проект!", en: "5️⃣ Click green flag — test your project!" },
+      ],
+      emoji: "📋",
     },
     {
       type: "interactive",
@@ -42,21 +45,21 @@ export const lesson15: LessonData = {
       items: [
         {
           type: "choice",
-          question: { kk: "Файл дегеніміз не?", ru: "Что такое файл?", en: "What is a file?" },
+          question: { kk: "Scratch-те жоба жасаудың бірінші қадамы не?", ru: "Каков первый шаг создания проекта в Scratch?", en: "What is the first step to create a project in Scratch?" },
           options: [
-            { kk: "Компьютердің бөлігі", ru: "Часть компьютера", en: "Part of computer" },
-            { kk: "Сақталған ақпарат", ru: "Сохранённая информация", en: "Stored information" },
-            { kk: "Ойын", ru: "Игра", en: "Game" },
+            { kk: "Ойын ойнау", ru: "Играть в игру", en: "Play a game" },
+            { kk: "Scratch-ты ашу", ru: "Открыть Scratch", en: "Open Scratch" },
+            { kk: "Компьютерді өшіру", ru: "Выключить компьютер", en: "Turn off computer" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Бума не үшін керек?", ru: "Для чего нужна папка?", en: "What is a folder for?" },
+          question: { kk: "«Айту» блогы не істейді?", ru: "Что делает блок «Сказать»?", en: "What does the 'Say' block do?" },
           options: [
-            { kk: "Ойын ойнау", ru: "Играть в игры", en: "Play games" },
-            { kk: "Файлдарды реттеу", ru: "Организовать файлы", en: "Organize files" },
-            { kk: "Сурет салу", ru: "Рисовать", en: "Draw" },
+            { kk: "Спрайтты жояды", ru: "Удаляет спрайт", en: "Deletes the sprite" },
+            { kk: "Спрайт мәтін көрсетеді", ru: "Спрайт показывает текст", en: "Sprite shows text" },
+            { kk: "Фонды ауыстырады", ru: "Меняет фон", en: "Changes background" },
           ],
           correctIndex: 1,
         },
@@ -64,15 +67,16 @@ export const lesson15: LessonData = {
     },
     {
       type: "game",
-      title: { kk: "Файл түрлерін сәйкестендір", ru: "Соедини типы файлов", en: "Match File Types" },
+      title: { kk: "Жоба қадамдарын сәйкестендір", ru: "Соедини шаги проекта", en: "Match Project Steps" },
       items: [
         {
           type: "match",
-          instruction: { kk: "Файл түрін мысалмен сәйкестендір", ru: "Соедини тип файла с примером", en: "Match file type with example" },
+          instruction: { kk: "Қадамды әрекетпен сәйкестендір", ru: "Соедини шаг с действием", en: "Match step with action" },
           pairs: [
-            { left: { kk: "Сурет", ru: "Картинка", en: "Picture" }, right: { kk: "surat.jpg", ru: "risunok.jpg", en: "picture.jpg" } },
-            { left: { kk: "Мәтін", ru: "Текст", en: "Text" }, right: { kk: "atym.txt", ru: "imya.txt", en: "name.txt" } },
-            { left: { kk: "Ән", ru: "Песня", en: "Song" }, right: { kk: "muzyka.mp3", ru: "muzyka.mp3", en: "music.mp3" } },
+            { left: { kk: "1-қадам", ru: "Шаг 1", en: "Step 1" }, right: { kk: "Scratch-ты ашу", ru: "Открыть Scratch", en: "Open Scratch" } },
+            { left: { kk: "2-қадам", ru: "Шаг 2", en: "Step 2" }, right: { kk: "Спрайт таңдау", ru: "Выбрать спрайт", en: "Choose sprite" } },
+            { left: { kk: "3-қадам", ru: "Шаг 3", en: "Step 3" }, right: { kk: "Блоктарды қосу", ru: "Добавить блоки", en: "Add blocks" } },
+            { left: { kk: "4-қадам", ru: "Шаг 4", en: "Step 4" }, right: { kk: "Жобаны тексеру", ru: "Проверить проект", en: "Test project" } },
           ],
         },
       ],
@@ -86,8 +90,9 @@ export const lesson15: LessonData = {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Файл — компьютердегі ақпарат бірлігі", ru: "Файл — единица хранения информации", en: "File — a unit of stored information" },
-        { kk: "Бума — файлдарды ұйымдастыру құралы", ru: "Папка — средство организации файлов", en: "Folder — a way to organize files" },
+        { kk: "Жоба — Scratch-тегі бағдарлама", ru: "Проект — программа в Scratch", en: "Project — a program in Scratch" },
+        { kk: "Жоба жасау: спрайт + фон + блоктар", ru: "Создание проекта: спрайт + фон + блоки", en: "Creating a project: sprite + backdrop + blocks" },
+        { kk: "Жасыл жалауша — жобаны іске қосу", ru: "Зелёный флажок — запуск проекта", en: "Green flag — run the project" },
       ],
       emoji: "🎓",
     },
