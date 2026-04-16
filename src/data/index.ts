@@ -15,15 +15,14 @@ import { lesson14 } from "./lesson-14";
 import { lesson15 } from "./lesson-15";
 import { lesson16 } from "./lesson-16";
 import { lesson17 } from "./lesson-17";
-import { lesson18 } from "./lesson-18";
-import { lesson19 } from "./lesson-19";
+import { lesson1819 } from "./lesson-18-19";
 import { LessonData } from "@/lib/types";
 
 export const lessons: LessonData[] = [
   lesson01, lesson02, lesson03, lesson04, lesson05,
   lesson06, lesson07, lesson08, lesson09, lesson10,
   lesson11, lesson12, lesson13, lesson14, lesson15,
-  lesson16, lesson17, lesson18, lesson19,
+  lesson16, lesson17, lesson1819,
 ];
 
 export function getLessonById(id: string): LessonData | undefined {
