@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { useLang, t, ui } from "@/lib/language";
 import { LessonSlide, MatchQuestion } from "@/lib/types";
 import { motion, AnimatePresence } from "framer-motion";
