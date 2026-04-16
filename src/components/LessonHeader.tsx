@@ -24,11 +24,14 @@ interface LessonHeaderProps {
 export default function LessonHeader({ lesson, lessonNumber, slideIdx, onSlideChange }: LessonHeaderProps) {
   const { lang } = useLang();
 
-  const lessonLabel = lang === "kk"
-    ? `${lessonNumber}-сабақ`
-    : lang === "ru"
-      ? `Урок ${lessonNumber}`
-      : `Lesson ${lessonNumber}`;
+  const isCombined = lesson.id === "lesson-18-19";
+  const lessonLabel = isCombined
+    ? (lang === "kk" ? "18–19-сабақтар" : lang === "ru" ? "Уроки 18–19" : "Lessons 18–19")
+    : lang === "kk"
+      ? `${lessonNumber}-сабақ`
+      : lang === "ru"
+        ? `Урок ${lessonNumber}`
+        : `Lesson ${lessonNumber}`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-card/95 backdrop-blur-lg">
