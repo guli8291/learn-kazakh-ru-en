@@ -3,6 +3,7 @@ import { useLang, t } from "@/lib/language";
 import { LessonSlide } from "@/lib/types";
 import { motion } from "framer-motion";
 import { Play, Eye, MessageCircle, BookOpen } from "lucide-react";
+import AudioButton from "@/components/AudioButton";
 
 const preVideoText = {
   kk: "Видеоны мұқият қарап, негізгі ойды байқа.",
@@ -46,6 +47,18 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
           {t(preVideoText, lang)}
         </p>
       </div>
+
+      {/* Topic image */}
+      {slide.image && (
+        <motion.img
+          src={slide.image}
+          alt={t(slide.title, lang)}
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="h-auto w-full max-h-56 rounded-2xl object-cover shadow-lg"
+          loading="lazy"
+        />
+      )}
 
       {/* Video container */}
       <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-lg">
