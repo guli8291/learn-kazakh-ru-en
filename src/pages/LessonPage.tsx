@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useCallback } from "react";
-import { getLessonById } from "@/data";
+import { getLessonById, lessons } from "@/data";
 import { useLang, t, ui } from "@/lib/language";
-import Header from "@/components/Header";
+import LessonHeader from "@/components/LessonHeader";
 import SlideRenderer from "@/components/SlideRenderer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -13,6 +13,8 @@ export default function LessonPage() {
   const { lang } = useLang();
   const lesson = getLessonById(id || "");
   const [slideIdx, setSlideIdx] = useState(0);
+
+  const lessonNumber = lesson ? lessons.indexOf(lesson) + 1 : 0;
 
   useEffect(() => { setSlideIdx(0); }, [id]);
 
@@ -44,9 +46,14 @@ export default function LessonPage() {
 
   return (
     <div className="flex min-h-screen flex-col bg-background">
-      <Header />
+      <LessonHeader
+        lesson={lesson}
+        lessonNumber={lessonNumber}
+        slideIdx={slideIdx}
+        onSlideChange={setSlideIdx}
+      />
       {/* Progress bar */}
-      <div className="h-1.5 w-full bg-muted">
+      <div className="h-1 w-full bg-muted">
         <motion.div
           className="h-full rounded-r-full bg-primary"
           animate={{ width: `${progress}%` }}
@@ -55,11 +62,6 @@ export default function LessonPage() {
       </div>
 
       <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-6">
-        <div className="mb-2 flex items-center justify-between text-sm text-muted-foreground">
-          <span className="font-semibold">{t(lesson.title, lang)}</span>
-          <span>{t(ui.slide, lang)} {slideIdx + 1} / {total}</span>
-        </div>
-
         <div className="flex-1">
           <AnimatePresence mode="wait">
             <motion.div
@@ -84,18 +86,9 @@ export default function LessonPage() {
             <ChevronLeft className="h-5 w-5" />
             {t(ui.prev, lang)}
           </button>
-          {/* Slide dots */}
-          <div className="hidden gap-1.5 md:flex">
-            {lesson.slides.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setSlideIdx(i)}
-                className={`h-2.5 rounded-full transition-all ${
-                  i === slideIdx ? "w-8 bg-primary" : "w-2.5 bg-muted-foreground/30 hover:bg-muted-foreground/50"
-                }`}
-              />
-            ))}
-          </div>
+          <span className="text-sm font-semibold text-muted-foreground">
+            {slideIdx + 1} / {total}
+          </span>
           <button
             onClick={next}
             disabled={slideIdx === total - 1}
