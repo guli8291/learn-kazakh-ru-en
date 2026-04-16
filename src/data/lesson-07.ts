@@ -85,6 +85,11 @@ export const lesson07: LessonData = {
       ],
     },
     {
+      type: "video",
+      title: { kk: "Видео", ru: "Видео", en: "Video" },
+      video: "/video/lesson-07/video.mp4",
+    },
+    {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
