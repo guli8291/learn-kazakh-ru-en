@@ -49,6 +49,10 @@ export default function LessonPage() {
   return (
     <div className="relative flex min-h-screen flex-col bg-primary-foreground">
       <LessonBackground variant={slide.type} />
+      <div className="pointer-events-none fixed inset-0 z-0 opacity-80">
+        <SVGFollower colors={["#0097A7", "#4CAF50", "#F44336"]} removeDelay={500} />
+      </div>
+      <div className="relative z-10 flex min-h-screen flex-col">
       <LessonHeader
         lesson={lesson}
         lessonNumber={lessonNumber}
