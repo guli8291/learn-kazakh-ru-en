@@ -1,12 +1,14 @@
 import { useRef, useState } from "react";
-import { useLang, t, ui } from "@/lib/language";
+import { useLang, t } from "@/lib/language";
 import type { Translatable } from "@/lib/language";
-import { Volume2 } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
+import { motion } from "framer-motion";
 
 interface AudioButtonProps {
   src?: string;
   text?: Translatable;
   className?: string;
+  size?: "sm" | "md";
 }
 
 const langMap: Record<string, string> = {
@@ -15,21 +17,47 @@ const langMap: Record<string, string> = {
   en: "en-US",
 };
 
-export default function AudioButton({ src, text, className = "" }: AudioButtonProps) {
+/**
+ * Icon-only circular audio button. No labels.
+ * Plays an audio src if available, otherwise speaks the text via TTS
+ * in the currently selected language.
+ */
+export default function AudioButton({ src, text, className = "", size = "md" }: AudioButtonProps) {
   const { lang } = useLang();
   const [playing, setPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
+  const stop = () => {
+    audioRef.current?.pause();
+    if ("speechSynthesis" in window) speechSynthesis.cancel();
+    setPlaying(false);
+  };
+
+  const speakTTS = () => {
+    if (!text || !("speechSynthesis" in window)) {
+      setPlaying(false);
+      return;
+    }
+    speechSynthesis.cancel();
+    const utterance = new SpeechSynthesisUtterance(t(text, lang));
+    utterance.lang = langMap[lang] || "kk-KZ";
+    utterance.rate = 0.9;
+    utterance.onend = () => setPlaying(false);
+    utterance.onerror = () => setPlaying(false);
+    setPlaying(true);
+    speechSynthesis.speak(utterance);
+  };
+
   const play = () => {
-    if (playing) return;
+    if (playing) {
+      stop();
+      return;
+    }
     if (src) {
       const audio = new Audio(src);
       audioRef.current = audio;
       audio.onended = () => setPlaying(false);
-      audio.onerror = () => {
-        // Fallback to TTS
-        speakTTS();
-      };
+      audio.onerror = () => speakTTS();
       setPlaying(true);
       audio.play().catch(() => speakTTS());
     } else {
@@ -37,23 +65,25 @@ export default function AudioButton({ src, text, className = "" }: AudioButtonPr
     }
   };
 
-  const speakTTS = () => {
-    if (!text) return;
-    const utterance = new SpeechSynthesisUtterance(t(text, lang));
-    utterance.lang = langMap[lang] || "kk-KZ";
-    utterance.rate = 0.9;
-    utterance.onend = () => setPlaying(false);
-    setPlaying(true);
-    speechSynthesis.speak(utterance);
-  };
+  const dim = size === "sm" ? "h-9 w-9" : "h-11 w-11";
+  const icon = size === "sm" ? "h-4 w-4" : "h-5 w-5";
 
   return (
-    <button
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      whileTap={{ scale: 0.92 }}
       onClick={play}
-      className={`inline-flex items-center gap-2 rounded-xl bg-primary px-4 py-2 font-semibold text-primary-foreground transition-transform hover:scale-105 active:scale-95 ${playing ? "animate-pulse" : ""} ${className}`}
+      aria-label="Play audio"
+      className={`relative inline-flex ${dim} shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-md ring-1 ring-primary/30 transition-colors hover:bg-primary/90 ${className}`}
     >
-      <Volume2 className="h-5 w-5" />
-      {t(ui.listen, lang)}
-    </button>
+      {playing ? <VolumeX className={icon} /> : <Volume2 className={icon} />}
+      {playing && (
+        <motion.span
+          className="absolute inset-0 rounded-full ring-2 ring-primary/60"
+          animate={{ scale: [1, 1.4], opacity: [0.7, 0] }}
+          transition={{ duration: 1.2, repeat: Infinity }}
+        />
+      )}
+    </motion.button>
   );
 }
