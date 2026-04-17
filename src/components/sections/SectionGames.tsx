@@ -59,6 +59,7 @@ interface DropZoneProps {
   isOver: boolean;
 }
 function DropZone({ id, label, matchedLabel, isOver }: DropZoneProps) {
+  const { lang } = useLang();
   const { setNodeRef } = useDroppable({ id });
   const filled = !!matchedLabel;
   return (
@@ -73,7 +74,7 @@ function DropZone({ id, label, matchedLabel, isOver }: DropZoneProps) {
       }`}
     >
       <div className="text-xs uppercase tracking-wide opacity-70 mb-1">{label}</div>
-      {filled ? <div>{matchedLabel} ✓</div> : <div className="opacity-50">Перетащи сюда</div>}
+      {filled ? <div>{matchedLabel} ✓</div> : <div className="opacity-50">{t(ui.dropHere, lang)}</div>}
     </div>
   );
 }
@@ -292,7 +293,7 @@ export default function SectionGames({ slide }: { slide: LessonSlide }) {
             onClick={reset}
             className="inline-flex items-center gap-1.5 rounded-xl bg-muted px-3 py-2 text-sm font-bold text-foreground hover:bg-muted/80"
           >
-            <RotateCcw className="h-4 w-4" /> Сброс
+            <RotateCcw className="h-4 w-4" /> {t(ui.reset, lang)}
           </button>
         </div>
       </div>
