@@ -3,6 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { getLessonById, lessons } from "@/data";
 import { useLang, t, ui } from "@/lib/language";
 import LessonHeader from "@/components/LessonHeader";
+import LessonBackground from "@/components/LessonBackground";
 import SlideRenderer from "@/components/SlideRenderer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -45,7 +46,8 @@ export default function LessonPage() {
   const progress = ((slideIdx + 1) / total) * 100;
 
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="relative flex min-h-screen flex-col bg-background">
+      <LessonBackground variant={slide.type} />
       <LessonHeader
         lesson={lesson}
         lessonNumber={lessonNumber}
