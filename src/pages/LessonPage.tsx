@@ -106,6 +106,7 @@ export default function LessonPage() {
           </button>
         </div>
       </main>
+      </div>
     </div>
   );
 }
