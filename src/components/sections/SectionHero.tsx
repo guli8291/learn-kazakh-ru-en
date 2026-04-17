@@ -1,4 +1,4 @@
-import { useLang, t } from "@/lib/language";
+import { useLang, t, ui } from "@/lib/language";
 import { LessonSlide } from "@/lib/types";
 import { motion } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
@@ -72,31 +72,21 @@ export default function SectionHero({ slide }: { slide: LessonSlide }) {
           transition={{ delay: 0.6 }}
           className="relative mt-6 inline-flex items-center gap-2 rounded-full bg-white/25 backdrop-blur-md px-5 py-2 text-sm font-bold text-primary-foreground"
         >
-          <Rocket className="h-4 w-4" /> Поехали!
+          <Rocket className="h-4 w-4" /> {t(ui.letsStart, lang)}
         </motion.div>
       </motion.div>
 
-      {/* Audio chip */}
+      {/* Audio chip — full width, no useless tip */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="md:col-span-3 rounded-2xl bg-card/90 backdrop-blur-sm border border-border/40 p-4 flex items-center justify-between"
+        className="md:col-span-6 rounded-2xl bg-card/90 backdrop-blur-sm border border-border/40 p-4 flex items-center justify-between"
       >
         <span className="text-sm font-semibold text-foreground/80 flex items-center gap-2">
-          <Sparkles className="h-4 w-4 text-primary" /> Послушай вступление
+          <Sparkles className="h-4 w-4 text-primary" /> {t(ui.listenIntro, lang)}
         </span>
-        {slide.title && <AudioButton text={slide.title} />}
-      </motion.div>
-
-      {/* Tip chip */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-        className="md:col-span-3 rounded-2xl bg-gradient-to-br from-accent/20 to-primary/15 border border-border/40 p-4 text-sm font-semibold text-foreground/80"
-      >
-        💡 Двигай мышкой — за тобой летят цветные следы!
+        {slide.title && <AudioButton text={slide.subtitle || slide.title} />}
       </motion.div>
     </motion.div>
   );
