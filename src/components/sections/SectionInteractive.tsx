@@ -3,7 +3,8 @@ import { useLang, t, ui } from "@/lib/language";
 import { LessonSlide, ChoiceQuestion } from "@/lib/types";
 import { motion, AnimatePresence } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
-import { ImageIcon, CheckCircle2, XCircle } from "lucide-react";
+import TopicalVisual from "@/components/TopicalVisual";
+import { CheckCircle2, XCircle } from "lucide-react";
 
 function ChoiceQuiz({ item }: { item: ChoiceQuestion }) {
   const { lang } = useLang();
@@ -80,30 +81,19 @@ function ChoiceQuiz({ item }: { item: ChoiceQuestion }) {
 
 export default function SectionInteractive({ slide }: { slide: LessonSlide }) {
   const { lang } = useLang();
-  const [imgError, setImgError] = useState(false);
 
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-5 p-4 md:p-8">
       <h2 className="text-3xl font-bold text-foreground">{t(slide.title, lang)}</h2>
 
-      {/* Image for the interactive section */}
-      {slide.image && !imgError ? (
-        <motion.img
-          src={slide.image}
-          alt={t(slide.title, lang)}
-          onError={() => setImgError(true)}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="h-auto w-full max-h-56 rounded-2xl object-cover shadow-lg"
-        />
-      ) : slide.image ? (
-        <div className="flex h-40 w-full items-center justify-center rounded-2xl border-2 border-dashed border-border bg-muted/40">
-          <div className="flex flex-col items-center gap-2 text-muted-foreground">
-            <ImageIcon className="h-8 w-8" />
-            <span className="text-xs font-medium">📌 Изображение</span>
-          </div>
-        </div>
-      ) : null}
+      {/* Always-on visual */}
+      <TopicalVisual
+        src={slide.image}
+        title={slide.title}
+        emoji={slide.emoji}
+        color={slide.color}
+        height="h-48 md:h-56"
+      />
 
       {/* Audio */}
       {slide.audio && (

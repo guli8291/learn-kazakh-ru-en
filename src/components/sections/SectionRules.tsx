@@ -2,23 +2,10 @@ import { useLang, t } from "@/lib/language";
 import { LessonSlide } from "@/lib/types";
 import { motion } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
-import { useState } from "react";
-import { ImageIcon } from "lucide-react";
-
-function ImagePlaceholder() {
-  return (
-    <div className="flex h-40 w-full items-center justify-center rounded-2xl border-2 border-dashed border-border bg-muted/40">
-      <div className="flex flex-col items-center gap-2 text-muted-foreground">
-        <ImageIcon className="h-8 w-8" />
-        <span className="text-xs font-medium">📌 Изображение</span>
-      </div>
-    </div>
-  );
-}
+import TopicalVisual from "@/components/TopicalVisual";
 
 export default function SectionRules({ slide }: { slide: LessonSlide }) {
   const { lang } = useLang();
-  const [imgError, setImgError] = useState(false);
 
   return (
     <motion.div
@@ -31,20 +18,13 @@ export default function SectionRules({ slide }: { slide: LessonSlide }) {
         <h2 className="text-3xl font-bold text-foreground">{t(slide.title, lang)}</h2>
       </div>
 
-      {/* Image block */}
-      {slide.image && !imgError ? (
-        <motion.img
-          src={slide.image}
-          alt={t(slide.title, lang)}
-          onError={() => setImgError(true)}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.4 }}
-          className="h-auto w-full max-h-64 rounded-2xl object-cover shadow-lg"
-        />
-      ) : slide.image ? (
-        <ImagePlaceholder />
-      ) : null}
+      {/* Always-on visual */}
+      <TopicalVisual
+        src={slide.image}
+        title={slide.title}
+        emoji={slide.emoji}
+        color={slide.color}
+      />
 
       {/* Rules list with staggered animation */}
       <div className="grid gap-3">
