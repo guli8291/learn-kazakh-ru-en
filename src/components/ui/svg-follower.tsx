@@ -166,33 +166,6 @@ export function SVGFollower({
     }
   }
 
-  const handleMouseMove = useCallback(
-    (e: React.MouseEvent) => {
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      const position: Position = { x: e.clientX - rect.left, y: e.clientY - rect.top };
-      followersRef.current.forEach((f) => f.add(position));
-      if (isRecording) {
-        recordingRef.current.push({ x: (position.x / width) * 100, y: (position.y / height) * 100 });
-      }
-    },
-    [width, height, isRecording],
-  );
-
-  const handleTouchMove = useCallback(
-    (e: React.TouchEvent) => {
-      const rect = containerRef.current?.getBoundingClientRect();
-      if (!rect) return;
-      const touch = e.touches[0];
-      const position: Position = { x: touch.clientX - rect.left, y: touch.clientY - rect.top };
-      followersRef.current.forEach((f) => f.add(position));
-      if (isRecording) {
-        recordingRef.current.push({ x: (position.x / width) * 100, y: (position.y / height) * 100 });
-      }
-    },
-    [width, height, isRecording],
-  );
-
   const animate = useCallback(() => {
     followersRef.current.forEach((follower) => follower.trim());
     animationRef.current = requestAnimationFrame(animate);
@@ -202,27 +175,46 @@ export function SVGFollower({
     if (!svgRef.current) return;
     followersRef.current = colors.map((color) => new Follower(svgRef.current!, color));
     animate();
+
+    const onMouse = (e: MouseEvent) => {
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (!rect) return;
+      const position: Position = {
+        x: ((e.clientX - rect.left) / rect.width) * width,
+        y: ((e.clientY - rect.top) / rect.height) * height,
+      };
+      followersRef.current.forEach((f) => f.add(position));
+    };
+    const onTouch = (e: TouchEvent) => {
+      const rect = containerRef.current?.getBoundingClientRect();
+      if (!rect || !e.touches[0]) return;
+      const touch = e.touches[0];
+      const position: Position = {
+        x: ((touch.clientX - rect.left) / rect.width) * width,
+        y: ((touch.clientY - rect.top) / rect.height) * height,
+      };
+      followersRef.current.forEach((f) => f.add(position));
+    };
+    window.addEventListener("mousemove", onMouse);
+    window.addEventListener("touchmove", onTouch, { passive: true });
+
     return () => {
+      window.removeEventListener("mousemove", onMouse);
+      window.removeEventListener("touchmove", onTouch);
       if (animationRef.current) cancelAnimationFrame(animationRef.current);
       followersRef.current = [];
       if (svgRef.current) svgRef.current.innerHTML = "";
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [colors]);
+  }, [colors, width, height]);
 
   return (
-    <div
-      ref={containerRef}
-      className={className}
-      onMouseMove={handleMouseMove}
-      onTouchMove={handleTouchMove}
-      style={{ width: "100%", height: "100%" }}
-    >
+    <div ref={containerRef} className={className} style={{ width: "100%", height: "100%" }}>
       <svg
         ref={svgRef}
         viewBox={`0 0 ${width} ${height}`}
         preserveAspectRatio="xMidYMid slice"
-        style={{ width: "100%", height: "100%", display: "block" }}
+        style={{ width: "100%", height: "100%", display: "block", pointerEvents: "none" }}
       />
     </div>
   );
