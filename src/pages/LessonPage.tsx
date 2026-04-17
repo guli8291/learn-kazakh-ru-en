@@ -3,7 +3,7 @@ import { useState, useEffect, useCallback } from "react";
 import { getLessonById, lessons } from "@/data";
 import { useLang, t, ui } from "@/lib/language";
 import LessonHeader from "@/components/LessonHeader";
-import { SVGFollower } from "@/components/ui/svg-follower";
+import AnimatedBackground from "@/components/AnimatedBackground";
 import SlideRenderer from "@/components/SlideRenderer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
@@ -46,10 +46,8 @@ export default function LessonPage() {
   const progress = ((slideIdx + 1) / total) * 100;
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-primary-foreground">
-      <div className="pointer-events-none fixed inset-0 z-0 opacity-80">
-        <SVGFollower colors={["#0097A7", "#4CAF50", "#F44336"]} removeDelay={500} />
-      </div>
+    <div className="relative flex min-h-screen flex-col">
+      <AnimatedBackground />
       <div className="relative z-10 flex min-h-screen flex-col">
       <LessonHeader
         lesson={lesson}
