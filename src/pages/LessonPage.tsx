@@ -3,7 +3,6 @@ import { useState, useEffect, useCallback } from "react";
 import { getLessonById, lessons } from "@/data";
 import { useLang, t, ui } from "@/lib/language";
 import LessonHeader from "@/components/LessonHeader";
-import LessonBackground from "@/components/LessonBackground";
 import { SVGFollower } from "@/components/ui/svg-follower";
 import SlideRenderer from "@/components/SlideRenderer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -48,7 +47,6 @@ export default function LessonPage() {
 
   return (
     <div className="relative flex min-h-screen flex-col bg-primary-foreground">
-      <LessonBackground variant={slide.type} />
       <div className="pointer-events-none fixed inset-0 z-0 opacity-80">
         <SVGFollower colors={["#0097A7", "#4CAF50", "#F44336"]} removeDelay={500} />
       </div>
