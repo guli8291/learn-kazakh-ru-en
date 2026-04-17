@@ -55,7 +55,7 @@ export default function LessonPage() {
         onSlideChange={setSlideIdx}
       />
       {/* Progress bar */}
-      <div className="h-1 w-full bg-muted">
+      <div className="h-1 w-full bg-muted/60 backdrop-blur-sm">
         <motion.div
           className="h-full rounded-r-full bg-primary"
           animate={{ width: `${progress}%` }}
