@@ -24,6 +24,7 @@ export interface LessonSlide {
   image?: string;
   audio?: string;
   video?: string;
+  videos?: string[];
   items?: InteractiveItem[];
   emoji?: string;
   color?: string;

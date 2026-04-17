@@ -8,6 +8,11 @@ import safetyTipsImg from "@/assets/lesson-01/safety-tips.jpg";
 import quizTimeImg from "@/assets/lesson-01/quiz-time.jpg";
 import futureCityImg from "@/assets/lesson-01/future-city.jpg";
 
+import computerLabVideo from "@/assets/lesson-01/videos/computer-lab.mp4.asset.json";
+import correctPostureVideo from "@/assets/lesson-01/videos/correct-posture.mp4.asset.json";
+import prohibitedActionsVideo from "@/assets/lesson-01/videos/prohibited-actions.mp4.asset.json";
+import eyeRestVideo from "@/assets/lesson-01/videos/eye-rest.mp4.asset.json";
+
 export const lesson01: LessonData = {
   id: "lesson-01",
   title: { kk: "Денсаулық және компьютер", ru: "Здоровье и компьютер", en: "Health and Computer" },
@@ -43,6 +48,7 @@ export const lesson01: LessonData = {
         en: "The picture shows a computer lab. Computers are set up for each student to work individually. The digital literacy lesson takes place in the computer lab.",
       },
       image: computerLabImg,
+      videos: [computerLabVideo.url, computerLabVideo.url, computerLabVideo.url],
     },
     {
       type: "rules",
@@ -75,6 +81,7 @@ export const lesson01: LessonData = {
         en: "Good posture is very important when working at the computer. Keep your back straight and feet on the floor. Find the student who is sitting correctly.",
       },
       image: correctPostureImg,
+      videos: [correctPostureVideo.url, correctPostureVideo.url, correctPostureVideo.url],
     },
     {
       type: "topic",
@@ -89,6 +96,7 @@ export const lesson01: LessonData = {
         en: "What can't you do while working with a computer? Explain why.",
       },
       image: prohibitedActionsImg,
+      videos: [prohibitedActionsVideo.url, prohibitedActionsVideo.url],
     },
     {
       type: "topic",
@@ -103,6 +111,7 @@ export const lesson01: LessonData = {
         en: "How is the computer lab different from other classrooms? You will learn to follow the rules in the computer lab.",
       },
       image: safetyTipsImg,
+      videos: [eyeRestVideo.url, eyeRestVideo.url],
     },
     {
       type: "interactive",

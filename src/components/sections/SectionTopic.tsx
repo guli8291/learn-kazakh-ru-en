@@ -64,7 +64,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
               </motion.div>
 
               {/* Micro explanation video for THIS sentence */}
-              <MicroVideo index={i} />
+              <MicroVideo index={i} src={slide.videos?.[i]} />
             </div>
           ))}
         </div>
