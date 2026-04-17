@@ -117,7 +117,7 @@ function HotspotGame({ image, title }: { image: string; title?: string }) {
       <div className="flex items-center gap-2">
         <Target className="h-5 w-5 text-primary" />
         <h3 className="text-lg md:text-xl font-bold text-foreground">
-          Найди что правильно и что нет — нажимай на точки!
+          {t(ui.findRightWrong, lang)}
         </h3>
       </div>
       <div className="relative w-full overflow-hidden rounded-2xl shadow-lg" style={{ aspectRatio: "16/9" }}>
@@ -142,8 +142,9 @@ function HotspotGame({ image, title }: { image: string; title?: string }) {
                 </motion.span>
               ) : (
                 <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
+                  initial={{ scale: 0, rotate: -10 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 220 }}
                   className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs md:text-sm font-bold shadow-xl ${
                     s.ok ? "bg-green-500 text-white" : "bg-destructive text-destructive-foreground"
                   }`}
@@ -155,16 +156,15 @@ function HotspotGame({ image, title }: { image: string; title?: string }) {
           );
         })}
       </div>
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground font-semibold">
-          Открыто: {revealed.size} / {spots.length}
-        </span>
-        {revealed.size === spots.length && (
-          <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="font-bold text-green-600 dark:text-green-400">
-            Все найдено! 🎉
-          </motion.span>
-        )}
-      </div>
+      {revealed.size === spots.length && (
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="self-end font-bold text-green-600 dark:text-green-400"
+        >
+          {t(ui.allFound, lang)} 🎉
+        </motion.div>
+      )}
     </div>
   );
 }
