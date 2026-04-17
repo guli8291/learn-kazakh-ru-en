@@ -8,6 +8,11 @@ import safetyTipsImg from "@/assets/lesson-01/safety-tips.jpg";
 import quizTimeImg from "@/assets/lesson-01/quiz-time.jpg";
 import futureCityImg from "@/assets/lesson-01/future-city.jpg";
 
+import computerLabVideo from "@/assets/lesson-01/videos/computer-lab.mp4.asset.json";
+import correctPostureVideo from "@/assets/lesson-01/videos/correct-posture.mp4.asset.json";
+import prohibitedActionsVideo from "@/assets/lesson-01/videos/prohibited-actions.mp4.asset.json";
+import eyeRestVideo from "@/assets/lesson-01/videos/eye-rest.mp4.asset.json";
+
 export const lesson01: LessonData = {
   id: "lesson-01",
   title: { kk: "Денсаулық және компьютер", ru: "Здоровье и компьютер", en: "Health and Computer" },
