@@ -59,6 +59,7 @@ interface DropZoneProps {
   isOver: boolean;
 }
 function DropZone({ id, label, matchedLabel, isOver }: DropZoneProps) {
+  const { lang } = useLang();
   const { setNodeRef } = useDroppable({ id });
   const filled = !!matchedLabel;
   return (
@@ -73,7 +74,7 @@ function DropZone({ id, label, matchedLabel, isOver }: DropZoneProps) {
       }`}
     >
       <div className="text-xs uppercase tracking-wide opacity-70 mb-1">{label}</div>
-      {filled ? <div>{matchedLabel} ✓</div> : <div className="opacity-50">Перетащи сюда</div>}
+      {filled ? <div>{matchedLabel} ✓</div> : <div className="opacity-50">{t(ui.dropHere, lang)}</div>}
     </div>
   );
 }
@@ -146,7 +147,7 @@ function DragMatchGame({
           {/* Left = draggables */}
           <div className="flex flex-col gap-2">
             <div className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-1">
-              Перетащи →
+              {t(ui.drag, lang)} →
             </div>
             {shuffledLeft.map((l) => {
               const isMatched = Object.values(matches).includes(l.origIdx);
@@ -164,7 +165,7 @@ function DragMatchGame({
           {/* Right = drop zones */}
           <div className="flex flex-col gap-2">
             <div className="text-xs font-bold uppercase tracking-wide text-muted-foreground mb-1">
-              Сюда ↓
+              {t(ui.to, lang)} ↓
             </div>
             {rightItems.map((r) => {
               const matchedLeftIdx = matches[r.origIdx];
@@ -218,12 +219,13 @@ function DragMatchGame({
 /* -------------------------------------------------------------------------- */
 
 function GameHUD({ score, time, streak }: { score: number; time: number; streak: number }) {
+  const { lang } = useLang();
   return (
     <div className="grid grid-cols-3 gap-2 md:gap-3">
       <div className="rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/15 border border-border/40 p-3 flex items-center gap-2">
         <Trophy className="h-5 w-5 text-primary shrink-0" />
         <div>
-          <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Очки</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">{t(ui.scoreShort, lang)}</div>
           <motion.div key={score} initial={{ scale: 1.4 }} animate={{ scale: 1 }} className="text-xl font-bold text-foreground">
             {score}
           </motion.div>
@@ -232,7 +234,7 @@ function GameHUD({ score, time, streak }: { score: number; time: number; streak:
       <div className="rounded-2xl bg-gradient-to-br from-accent/20 to-primary/15 border border-border/40 p-3 flex items-center gap-2">
         <Timer className="h-5 w-5 text-accent-foreground shrink-0" />
         <div>
-          <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Время</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">{t(ui.timeShort, lang)}</div>
           <div className="text-xl font-bold text-foreground tabular-nums">
             {Math.floor(time / 60)}:{String(time % 60).padStart(2, "0")}
           </div>
@@ -241,7 +243,7 @@ function GameHUD({ score, time, streak }: { score: number; time: number; streak:
       <div className="rounded-2xl bg-gradient-to-br from-secondary/20 to-accent/15 border border-border/40 p-3 flex items-center gap-2">
         <Star className="h-5 w-5 text-secondary fill-current shrink-0" />
         <div>
-          <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">Серия</div>
+          <div className="text-[10px] uppercase tracking-wider text-muted-foreground font-bold">{t(ui.streakShort, lang)}</div>
           <div className="text-xl font-bold text-foreground">×{streak}</div>
         </div>
       </div>
@@ -291,7 +293,7 @@ export default function SectionGames({ slide }: { slide: LessonSlide }) {
             onClick={reset}
             className="inline-flex items-center gap-1.5 rounded-xl bg-muted px-3 py-2 text-sm font-bold text-foreground hover:bg-muted/80"
           >
-            <RotateCcw className="h-4 w-4" /> Сброс
+            <RotateCcw className="h-4 w-4" /> {t(ui.reset, lang)}
           </button>
         </div>
       </div>

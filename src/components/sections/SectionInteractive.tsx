@@ -103,13 +103,13 @@ function ChoiceQuiz({
  * Small +/- markers appear; correct ones reward, wrong ones explain.
  */
 function HotspotGame({ image, title }: { image: string; title?: string }) {
+  const { lang } = useLang();
   const [revealed, setRevealed] = useState<Set<number>>(new Set());
-  // Generic hotspots — generic positions. Designed for a "find what's wrong/right" feel.
-  const spots = [
-    { x: 25, y: 35, ok: true, label: "Спина прямая ✅" },
-    { x: 65, y: 30, ok: false, label: "Слишком близко к экрану ❌" },
-    { x: 50, y: 70, ok: true, label: "Ноги на полу ✅" },
-    { x: 80, y: 60, ok: false, label: "Еда у компьютера ❌" },
+  const spots: { x: number; y: number; ok: boolean; label: { kk: string; ru: string; en: string } }[] = [
+    { x: 25, y: 35, ok: true, label: { kk: "Арқа тік ✅", ru: "Спина прямая ✅", en: "Straight back ✅" } },
+    { x: 65, y: 30, ok: false, label: { kk: "Экранға тым жақын ❌", ru: "Слишком близко к экрану ❌", en: "Too close to screen ❌" } },
+    { x: 50, y: 70, ok: true, label: { kk: "Аяқ еденде ✅", ru: "Ноги на полу ✅", en: "Feet on the floor ✅" } },
+    { x: 80, y: 60, ok: false, label: { kk: "Компьютер қасында тамақ ❌", ru: "Еда у компьютера ❌", en: "Food near computer ❌" } },
   ];
 
   return (
@@ -117,54 +117,56 @@ function HotspotGame({ image, title }: { image: string; title?: string }) {
       <div className="flex items-center gap-2">
         <Target className="h-5 w-5 text-primary" />
         <h3 className="text-lg md:text-xl font-bold text-foreground">
-          Найди что правильно и что нет — нажимай на точки!
+          {t(ui.findRightWrong, lang)}
         </h3>
       </div>
       <div className="relative w-full overflow-hidden rounded-2xl shadow-lg" style={{ aspectRatio: "16/9" }}>
         <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" />
-        <div className="absolute inset-0 bg-black/10" />
+        <div className="absolute inset-0 bg-foreground/10" />
         {spots.map((s, i) => {
           const isRevealed = revealed.has(i);
           return (
             <button
               key={i}
               onClick={() => setRevealed((r) => new Set(r).add(i))}
-              className="absolute -translate-x-1/2 -translate-y-1/2 group"
+              className="absolute -translate-x-1/2 -translate-y-1/2"
               style={{ left: `${s.x}%`, top: `${s.y}%` }}
             >
               {!isRevealed ? (
                 <motion.span
                   animate={{ scale: [1, 1.3, 1] }}
                   transition={{ duration: 1.6, repeat: Infinity }}
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 ring-4 ring-primary/40 shadow-xl text-primary font-bold"
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-card ring-4 ring-primary/40 shadow-xl text-primary font-bold"
                 >
                   ?
                 </motion.span>
               ) : (
                 <motion.span
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
+                  initial={{ scale: 0, rotate: -10 }}
+                  animate={{ scale: 1, rotate: 0 }}
+                  transition={{ type: "spring", stiffness: 220 }}
                   className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs md:text-sm font-bold shadow-xl ${
-                    s.ok ? "bg-green-500 text-white" : "bg-destructive text-destructive-foreground"
+                    s.ok
+                      ? "bg-green-500 text-white"
+                      : "bg-destructive text-destructive-foreground"
                   }`}
                 >
-                  {s.label}
+                  {t(s.label, lang)}
                 </motion.span>
               )}
             </button>
           );
         })}
       </div>
-      <div className="flex items-center justify-between text-sm">
-        <span className="text-muted-foreground font-semibold">
-          Открыто: {revealed.size} / {spots.length}
-        </span>
-        {revealed.size === spots.length && (
-          <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="font-bold text-green-600 dark:text-green-400">
-            Все найдено! 🎉
-          </motion.span>
-        )}
-      </div>
+      {revealed.size === spots.length && (
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          className="self-end font-bold text-green-600 dark:text-green-400"
+        >
+          {t(ui.allFound, lang)} 🎉
+        </motion.div>
+      )}
     </div>
   );
 }

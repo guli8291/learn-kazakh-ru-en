@@ -1,13 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Play, Film } from "lucide-react";
-import { useLang, t, Translatable } from "@/lib/language";
-
-const placeholderLabel: Translatable = {
-  kk: "Қысқа түсіндіру видеосы осы жерде болады",
-  ru: "Короткое видео-объяснение будет здесь",
-  en: "Short explanation video will be here",
-};
+import { Play, Film, Image as ImageIcon, Sparkles, Lightbulb, Target } from "lucide-react";
+import { useLang, t, ui } from "@/lib/language";
+import type { Translatable } from "@/lib/language";
 
 interface MicroVideoProps {
   src?: string;
@@ -16,23 +11,65 @@ interface MicroVideoProps {
 }
 
 /**
- * Micro explanation video block (~4–6s).
- * Renders a real <video> if `src` is provided, otherwise an animated placeholder
- * that reserves the same layout/size and signals "video coming here".
+ * Visual block per explanation sentence. If `src` is a real video, plays it.
+ * Otherwise renders a UNIQUE placeholder per `index` so two adjacent blocks
+ * never look identical (different gradient, icon, motion).
  */
+const variants = [
+  {
+    grad: "from-primary/25 via-secondary/15 to-accent/20",
+    icon: Play,
+    accent: "text-primary",
+    ring: "ring-primary/40",
+  },
+  {
+    grad: "from-accent/25 via-primary/10 to-secondary/20",
+    icon: Lightbulb,
+    accent: "text-accent-foreground",
+    ring: "ring-accent/50",
+  },
+  {
+    grad: "from-secondary/25 via-accent/15 to-primary/15",
+    icon: Sparkles,
+    accent: "text-secondary",
+    ring: "ring-secondary/50",
+  },
+  {
+    grad: "from-primary/30 via-accent/15 to-secondary/10",
+    icon: Target,
+    accent: "text-primary",
+    ring: "ring-primary/50",
+  },
+  {
+    grad: "from-accent/30 via-secondary/15 to-primary/10",
+    icon: ImageIcon,
+    accent: "text-accent-foreground",
+    ring: "ring-accent/40",
+  },
+  {
+    grad: "from-secondary/30 via-primary/15 to-accent/10",
+    icon: Film,
+    accent: "text-secondary",
+    ring: "ring-secondary/40",
+  },
+];
+
 export default function MicroVideo({ src, caption, index = 0 }: MicroVideoProps) {
   const { lang } = useLang();
   const [error, setError] = useState(false);
   const hasVideo = !!src && !error;
+  const v = variants[index % variants.length];
+  const Icon = v.icon;
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.96, y: 12 }}
+      initial={{ opacity: 0, scale: 0.94, y: 14 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 0.05 + index * 0.05, type: "spring", stiffness: 120, damping: 18 }}
-      className="relative overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm shadow-lg"
+      whileHover={hasVideo ? {} : { scale: 1.02 }}
+      className="relative h-full overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm shadow-lg"
     >
-      <div className="relative w-full" style={{ aspectRatio: "16/9" }}>
+      <div className="relative h-full w-full" style={{ aspectRatio: "16/9" }}>
         {hasVideo ? (
           <video
             src={src}
@@ -45,34 +82,28 @@ export default function MicroVideo({ src, caption, index = 0 }: MicroVideoProps)
             className="absolute inset-0 h-full w-full object-cover"
           />
         ) : (
-          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br from-primary/15 via-secondary/10 to-accent/15">
-            {/* Floating decorative shapes */}
+          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br ${v.grad}`}>
+            {/* unique floating shape per index */}
             <motion.div
-              className="absolute h-24 w-24 rounded-full bg-primary/20 blur-2xl"
-              animate={{ x: [0, 30, -20, 0], y: [0, -20, 15, 0] }}
-              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-              style={{ top: "20%", left: "15%" }}
+              className={`absolute h-24 w-24 rounded-full blur-2xl ${index % 2 === 0 ? "bg-primary/25" : "bg-accent/25"}`}
+              animate={{
+                x: [0, index % 2 === 0 ? 30 : -30, 0],
+                y: [0, -20, 0],
+                rotate: [0, 360],
+              }}
+              transition={{ duration: 6 + (index % 3), repeat: Infinity, ease: "easeInOut" }}
+              style={{ top: `${15 + (index * 11) % 30}%`, left: `${10 + (index * 17) % 50}%` }}
             />
             <motion.div
-              className="absolute h-20 w-20 rounded-full bg-accent/25 blur-2xl"
-              animate={{ x: [0, -25, 20, 0], y: [0, 20, -15, 0] }}
-              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-              style={{ bottom: "15%", right: "20%" }}
-            />
-
-            <motion.div
-              animate={{ scale: [1, 1.1, 1] }}
-              transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
-              className="relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-primary/20 ring-1 ring-primary/40"
+              animate={{ scale: [1, 1.12, 1], rotate: [0, 5, -5, 0] }}
+              transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
+              className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-background/80 ring-2 ${v.ring} shadow-md`}
             >
-              <Play className="h-7 w-7 text-primary" fill="currentColor" />
+              <Icon className={`h-6 w-6 ${v.accent}`} />
             </motion.div>
-            <div className="relative z-10 flex items-center gap-2 px-4 text-center">
-              <Film className="h-4 w-4 text-muted-foreground" />
-              <p className="text-sm font-semibold text-muted-foreground">
-                {t(placeholderLabel, lang)}
-              </p>
-            </div>
+            <p className="relative z-10 px-3 text-center text-xs md:text-sm font-semibold text-foreground/70">
+              {t(ui.videoComingSoon, lang)}
+            </p>
           </div>
         )}
       </div>

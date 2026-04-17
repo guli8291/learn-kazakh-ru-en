@@ -1,33 +1,9 @@
 import { useState, useRef } from "react";
-import { useLang, t } from "@/lib/language";
+import { useLang, t, ui } from "@/lib/language";
 import { LessonSlide } from "@/lib/types";
 import { motion } from "framer-motion";
 import { Play, Pause, Eye, MessageCircle, BookOpen, Film, Maximize } from "lucide-react";
 import AudioButton from "@/components/AudioButton";
-
-const preVideoText = {
-  kk: "Видеоны мұқият қарап, негізгі ойды байқа.",
-  ru: "Внимательно посмотри видео и обрати внимание на главную мысль.",
-  en: "Watch the video carefully and notice the main idea.",
-};
-
-const postVideoText = {
-  kk: "Сен не байқадың? Не жаңа білдің?",
-  ru: "Что ты заметил(а)? Что нового узнал(а)?",
-  en: "What did you notice? What did you learn?",
-};
-
-const teacherNote = {
-  kk: "🧑‍🏫 Мұғалімге: Видеодан кейін оқушылармен талқылау жүргізіңіз.",
-  ru: "🧑‍🏫 Учителю: После видео обсудите увиденное с учениками.",
-  en: "🧑‍🏫 Teacher: Discuss the video with students after watching.",
-};
-
-const placeholderText = {
-  kk: "Видео осы жерге қойылады",
-  ru: "Видео будет размещено здесь",
-  en: "Video will be placed here",
-};
 
 export default function SectionVideo({ slide }: { slide: LessonSlide }) {
   const { lang } = useLang();
@@ -53,6 +29,8 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
     if (v?.requestFullscreen) v.requestFullscreen();
   };
 
+  const titleFallback = { kk: "Видео", ru: "Видео", en: "Video" };
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -64,13 +42,13 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
         <div className="flex items-center gap-3">
           <Film className="h-7 w-7 text-primary" />
           <h2 className="text-2xl md:text-4xl font-bold text-foreground">
-            {t(slide.title || { kk: "Видео", ru: "Видео", en: "Video" }, lang)}
+            {t(slide.title || titleFallback, lang)}
           </h2>
         </div>
-        {slide.title && <AudioButton text={slide.title} />}
+        <AudioButton text={slide.title || titleFallback} />
       </div>
 
-      {/* CINEMA: full-width video player */}
+      {/* CINEMA player */}
       <motion.div
         initial={{ opacity: 0, scale: 0.97 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -90,7 +68,6 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
                 className="absolute inset-0 h-full w-full object-cover cursor-pointer"
                 onClick={togglePlay}
               />
-              {/* Custom big play button when paused */}
               {!playing && (
                 <motion.button
                   initial={{ opacity: 0, scale: 0.5 }}
@@ -104,20 +81,15 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
                   <Play className="h-10 w-10 md:h-14 md:w-14 text-primary fill-current ml-1" />
                 </motion.button>
               )}
-              {/* Top film bar */}
-              <div className="absolute top-0 left-0 right-0 flex items-center justify-between p-3 md:p-4 bg-gradient-to-b from-black/60 to-transparent pointer-events-none">
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-red-500 px-3 py-1 text-xs font-bold text-white">
-                  <span className="h-2 w-2 rounded-full bg-white animate-pulse" /> LIVE
-                </div>
+              <div className="absolute top-0 left-0 right-0 flex items-center justify-end p-3 md:p-4 bg-gradient-to-b from-black/60 to-transparent">
                 <button
                   onClick={goFullscreen}
-                  className="pointer-events-auto rounded-lg bg-white/20 backdrop-blur-md p-2 text-white hover:bg-white/30 transition-colors"
+                  className="rounded-lg bg-white/20 backdrop-blur-md p-2 text-white hover:bg-white/30 transition-colors"
                   aria-label="Fullscreen"
                 >
                   <Maximize className="h-4 w-4" />
                 </button>
               </div>
-              {/* Bottom mini control */}
               <div className="absolute bottom-0 left-0 right-0 flex items-center gap-3 p-3 md:p-4 bg-gradient-to-t from-black/70 to-transparent">
                 <button
                   onClick={togglePlay}
@@ -127,7 +99,7 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
                   {playing ? <Pause className="h-5 w-5 fill-current" /> : <Play className="h-5 w-5 fill-current ml-0.5" />}
                 </button>
                 <div className="flex-1 text-white text-sm font-semibold drop-shadow-md truncate">
-                  🎬 {t(slide.title, lang)}
+                  🎬 {t(slide.title || titleFallback, lang)}
                 </div>
               </div>
             </>
@@ -144,7 +116,7 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
                 <Play className="h-12 w-12 text-primary fill-current ml-1" />
               </motion.div>
               <p className="relative z-10 text-lg font-bold text-white drop-shadow-md">
-                {t(placeholderText, lang)}
+                {t(ui.videoComingSoon, lang)}
               </p>
             </div>
           )}
@@ -161,12 +133,15 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-yellow-200 dark:bg-yellow-900">
           <Eye className="h-5 w-5 text-yellow-700 dark:text-yellow-300" />
         </div>
-        <div>
-          <div className="text-xs font-bold uppercase tracking-wide text-yellow-700 dark:text-yellow-300 mb-1">
-            До просмотра
+        <div className="flex-1">
+          <div className="flex items-center justify-between gap-2 mb-1">
+            <div className="text-xs font-bold uppercase tracking-wide text-yellow-700 dark:text-yellow-300">
+              {t(ui.beforeWatching, lang)}
+            </div>
+            <AudioButton text={ui.watchCarefully} size="sm" />
           </div>
           <p className="text-sm font-medium text-yellow-900 dark:text-yellow-100">
-            {t(preVideoText, lang)}
+            {t(ui.watchCarefully, lang)}
           </p>
         </div>
       </motion.div>
@@ -181,12 +156,15 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-200 dark:bg-green-900">
           <MessageCircle className="h-5 w-5 text-green-700 dark:text-green-300" />
         </div>
-        <div>
-          <div className="text-xs font-bold uppercase tracking-wide text-green-700 dark:text-green-300 mb-1">
-            После просмотра
+        <div className="flex-1">
+          <div className="flex items-center justify-between gap-2 mb-1">
+            <div className="text-xs font-bold uppercase tracking-wide text-green-700 dark:text-green-300">
+              {t(ui.afterWatching, lang)}
+            </div>
+            <AudioButton text={ui.whatDidYouLearn} size="sm" />
           </div>
           <p className="text-sm font-medium text-green-900 dark:text-green-100">
-            {t(postVideoText, lang)}
+            {t(ui.whatDidYouLearn, lang)}
           </p>
         </div>
       </motion.div>
@@ -201,9 +179,10 @@ export default function SectionVideo({ slide }: { slide: LessonSlide }) {
         <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-blue-200 dark:bg-blue-900">
           <BookOpen className="h-5 w-5 text-blue-700 dark:text-blue-300" />
         </div>
-        <p className="text-sm font-medium text-blue-900 dark:text-blue-100">
-          {t(teacherNote, lang)}
+        <p className="text-sm font-medium text-blue-900 dark:text-blue-100 flex-1">
+          🧑‍🏫 {t(ui.teacherHint, lang)}
         </p>
+        <AudioButton text={ui.teacherHint} size="sm" />
       </motion.div>
     </motion.div>
   );

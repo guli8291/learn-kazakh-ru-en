@@ -115,7 +115,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           );
         })}
 
-        {/* Stats / decorative bento tile */}
+        {/* Audio replay tile (no counters) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -125,7 +125,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           <div className="flex items-center gap-3">
             <Sparkles className="h-5 w-5 text-primary" />
             <span className="text-sm md:text-base font-semibold text-foreground/80">
-              {sentences.length} {sentences.length === 1 ? "идея" : "идей"} · {slide.videos?.filter(Boolean).length || 0} видео
+              {t(slide.title, lang)}
             </span>
           </div>
           {slide.text && <AudioButton text={slide.text} src={slide.audio} />}
