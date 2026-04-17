@@ -3,6 +3,7 @@ import { useLang, t, ui } from "@/lib/language";
 import { LessonSlide, MatchQuestion } from "@/lib/types";
 import { motion, AnimatePresence } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
+import TopicalVisual from "@/components/TopicalVisual";
 import { Sparkles } from "lucide-react";
 
 function MatchGame({ item }: { item: MatchQuestion }) {
@@ -122,6 +123,15 @@ export default function SectionGames({ slide }: { slide: LessonSlide }) {
   return (
     <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-5 p-4 md:p-8">
       <h2 className="text-3xl font-bold text-foreground">{t(slide.title, lang)}</h2>
+
+      {/* Always-on visual */}
+      <TopicalVisual
+        src={slide.image}
+        title={slide.title}
+        emoji={slide.emoji}
+        color={slide.color}
+        height="h-44 md:h-52"
+      />
 
       {/* Audio */}
       {slide.audio && (

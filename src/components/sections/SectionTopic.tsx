@@ -2,39 +2,7 @@ import { useLang, t } from "@/lib/language";
 import { LessonSlide } from "@/lib/types";
 import { motion } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
-import { useState } from "react";
-import { ImageIcon } from "lucide-react";
-
-function ImageBlock({ src, alt }: { src: string; alt: string }) {
-  const [error, setError] = useState(false);
-
-  if (error) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex h-48 w-full items-center justify-center rounded-2xl border-2 border-dashed border-border bg-muted/40"
-      >
-        <div className="flex flex-col items-center gap-2 text-muted-foreground">
-          <ImageIcon className="h-10 w-10" />
-          <span className="text-sm font-medium">📌 Изображение</span>
-        </div>
-      </motion.div>
-    );
-  }
-
-  return (
-    <motion.img
-      src={src}
-      alt={alt}
-      onError={() => setError(true)}
-      initial={{ opacity: 0, scale: 0.95 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.4 }}
-      className="h-auto w-full rounded-2xl object-cover shadow-lg"
-    />
-  );
-}
+import TopicalVisual from "@/components/TopicalVisual";
 
 export default function SectionTopic({ slide }: { slide: LessonSlide }) {
   const { lang } = useLang();
@@ -53,10 +21,13 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
     >
       <h2 className="text-3xl font-bold text-foreground">{t(slide.title, lang)}</h2>
 
-      {/* Image at top if available */}
-      {slide.image && (
-        <ImageBlock src={slide.image} alt={t(slide.title, lang)} />
-      )}
+      {/* Always-on visual: real image or topical gradient fallback */}
+      <TopicalVisual
+        src={slide.image}
+        title={slide.title}
+        emoji={slide.emoji}
+        color={slide.color}
+      />
 
       {/* Text content with audio */}
       {sentences.length > 0 && (
