@@ -4,6 +4,7 @@ import { getLessonById, lessons } from "@/data";
 import { useLang, t, ui } from "@/lib/language";
 import LessonHeader from "@/components/LessonHeader";
 import LessonBackground from "@/components/LessonBackground";
+import { SVGFollower } from "@/components/ui/svg-follower";
 import SlideRenderer from "@/components/SlideRenderer";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
