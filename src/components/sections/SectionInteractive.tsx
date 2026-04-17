@@ -3,41 +3,60 @@ import { useLang, t, ui } from "@/lib/language";
 import { LessonSlide, ChoiceQuestion } from "@/lib/types";
 import { motion, AnimatePresence } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
-import TopicalVisual from "@/components/TopicalVisual";
-import { CheckCircle2, XCircle } from "lucide-react";
+import Confetti from "@/components/Confetti";
+import { CheckCircle2, XCircle, Sparkles, Target } from "lucide-react";
 
-function ChoiceQuiz({ item }: { item: ChoiceQuestion }) {
+function ChoiceQuiz({
+  item,
+  onCorrect,
+  index,
+}: {
+  item: ChoiceQuestion;
+  onCorrect: () => void;
+  index: number;
+}) {
   const { lang } = useLang();
   const [selected, setSelected] = useState<number | null>(null);
   const [checked, setChecked] = useState(false);
   const isCorrect = selected === item.correctIndex;
 
+  const handleCheck = () => {
+    setChecked(true);
+    if (selected === item.correctIndex) onCorrect();
+  };
+
   return (
     <motion.div
-      initial={{ opacity: 0, y: 10 }}
+      initial={{ opacity: 0, y: 14 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col gap-4 rounded-2xl bg-card p-6 card-shadow"
+      transition={{ delay: index * 0.1 }}
+      className="rounded-3xl bg-card/90 backdrop-blur-sm p-5 md:p-6 card-shadow border border-border/40 flex flex-col gap-4"
     >
-      <h3 className="text-xl font-bold text-foreground">{t(item.question, lang)}</h3>
+      <div className="flex items-start gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-base font-bold text-primary-foreground">
+          Q{index + 1}
+        </div>
+        <h3 className="text-lg md:text-xl font-bold text-foreground leading-snug pt-1">
+          {t(item.question, lang)}
+        </h3>
+      </div>
       <div className="grid gap-2">
         {item.options.map((opt, i) => {
           const isSelected = selected === i;
           const isAnswer = i === item.correctIndex;
-
           let classes = "border-border hover:border-primary/50 hover:bg-primary/5";
           if (isSelected && !checked) classes = "border-primary bg-primary/10 text-primary";
-          if (checked && isAnswer) classes = "border-green-500 bg-green-500/10 text-green-700 dark:text-green-400";
-          if (checked && isSelected && !isCorrect) classes = "border-destructive bg-destructive/10 text-destructive";
-
+          if (checked && isAnswer) classes = "border-green-500 bg-green-500/15 text-green-700 dark:text-green-300";
+          if (checked && isSelected && !isCorrect) classes = "border-destructive bg-destructive/15 text-destructive";
           return (
             <motion.button
               key={i}
-              onClick={() => { if (!checked) setSelected(i); }}
-              whileHover={!checked ? { scale: 1.02 } : {}}
+              onClick={() => !checked && setSelected(i)}
+              whileHover={!checked ? { scale: 1.02, x: 3 } : {}}
               whileTap={!checked ? { scale: 0.98 } : {}}
-              className={`flex items-center gap-3 rounded-xl border-2 p-3 text-left text-lg font-semibold transition-colors ${classes}`}
+              className={`flex items-center gap-3 rounded-2xl border-2 p-3 md:p-4 text-left text-base md:text-lg font-semibold transition-colors ${classes}`}
             >
-              <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-bold">
+              <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-muted text-sm font-bold">
                 {String.fromCharCode(65 + i)}
               </span>
               <span className="flex-1">{t(opt, lang)}</span>
@@ -53,8 +72,8 @@ function ChoiceQuiz({ item }: { item: ChoiceQuestion }) {
           animate={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          onClick={() => setChecked(true)}
-          className="self-start rounded-xl bg-primary px-6 py-2.5 font-bold text-primary-foreground shadow-md"
+          onClick={handleCheck}
+          className="self-start rounded-2xl bg-gradient-to-r from-primary to-secondary px-6 py-2.5 font-bold text-primary-foreground shadow-md"
         >
           {t(ui.check, lang)}
         </motion.button>
@@ -65,9 +84,9 @@ function ChoiceQuiz({ item }: { item: ChoiceQuestion }) {
             initial={{ opacity: 0, scale: 0.9, y: -10 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9 }}
-            className={`flex items-center justify-center gap-2 rounded-xl p-4 text-lg font-bold ${
+            className={`flex items-center justify-center gap-2 rounded-2xl p-4 text-lg font-bold ${
               isCorrect
-                ? "bg-green-500/20 text-green-700 dark:text-green-400"
+                ? "bg-green-500/20 text-green-700 dark:text-green-300"
                 : "bg-destructive/20 text-destructive"
             }`}
           >
@@ -79,33 +98,113 @@ function ChoiceQuiz({ item }: { item: ChoiceQuestion }) {
   );
 }
 
-export default function SectionInteractive({ slide }: { slide: LessonSlide }) {
-  const { lang } = useLang();
+/**
+ * Tap-to-reveal hotspot game on the slide image.
+ * Small +/- markers appear; correct ones reward, wrong ones explain.
+ */
+function HotspotGame({ image, title }: { image: string; title?: string }) {
+  const [revealed, setRevealed] = useState<Set<number>>(new Set());
+  // Generic hotspots — generic positions. Designed for a "find what's wrong/right" feel.
+  const spots = [
+    { x: 25, y: 35, ok: true, label: "Спина прямая ✅" },
+    { x: 65, y: 30, ok: false, label: "Слишком близко к экрану ❌" },
+    { x: 50, y: 70, ok: true, label: "Ноги на полу ✅" },
+    { x: 80, y: 60, ok: false, label: "Еда у компьютера ❌" },
+  ];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-5 p-4 md:p-8">
-      <h2 className="text-3xl font-bold text-foreground">{t(slide.title, lang)}</h2>
-
-      {/* Always-on visual */}
-      <TopicalVisual
-        src={slide.image}
-        title={slide.title}
-        emoji={slide.emoji}
-        color={slide.color}
-        height="h-48 md:h-56"
-      />
-
-      {/* Audio */}
-      {slide.audio && (
-        <AudioButton src={slide.audio} text={slide.title} />
-      )}
-
-      {/* Quiz items */}
-      <div className="grid gap-5">
-        {slide.items?.map((item, i) =>
-          item.type === "choice" ? <ChoiceQuiz key={i} item={item} /> : null
+    <div className="rounded-3xl bg-card/90 backdrop-blur-sm p-5 md:p-6 card-shadow border border-border/40 flex flex-col gap-4">
+      <div className="flex items-center gap-2">
+        <Target className="h-5 w-5 text-primary" />
+        <h3 className="text-lg md:text-xl font-bold text-foreground">
+          Найди что правильно и что нет — нажимай на точки!
+        </h3>
+      </div>
+      <div className="relative w-full overflow-hidden rounded-2xl shadow-lg" style={{ aspectRatio: "16/9" }}>
+        <img src={image} alt={title} className="absolute inset-0 h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-black/10" />
+        {spots.map((s, i) => {
+          const isRevealed = revealed.has(i);
+          return (
+            <button
+              key={i}
+              onClick={() => setRevealed((r) => new Set(r).add(i))}
+              className="absolute -translate-x-1/2 -translate-y-1/2 group"
+              style={{ left: `${s.x}%`, top: `${s.y}%` }}
+            >
+              {!isRevealed ? (
+                <motion.span
+                  animate={{ scale: [1, 1.3, 1] }}
+                  transition={{ duration: 1.6, repeat: Infinity }}
+                  className="flex h-8 w-8 items-center justify-center rounded-full bg-white/95 ring-4 ring-primary/40 shadow-xl text-primary font-bold"
+                >
+                  ?
+                </motion.span>
+              ) : (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs md:text-sm font-bold shadow-xl ${
+                    s.ok ? "bg-green-500 text-white" : "bg-destructive text-destructive-foreground"
+                  }`}
+                >
+                  {s.label}
+                </motion.span>
+              )}
+            </button>
+          );
+        })}
+      </div>
+      <div className="flex items-center justify-between text-sm">
+        <span className="text-muted-foreground font-semibold">
+          Открыто: {revealed.size} / {spots.length}
+        </span>
+        {revealed.size === spots.length && (
+          <motion.span initial={{ scale: 0 }} animate={{ scale: 1 }} className="font-bold text-green-600 dark:text-green-400">
+            Все найдено! 🎉
+          </motion.span>
         )}
       </div>
+    </div>
+  );
+}
+
+export default function SectionInteractive({ slide }: { slide: LessonSlide }) {
+  const { lang } = useLang();
+  const [confetti, setConfetti] = useState(0);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      className="grid grid-cols-1 md:grid-cols-6 gap-3 p-3 md:p-6 auto-rows-[minmax(110px,auto)]"
+    >
+      <Confetti show={confetti > 0} count={50} />
+
+      {/* Title bar */}
+      <div className="md:col-span-6 flex items-center justify-between gap-3 flex-wrap">
+        <div className="flex items-center gap-3">
+          <Sparkles className="h-7 w-7 text-primary" />
+          <h2 className="text-2xl md:text-4xl font-bold text-foreground">{t(slide.title, lang)}</h2>
+        </div>
+        {slide.audio && <AudioButton src={slide.audio} text={slide.title} />}
+      </div>
+
+      {/* Hotspot game (if image present) */}
+      {slide.image && (
+        <div className="md:col-span-6">
+          <HotspotGame image={slide.image} title={t(slide.title, lang)} />
+        </div>
+      )}
+
+      {/* Quiz items in two-column bento */}
+      {slide.items?.map((item, i) =>
+        item.type === "choice" ? (
+          <div key={i} className="md:col-span-3">
+            <ChoiceQuiz item={item} index={i} onCorrect={() => setConfetti((c) => c + 1)} />
+          </div>
+        ) : null
+      )}
     </motion.div>
   );
 }
