@@ -35,7 +35,7 @@ export default function SectionRules({ slide }: { slide: LessonSlide }) {
           {slide.audio && <AudioButton src={slide.audio} text={slide.title} />}
         </div>
         <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 rounded-full bg-white/25 backdrop-blur-md px-3 py-1 text-xs font-bold text-white">
-          <ShieldCheck className="h-3 w-3" /> {points.length} правил
+          <ShieldCheck className="h-3 w-3" /> {t(slide.title, lang)}
         </div>
       </motion.div>
 
