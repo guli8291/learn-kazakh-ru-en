@@ -46,7 +46,7 @@ export default function LessonPage() {
   const progress = ((slideIdx + 1) / total) * 100;
 
   return (
-    <div className="relative flex min-h-screen flex-col bg-background">
+    <div className="relative flex min-h-screen flex-col bg-primary-foreground">
       <LessonBackground variant={slide.type} />
       <LessonHeader
         lesson={lesson}
