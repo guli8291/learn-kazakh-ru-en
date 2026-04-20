@@ -23,13 +23,13 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col gap-4 p-3 md:p-6"
+      className="flex flex-col gap-6 lg:gap-8 p-3 md:p-6 lg:p-8"
     >
       {/* Title bar */}
       <div className="flex items-center justify-between gap-3 flex-wrap">
-        <div className="flex items-center gap-3">
-          {slide.emoji && <span className="text-4xl">{slide.emoji}</span>}
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+        <div className="flex items-center gap-3 lg:gap-4">
+          {slide.emoji && <span className="text-4xl lg:text-6xl">{slide.emoji}</span>}
+          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground">
             {t(slide.title, lang)}
           </h2>
         </div>
@@ -37,7 +37,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
       </div>
 
       {/* Bento grid */}
-      <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-[minmax(140px,auto)] gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-[minmax(140px,auto)] lg:auto-rows-[minmax(180px,auto)] gap-3 lg:gap-5">
         {/* HERO TILE: image + first sentence overlay */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
