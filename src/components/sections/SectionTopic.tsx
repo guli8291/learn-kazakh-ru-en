@@ -77,7 +77,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15 }}
-          className="md:col-span-2 md:row-span-2 min-h-[200px] md:min-h-[340px]"
+          className="md:col-span-2 md:row-span-2 min-h-[200px] md:min-h-[340px] lg:min-h-[460px]"
         >
           <div className="h-full">
             <MicroVideo src={slide.videos?.[0]} index={0} />
