@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Film, Image as ImageIcon, Sparkles, Lightbulb, Target } from "lucide-react";
-import { useLang, t, ui } from "@/lib/language";
+import { useLang, t } from "@/lib/language";
 import type { Translatable } from "@/lib/language";
 
 interface MicroVideoProps {
@@ -57,33 +57,49 @@ const variants = [
 export default function MicroVideo({ src, caption, index = 0 }: MicroVideoProps) {
   const { lang } = useLang();
   const [error, setError] = useState(false);
+  const [muted, setMuted] = useState(true);
   const hasVideo = !!src && !error;
   const v = variants[index % variants.length];
   const Icon = v.icon;
+
+  const handleClick = (e: React.MouseEvent<HTMLVideoElement>) => {
+    const el = e.currentTarget;
+    setMuted((m) => {
+      el.muted = !m ? true : false;
+      if (el.paused) el.play().catch(() => {});
+      return !m;
+    });
+  };
 
   return (
     <motion.div
       initial={{ opacity: 0, scale: 0.94, y: 14 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ delay: 0.05 + index * 0.05, type: "spring", stiffness: 120, damping: 18 }}
-      whileHover={hasVideo ? {} : { scale: 1.02 }}
-      className="relative h-full overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm shadow-lg"
+      whileHover={{ scale: 1.03, y: -2 }}
+      className="relative h-full overflow-hidden rounded-2xl border border-border/60 bg-card/70 backdrop-blur-sm shadow-lg group"
     >
-      <div className="relative h-full w-full" style={{ aspectRatio: "16/9" }}>
+      <div className="relative h-full w-full overflow-hidden" style={{ aspectRatio: "16/9" }}>
         {hasVideo ? (
-          <video
-            src={src}
-            autoPlay
-            muted
-            loop
-            playsInline
-            controls
-            onError={() => setError(true)}
-            className="absolute inset-0 h-full w-full object-cover"
-          />
+          <>
+            <video
+              src={src}
+              autoPlay
+              muted={muted}
+              loop
+              playsInline
+              onError={() => setError(true)}
+              onClick={handleClick}
+              className="absolute inset-0 h-full w-full object-cover cursor-pointer transition-transform duration-500 group-hover:scale-110"
+            />
+            {muted && (
+              <div className="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/60 px-2 py-0.5 text-[10px] font-semibold text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                🔊
+              </div>
+            )}
+          </>
         ) : (
-          <div className={`absolute inset-0 flex flex-col items-center justify-center gap-3 bg-gradient-to-br ${v.grad}`}>
-            {/* unique floating shape per index */}
+          <div className={`absolute inset-0 flex items-center justify-center bg-gradient-to-br ${v.grad} transition-transform duration-500 group-hover:scale-110`}>
             <motion.div
               className={`absolute h-24 w-24 rounded-full blur-2xl ${index % 2 === 0 ? "bg-primary/25" : "bg-accent/25"}`}
               animate={{
@@ -95,15 +111,12 @@ export default function MicroVideo({ src, caption, index = 0 }: MicroVideoProps)
               style={{ top: `${15 + (index * 11) % 30}%`, left: `${10 + (index * 17) % 50}%` }}
             />
             <motion.div
-              animate={{ scale: [1, 1.12, 1], rotate: [0, 5, -5, 0] }}
+              animate={{ scale: [1, 1.15, 1], rotate: [0, 8, -8, 0] }}
               transition={{ duration: 2.6, repeat: Infinity, ease: "easeInOut" }}
-              className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full bg-background/80 ring-2 ${v.ring} shadow-md`}
+              className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-2xl bg-background/85 ring-2 ${v.ring} shadow-xl`}
             >
-              <Icon className={`h-6 w-6 ${v.accent}`} />
+              <Icon className={`h-7 w-7 ${v.accent}`} />
             </motion.div>
-            <p className="relative z-10 px-3 text-center text-xs md:text-sm font-semibold text-foreground/70">
-              {t(ui.videoComingSoon, lang)}
-            </p>
           </div>
         )}
       </div>

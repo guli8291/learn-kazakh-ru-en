@@ -12,6 +12,14 @@ import computerLabVideo from "@/assets/lesson-01/videos/computer-lab.mp4.asset.j
 import correctPostureVideo from "@/assets/lesson-01/videos/correct-posture.mp4.asset.json";
 import prohibitedActionsVideo from "@/assets/lesson-01/videos/prohibited-actions.mp4.asset.json";
 import eyeRestVideo from "@/assets/lesson-01/videos/eye-rest.mp4.asset.json";
+import individualWorkVideo from "@/assets/lesson-01/videos/individual-work.mp4.asset.json";
+import digitalLessonVideo from "@/assets/lesson-01/videos/digital-lesson.mp4.asset.json";
+import straightBackVideo from "@/assets/lesson-01/videos/straight-back.mp4.asset.json";
+import correctDistanceVideo from "@/assets/lesson-01/videos/correct-distance.mp4.asset.json";
+import noFoodVideo from "@/assets/lesson-01/videos/no-food.mp4.asset.json";
+import eyeRest2Video from "@/assets/lesson-01/videos/eye-rest-2.mp4.asset.json";
+import washHandsVideo from "@/assets/lesson-01/videos/wash-hands.mp4.asset.json";
+import futureCityVideo from "@/assets/lesson-01/videos/future-city.mp4.asset.json";
 
 export const lesson01: LessonData = {
   id: "lesson-01",
@@ -48,7 +56,7 @@ export const lesson01: LessonData = {
         en: "The picture shows a computer lab. Computers are set up for each student to work individually. The digital literacy lesson takes place in the computer lab.",
       },
       image: computerLabImg,
-      videos: [computerLabVideo.url],
+      videos: [computerLabVideo.url, individualWorkVideo.url, digitalLessonVideo.url],
     },
     {
       type: "rules",
@@ -81,7 +89,7 @@ export const lesson01: LessonData = {
         en: "Good posture is very important when working at the computer. Keep your back straight and feet on the floor. Find the student who is sitting correctly.",
       },
       image: correctPostureImg,
-      videos: [correctPostureVideo.url],
+      videos: [correctPostureVideo.url, straightBackVideo.url, correctDistanceVideo.url],
     },
     {
       type: "topic",
@@ -96,7 +104,7 @@ export const lesson01: LessonData = {
         en: "What can't you do while working with a computer? Explain why.",
       },
       image: prohibitedActionsImg,
-      videos: [prohibitedActionsVideo.url],
+      videos: [prohibitedActionsVideo.url, noFoodVideo.url, washHandsVideo.url],
     },
     {
       type: "topic",
@@ -111,7 +119,7 @@ export const lesson01: LessonData = {
         en: "How is the computer lab different from other classrooms? You will learn to follow the rules in the computer lab.",
       },
       image: safetyTipsImg,
-      videos: [eyeRestVideo.url],
+      videos: [eyeRestVideo.url, eyeRest2Video.url, straightBackVideo.url],
     },
     {
       type: "interactive",
@@ -171,6 +179,7 @@ export const lesson01: LessonData = {
       type: "video",
       title: { kk: "Болашақтың қаласы", ru: "Город будущего", en: "Future City" },
       image: futureCityImg,
+      video: futureCityVideo.url,
     },
     {
       type: "summary",
