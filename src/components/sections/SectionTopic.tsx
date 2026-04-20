@@ -54,7 +54,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
               <Sparkles className="h-3 w-3" /> {t(slide.title, lang)}
             </div>
             {sentences[0] && (
-              <p className="text-white text-lg md:text-2xl font-bold leading-snug drop-shadow-lg max-w-2xl">
+              <p className="text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-snug drop-shadow-lg max-w-3xl">
                 {sentences[0]}
               </p>
             )}
