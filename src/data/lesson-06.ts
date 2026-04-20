@@ -1,8 +1,12 @@
 import { LessonData } from "@/lib/types";
 
+import tuxPaintImg from "@/assets/lesson-06/tux-paint.jpg";
+import drawCanvasImg from "@/assets/lesson-06/draw-canvas.jpg";
 
 import tuxPaintVideo from "@/assets/lesson-06/videos/tux-paint.mp4.asset.json";
 import paintToolsVideo from "@/assets/lesson-06/videos/paint-tools.mp4.asset.json";
+import dancingToolsVideo from "@/assets/lesson-06/videos/dancing-tools.mp4.asset.json";
+
 export const lesson06: LessonData = {
   id: "lesson-06",
   title: { kk: "Tux Paint графикалық редакторы", ru: "Графический редактор Tux Paint", en: "Tux Paint Graphics Editor" },
@@ -32,8 +36,9 @@ export const lesson06: LessonData = {
         kk: "Tux Paint — балаларға арналған тегін графикалық редактор. Онда сурет салуға, бояуға, мөр қоюға болады. Пингвин Tux көмекші ретінде бағдарлайды.",
         ru: "Tux Paint — бесплатный графический редактор для детей. В нём можно рисовать, раскрашивать, ставить штампы. Пингвин Такс подсказывает.",
         en: "Tux Paint is a free drawing program for kids. You can draw, paint, and use stamps. Tux the penguin helps you along the way.",
-      videos: [tuxPaintVideo.url, paintToolsVideo.url],
       },
+      image: tuxPaintImg,
+      videos: [tuxPaintVideo.url, paintToolsVideo.url, dancingToolsVideo.url],
     },
     {
       type: "rules",
@@ -47,6 +52,17 @@ export const lesson06: LessonData = {
         { kk: "🪄 Сиқыр — арнайы эффекттер", ru: "🪄 Магия — специальные эффекты", en: "🪄 Magic — special effects" },
       ],
       emoji: "🛠️",
+    },
+    {
+      type: "topic",
+      title: { kk: "Сурет салу тәжірибесі", ru: "Практика рисования", en: "Drawing Practice" },
+      text: {
+        kk: "Қылқаламды таңдап, түсті таңда, тышқанмен тартып сурет сал. Толтыру құралымен аймақты боя. Өшіргішпен қажет емес жерді өшір.",
+        ru: "Выбери кисть, выбери цвет, рисуй мышкой. Заливкой закрашивай области. Ластиком стирай ненужное.",
+        en: "Pick a brush, choose a color, draw with the mouse. Use Fill to colour areas. Use Eraser to remove parts you don't need.",
+      },
+      image: drawCanvasImg,
+      videos: [paintToolsVideo.url, dancingToolsVideo.url],
     },
     {
       type: "interactive",

@@ -1,9 +1,11 @@
 import { LessonData } from "@/lib/types";
 
+import celebrationImg from "@/assets/lesson-18-19/celebration.jpg";
 
 import whatLearnedVideo from "@/assets/lesson-18-19/videos/what-we-learned.mp4.asset.json";
 import finalProjectVideo from "@/assets/lesson-18-19/videos/final-project.mp4.asset.json";
 import celebrationVideo from "@/assets/lesson-18-19/videos/celebration.mp4.asset.json";
+
 export const lesson1819: LessonData = {
   id: "lesson-18-19",
   title: { kk: "Шығармашылық тапсырмалар", ru: "Творческие задания", en: "Creative Tasks" },
@@ -29,8 +31,9 @@ export const lesson1819: LessonData = {
         kk: "Жыл бойы біз компьютермен жұмыс, ақпарат түрлері, интернет қауіпсіздігі, Tux Paint, алгоритмдер, Scratch бағдарламалау тілін үйрендік. Енді осының бәрін шығармашылық тапсырмаларда қолданамыз!",
         ru: "За год мы изучили работу с компьютером, виды информации, интернет-безопасность, Tux Paint, алгоритмы и язык программирования Scratch. Теперь применим всё это в творческих заданиях!",
         en: "This year we learned computer skills, types of information, internet safety, Tux Paint, algorithms, and Scratch programming. Now let's apply it all in creative tasks!",
-      videos: [whatLearnedVideo.url, finalProjectVideo.url, celebrationVideo.url],
       },
+      image: celebrationImg,
+      videos: [whatLearnedVideo.url, finalProjectVideo.url, celebrationVideo.url],
     },
     {
       type: "rules",

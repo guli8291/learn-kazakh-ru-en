@@ -1,8 +1,13 @@
 import { LessonData } from "@/lib/types";
 
+import sourceReceiverImg from "@/assets/lesson-04/source-receiver.jpg";
+import infoExamplesImg from "@/assets/lesson-04/info-examples.jpg";
 
 import infoTypesVideo from "@/assets/lesson-04/videos/info-types.mp4.asset.json";
 import sourceReceiverVideo from "@/assets/lesson-04/videos/source-receiver.mp4.asset.json";
+import infoExamplesVideo from "@/assets/lesson-04/videos/info-examples.mp4.asset.json";
+import teacherStudentVideo from "@/assets/lesson-04/videos/teacher-student.mp4.asset.json";
+
 export const lesson04: LessonData = {
   id: "lesson-04",
   title: { kk: "Ақпараттың ұсынылу түрлері", ru: "Виды представления информации", en: "Types of Information Representation" },
@@ -44,8 +49,9 @@ export const lesson04: LessonData = {
         kk: "Ақпарат көзі — ақпаратты беруші. Қабылдаушы — ақпаратты алушы. Арна — ақпаратты жіберу жолы. Мысалы: мұғалім (көз) → сөз (арна) → оқушы (қабылдаушы).",
         ru: "Источник — тот, кто передаёт информацию. Приёмник — тот, кто получает. Канал — путь передачи. Пример: учитель (источник) → речь (канал) → ученик (приёмник).",
         en: "Source — who sends information. Receiver — who gets it. Channel — the path of transmission. Example: teacher (source) → speech (channel) → student (receiver).",
-      videos: [sourceReceiverVideo.url, infoTypesVideo.url],
       },
+      image: sourceReceiverImg,
+      videos: [sourceReceiverVideo.url, teacherStudentVideo.url, infoTypesVideo.url],
     },
     {
       type: "topic",
@@ -55,6 +61,8 @@ export const lesson04: LessonData = {
         ru: "Книга — текстовая информация. Рисунок — графическая. Песня — звуковая. Мультфильм — видео. Номер телефона — числовая.",
         en: "Book — text information. Drawing — graphic. Song — audio. Cartoon — video. Phone number — numeric.",
       },
+      image: infoExamplesImg,
+      videos: [infoExamplesVideo.url, infoTypesVideo.url],
     },
     {
       type: "interactive",

@@ -1,8 +1,11 @@
 import { LessonData } from "@/lib/types";
 
+import executorsImg from "@/assets/lesson-12/executors.jpg";
 
 import executorVideo from "@/assets/lesson-12/videos/executor.mp4.asset.json";
 import executorExamplesVideo from "@/assets/lesson-12/videos/executor-examples.mp4.asset.json";
+import robotCommandsVideo from "@/assets/lesson-12/videos/robot-commands.mp4.asset.json";
+
 export const lesson12: LessonData = {
   id: "lesson-12",
   title: { kk: "Орындаушы", ru: "Исполнитель", en: "Executor" },
@@ -28,8 +31,9 @@ export const lesson12: LessonData = {
         kk: "Орындаушы — алгоритмді орындайтын адам, жануар немесе құрылғы. Мысалы: аспаз — тағам дайындау алгоритмінің орындаушысы. Компьютер — бағдарлама алгоритмінің орындаушысы.",
         ru: "Исполнитель — человек, животное или устройство, выполняющее алгоритм. Например: повар — исполнитель алгоритма приготовления еды. Компьютер — исполнитель программы.",
         en: "An executor is a person, animal, or device that performs an algorithm. Example: a chef executes a cooking algorithm. A computer executes a program.",
-      videos: [executorVideo.url, executorExamplesVideo.url],
       },
+      image: executorsImg,
+      videos: [executorVideo.url, executorExamplesVideo.url, robotCommandsVideo.url],
     },
     {
       type: "rules",
