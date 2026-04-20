@@ -23,13 +23,13 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="flex flex-col gap-4 p-3 md:p-6"
+      className="flex flex-col gap-6 lg:gap-8 p-3 md:p-6 lg:p-8"
     >
       {/* Title bar */}
       <div className="flex items-center justify-between gap-3 flex-wrap">
-        <div className="flex items-center gap-3">
-          {slide.emoji && <span className="text-4xl">{slide.emoji}</span>}
-          <h2 className="text-2xl md:text-4xl font-bold text-foreground">
+        <div className="flex items-center gap-3 lg:gap-4">
+          {slide.emoji && <span className="text-4xl lg:text-6xl">{slide.emoji}</span>}
+          <h2 className="text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground">
             {t(slide.title, lang)}
           </h2>
         </div>
@@ -37,13 +37,13 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
       </div>
 
       {/* Bento grid */}
-      <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-[minmax(140px,auto)] gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-6 auto-rows-[minmax(140px,auto)] lg:auto-rows-[minmax(180px,auto)] gap-3 lg:gap-5">
         {/* HERO TILE: image + first sentence overlay */}
         <motion.div
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 90 }}
-          className={`relative md:col-span-4 md:row-span-2 overflow-hidden rounded-3xl bg-gradient-to-br ${gradient} shadow-xl min-h-[260px] md:min-h-[340px]`}
+          className={`relative md:col-span-4 md:row-span-2 overflow-hidden rounded-3xl bg-gradient-to-br ${gradient} shadow-xl min-h-[260px] md:min-h-[340px] lg:min-h-[460px]`}
         >
           {heroImg ? (
             <img src={heroImg} alt={t(slide.title, lang)} className="absolute inset-0 h-full w-full object-cover" />
@@ -54,7 +54,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
               <Sparkles className="h-3 w-3" /> {t(slide.title, lang)}
             </div>
             {sentences[0] && (
-              <p className="text-white text-lg md:text-2xl font-bold leading-snug drop-shadow-lg max-w-2xl">
+              <p className="text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-snug drop-shadow-lg max-w-3xl">
                 {sentences[0]}
               </p>
             )}
@@ -77,7 +77,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.15 }}
-          className="md:col-span-2 md:row-span-2 min-h-[200px] md:min-h-[340px]"
+          className="md:col-span-2 md:row-span-2 min-h-[200px] md:min-h-[340px] lg:min-h-[460px]"
         >
           <div className="h-full">
             <MicroVideo src={slide.videos?.[0]} index={0} />
@@ -99,10 +99,10 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
               className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-3"
             >
               <div
-                className={`md:col-span-4 rounded-2xl bg-card/90 backdrop-blur-sm p-5 md:p-6 card-shadow border border-border/40 flex items-center ${flipped ? "md:order-2" : ""}`}
+                className={`md:col-span-4 rounded-2xl bg-card/90 backdrop-blur-sm p-5 md:p-6 lg:p-8 card-shadow border border-border/40 flex items-center ${flipped ? "md:order-2" : ""}`}
               >
-                <p className="text-base md:text-xl leading-relaxed text-foreground/90 font-medium">
-                  <span className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-sm font-bold text-primary">
+                <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-medium">
+                  <span className="mr-2 inline-flex h-7 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-primary/15 text-sm lg:text-base font-bold text-primary">
                     {idx + 1}
                   </span>
                   {sentence}

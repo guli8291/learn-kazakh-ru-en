@@ -64,7 +64,7 @@ export default function LessonPage() {
         />
       </div>
 
-      <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col px-4 py-6">
+      <main className="mx-auto flex w-full max-w-[1600px] flex-1 flex-col px-4 md:px-8 lg:px-12 py-6 lg:py-10">
         <div className="flex-1">
           <AnimatePresence mode="wait">
             <motion.div
