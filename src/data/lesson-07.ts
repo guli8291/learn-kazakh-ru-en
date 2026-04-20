@@ -1,6 +1,7 @@
 import { LessonData } from "@/lib/types";
 
-import shapesFriendsImg from "@/assets/lesson-07/shapes-friends.jpg";
+import colorWheelImg from "@/assets/lesson-07/color-wheel.jpg";
+import geometricOrnamentsImg from "@/assets/lesson-07/geometric-ornaments.jpg";
 
 import basicShapesVideo from "@/assets/lesson-07/videos/basic-shapes.mp4.asset.json";
 import drawShapesVideo from "@/assets/lesson-07/videos/draw-shapes.mp4.asset.json";
@@ -8,48 +9,57 @@ import shapesBounceVideo from "@/assets/lesson-07/videos/shapes-bounce.mp4.asset
 
 export const lesson07: LessonData = {
   id: "lesson-07",
-  title: { kk: "Фигуралар", ru: "Фигуры", en: "Shapes" },
+  title: { kk: "Фигуралар. Түстер палитрасы", ru: "Фигуры. Палитра цветов", en: "Shapes. Color Palette" },
   description: {
-    kk: "Геометриялық фигураларды танып, компьютерде салу",
-    ru: "Распознавание геометрических фигур и рисование на компьютере",
-    en: "Recognizing geometric shapes and drawing them on the computer",
+    kk: "Түстер палитрасы, құйып бояу, фигуралардан ою-өрнек құрастыру",
+    ru: "Палитра цветов, заливка и составление орнаментов из фигур",
+    en: "Color palette, fill tool, building ornaments from shapes",
   },
-  emoji: "🔷",
+  emoji: "🎨",
   color: "from-indigo-400 to-blue-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Фигуралар", ru: "Фигуры", en: "Shapes" },
+      title: { kk: "Фигуралар және түстер", ru: "Фигуры и цвета", en: "Shapes and Colors" },
       subtitle: {
-        kk: "Геометриялық фигураларды үйренеміз!",
-        ru: "Изучим геометрические фигуры!",
-        en: "Let's learn about geometric shapes!",
+        kk: "Жылы мен суық түстермен танысамыз!",
+        ru: "Узнаем тёплые и холодные цвета!",
+        en: "Discover warm and cool colors!",
       },
-      emoji: "🔷",
+      emoji: "🎨",
       color: "from-indigo-400 to-blue-500",
     },
     {
+      type: "topic",
+      title: { kk: "Жылы және суық түстер", ru: "Тёплые и холодные цвета", en: "Warm and Cool Colors" },
+      text: {
+        kk: "Түстер жылы (қызыл, сары, қызғылт сары) және суық (көк, жасыл, күлгін) болып бөлінеді. Үйлесімді таңдау үшін түстер шеңберін пайдаланамыз.",
+        ru: "Цвета бывают тёплые (красный, жёлтый, оранжевый) и холодные (синий, зелёный, фиолетовый). Для гармонии используем цветовой круг.",
+        en: "Colors are warm (red, yellow, orange) and cool (blue, green, purple). Use the color wheel to pick harmonious colors.",
+      },
+      image: colorWheelImg,
+    },
+    {
       type: "rules",
-      title: { kk: "Негізгі фигуралар", ru: "Основные фигуры", en: "Basic Shapes" },
+      title: { kk: "Түстер палитрасы", ru: "Палитра цветов", en: "Color Palette" },
       points: [
-        { kk: "🟥 Шаршы — 4 тең қабырғасы бар", ru: "🟥 Квадрат — 4 равные стороны", en: "🟥 Square — 4 equal sides" },
-        { kk: "🟦 Тіктөртбұрыш — қарама-қарсы қабырғалар тең", ru: "🟦 Прямоугольник — противоположные стороны равны", en: "🟦 Rectangle — opposite sides are equal" },
-        { kk: "🔺 Үшбұрыш — 3 қабырғасы бар", ru: "🔺 Треугольник — 3 стороны", en: "🔺 Triangle — 3 sides" },
-        { kk: "⭕ Дөңгелек — қабырғасы жоқ, дөңгелек пішін", ru: "⭕ Круг — нет сторон, округлая форма", en: "⭕ Circle — no sides, round shape" },
-        { kk: "🔶 Ромб — 4 тең қабырға, бұрыштары тік емес", ru: "🔶 Ромб — 4 равные стороны, углы не прямые", en: "🔶 Rhombus — 4 equal sides, not right angles" },
+        { kk: "🎨 Палитра — бір мезетте көрінетін түстер жинағы", ru: "🎨 Палитра — набор цветов, видимых сразу", en: "🎨 Palette — set of colors shown at once" },
+        { kk: "🪣 Толтыру (Заполнить) — жабық аймақты құйып бояйды", ru: "🪣 Заливка — заполняет цветом замкнутую область", en: "🪣 Fill — fills a closed area with color" },
+        { kk: "🔥 Жылы түстер — қызыл, сары, қызғылт сары", ru: "🔥 Тёплые — красный, жёлтый, оранжевый", en: "🔥 Warm — red, yellow, orange" },
+        { kk: "❄️ Суық түстер — көк, жасыл, күлгін", ru: "❄️ Холодные — синий, зелёный, фиолетовый", en: "❄️ Cool — blue, green, purple" },
       ],
-      emoji: "📐",
+      emoji: "🌈",
     },
     {
       type: "topic",
-      title: { kk: "Компьютерде фигура салу", ru: "Рисование фигур на компьютере", en: "Drawing Shapes on the Computer" },
+      title: { kk: "Фигуралардан ою-өрнек", ru: "Орнамент из фигур", en: "Ornaments from Shapes" },
       text: {
-        kk: "Tux Paint бағдарламасында «Фигуралар» құралын таңдап, шаршы, тіктөртбұрыш, үшбұрыш, дөңгелек салуға болады. Фигураны таңдап, тышқанмен сүйреп саласың.",
-        ru: "В Tux Paint выбери инструмент «Фигуры» и рисуй квадрат, прямоугольник, треугольник, круг. Выбери фигуру и нарисуй мышкой.",
-        en: "In Tux Paint, select the 'Shapes' tool to draw squares, rectangles, triangles, circles. Pick a shape and drag with the mouse.",
+        kk: "Боялған үшбұрыштарды, дөңгелектерді, ромбтарды біріктіріп, әсем ою-өрнек құрастыруға болады. Тінтуірмен фигура мен түсті таңдап, жұмыс алаңына орналастырамыз.",
+        ru: "Соединяя цветные треугольники, круги, ромбы, можно составить красивый орнамент. Мышкой выбираем фигуру и цвет, затем размещаем на холсте.",
+        en: "By combining colored triangles, circles, and rhombuses, you can build a beautiful ornament. Pick a shape and color with the mouse, then place it on the canvas.",
       },
-      image: shapesFriendsImg,
-      videos: [drawShapesVideo.url, basicShapesVideo.url, shapesBounceVideo.url],
+      image: geometricOrnamentsImg,
+      videos: [basicShapesVideo.url, drawShapesVideo.url],
     },
     {
       type: "interactive",
@@ -57,21 +67,31 @@ export const lesson07: LessonData = {
       items: [
         {
           type: "choice",
-          question: { kk: "Қай фигураның 3 қабырғасы бар?", ru: "У какой фигуры 3 стороны?", en: "Which shape has 3 sides?" },
+          question: { kk: "Tux Paint палитрасында неше негізгі түс бар?", ru: "Сколько основных цветов в палитре Tux Paint?", en: "How many main colors are in the Tux Paint palette?" },
           options: [
-            { kk: "Шаршы", ru: "Квадрат", en: "Square" },
-            { kk: "Үшбұрыш", ru: "Треугольник", en: "Triangle" },
-            { kk: "Дөңгелек", ru: "Круг", en: "Circle" },
+            { kk: "10", ru: "10", en: "10" },
+            { kk: "17", ru: "17", en: "17" },
+            { kk: "25", ru: "25", en: "25" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Дөңгелектің неше қабырғасы бар?", ru: "Сколько сторон у круга?", en: "How many sides does a circle have?" },
+          question: { kk: "Қай түс жылы түске жатады?", ru: "Какой цвет тёплый?", en: "Which color is warm?" },
           options: [
-            { kk: "4", ru: "4", en: "4" },
-            { kk: "0", ru: "0", en: "0" },
-            { kk: "1", ru: "1", en: "1" },
+            { kk: "Көк", ru: "Синий", en: "Blue" },
+            { kk: "Жасыл", ru: "Зелёный", en: "Green" },
+            { kk: "Қызыл", ru: "Красный", en: "Red" },
+          ],
+          correctIndex: 2,
+        },
+        {
+          type: "choice",
+          question: { kk: "Жабық аймақты тез бояу үшін қандай құрал?", ru: "Каким инструментом быстро залить область?", en: "Which tool fills an area quickly?" },
+          options: [
+            { kk: "Қылқалам", ru: "Кисть", en: "Brush" },
+            { kk: "Толтыру", ru: "Заливка", en: "Fill" },
+            { kk: "Өшіргіш", ru: "Ластик", en: "Eraser" },
           ],
           correctIndex: 1,
         },
@@ -79,32 +99,34 @@ export const lesson07: LessonData = {
     },
     {
       type: "game",
-      title: { kk: "Фигура мен қасиет", ru: "Фигура и свойство", en: "Shape and Property" },
+      title: { kk: "Түстерді бөл", ru: "Раздели цвета", en: "Sort the Colors" },
       items: [
         {
           type: "match",
-          instruction: { kk: "Фигураны қасиетімен сәйкестендір", ru: "Соедини фигуру со свойством", en: "Match shape with property" },
+          instruction: { kk: "Түсті температурамен сәйкестендір", ru: "Соедини цвет с температурой", en: "Match color with its temperature" },
           pairs: [
-            { left: { kk: "Шаршы", ru: "Квадрат", en: "Square" }, right: { kk: "4 тең қабырға", ru: "4 равные стороны", en: "4 equal sides" } },
-            { left: { kk: "Үшбұрыш", ru: "Треугольник", en: "Triangle" }, right: { kk: "3 қабырға", ru: "3 стороны", en: "3 sides" } },
-            { left: { kk: "Дөңгелек", ru: "Круг", en: "Circle" }, right: { kk: "Қабырғасы жоқ", ru: "Нет сторон", en: "No sides" } },
+            { left: { kk: "🔴 Қызыл", ru: "🔴 Красный", en: "🔴 Red" }, right: { kk: "🔥 Жылы", ru: "🔥 Тёплый", en: "🔥 Warm" } },
+            { left: { kk: "🟡 Сары", ru: "🟡 Жёлтый", en: "🟡 Yellow" }, right: { kk: "🔥 Жылы", ru: "🔥 Тёплый", en: "🔥 Warm" } },
+            { left: { kk: "🔵 Көк", ru: "🔵 Синий", en: "🔵 Blue" }, right: { kk: "❄️ Суық", ru: "❄️ Холодный", en: "❄️ Cool" } },
+            { left: { kk: "🟢 Жасыл", ru: "🟢 Зелёный", en: "🟢 Green" }, right: { kk: "❄️ Суық", ru: "❄️ Холодный", en: "❄️ Cool" } },
           ],
         },
       ],
     },
     {
       type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: drawShapesVideo.url,
+      title: { kk: "Видео: Фигуралар", ru: "Видео: Фигуры", en: "Video: Shapes" },
+      video: shapesBounceVideo.url,
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Негізгі фигуралар: шаршы, үшбұрыш, дөңгелек, тіктөртбұрыш", ru: "Основные фигуры: квадрат, треугольник, круг, прямоугольник", en: "Basic shapes: square, triangle, circle, rectangle" },
-        { kk: "Компьютерде фигура салу үшін Tux Paint пайдаланамыз", ru: "Для рисования фигур используем Tux Paint", en: "We use Tux Paint to draw shapes" },
+        { kk: "Палитра — бір мезетте көрінетін түстер жинағы", ru: "Палитра — набор цветов, видимых сразу", en: "Palette — set of colors visible at once" },
+        { kk: "Толтыру құралы жабық аймақты тез бояйды", ru: "Заливка быстро красит замкнутую область", en: "Fill tool quickly colors a closed area" },
+        { kk: "Түстер жылы және суық болып бөлінеді", ru: "Цвета бывают тёплые и холодные", en: "Colors are warm and cool" },
       ],
-      emoji: "🎓",
+      emoji: "⭐",
     },
   ],
 };

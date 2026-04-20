@@ -1,7 +1,8 @@
 import { LessonData } from "@/lib/types";
 
-import tuxPaintImg from "@/assets/lesson-06/tux-paint.jpg";
-import drawCanvasImg from "@/assets/lesson-06/draw-canvas.jpg";
+import ornamentItemsImg from "@/assets/lesson-06/ornament-items.jpg";
+import tuxPaintWindowImg from "@/assets/lesson-06/tux-paint-window.jpg";
+import shapesRowImg from "@/assets/lesson-06/shapes-row.jpg";
 
 import tuxPaintVideo from "@/assets/lesson-06/videos/tux-paint.mp4.asset.json";
 import paintToolsVideo from "@/assets/lesson-06/videos/paint-tools.mp4.asset.json";
@@ -11,9 +12,9 @@ export const lesson06: LessonData = {
   id: "lesson-06",
   title: { kk: "Tux Paint графикалық редакторы", ru: "Графический редактор Tux Paint", en: "Tux Paint Graphics Editor" },
   description: {
-    kk: "Tux Paint бағдарламасымен танысу және сурет салу",
-    ru: "Знакомство с программой Tux Paint и рисование",
-    en: "Introduction to Tux Paint program and drawing",
+    kk: "Tux Paint бағдарламасымен танысу және фигуралар салу",
+    ru: "Знакомство с Tux Paint и рисование фигур",
+    en: "Meet Tux Paint and draw shapes",
   },
   emoji: "🎨",
   color: "from-pink-400 to-orange-400",
@@ -22,46 +23,54 @@ export const lesson06: LessonData = {
       type: "hero",
       title: { kk: "Tux Paint графикалық редакторы", ru: "Графический редактор Tux Paint", en: "Tux Paint Graphics Editor" },
       subtitle: {
-        kk: "Компьютерде сурет салуды үйренеміз!",
-        ru: "Научимся рисовать на компьютере!",
-        en: "Let's learn to draw on the computer!",
+        kk: "Компьютерде сурет саламыз!",
+        ru: "Рисуем на компьютере!",
+        en: "Let's draw on the computer!",
       },
       emoji: "🎨",
       color: "from-pink-400 to-orange-400",
     },
     {
       type: "topic",
-      title: { kk: "Tux Paint дегеніміз не?", ru: "Что такое Tux Paint?", en: "What is Tux Paint?" },
+      title: { kk: "Ою-өрнек дегеніміз не?", ru: "Что такое орнамент?", en: "What is an Ornament?" },
       text: {
-        kk: "Tux Paint — балаларға арналған тегін графикалық редактор. Онда сурет салуға, бояуға, мөр қоюға болады. Пингвин Tux көмекші ретінде бағдарлайды.",
-        ru: "Tux Paint — бесплатный графический редактор для детей. В нём можно рисовать, раскрашивать, ставить штампы. Пингвин Такс подсказывает.",
-        en: "Tux Paint is a free drawing program for kids. You can draw, paint, and use stamps. Tux the penguin helps you along the way.",
+        kk: "Қазақ халқы тұрмыстық бұйымдар мен киімді ою-өрнекпен безендірген. Көбіне геометриялық пішіндегі ою-өрнектер кездеседі.",
+        ru: "Казахи украшали бытовые предметы и одежду орнаментом. Часто встречаются орнаменты геометрической формы.",
+        en: "Kazakhs decorated household items and clothes with ornaments. Geometric ornaments are very common.",
       },
-      image: tuxPaintImg,
-      videos: [tuxPaintVideo.url, paintToolsVideo.url, dancingToolsVideo.url],
+      image: ornamentItemsImg,
+    },
+    {
+      type: "topic",
+      title: { kk: "Графикалық редактор", ru: "Графический редактор", en: "Graphics Editor" },
+      text: {
+        kk: "Компьютерде сурет салуға арналған программа графикалық редактор деп аталады. Tux Paint — балаларға арналған графикалық редактор. Онда сурет салуға, түзетуге, көшіруге, бояуға болады.",
+        ru: "Программа для рисования на компьютере называется графический редактор. Tux Paint — редактор для детей. В нём можно рисовать, исправлять, копировать и раскрашивать.",
+        en: "A program for drawing on a computer is called a graphics editor. Tux Paint is an editor for kids. You can draw, edit, copy, and color in it.",
+      },
+      image: tuxPaintWindowImg,
+      videos: [tuxPaintVideo.url],
     },
     {
       type: "rules",
       title: { kk: "Tux Paint құралдары", ru: "Инструменты Tux Paint", en: "Tux Paint Tools" },
       points: [
-        { kk: "🖌️ Қылқалам — еркін сурет салу", ru: "🖌️ Кисть — свободное рисование", en: "🖌️ Brush — free drawing" },
-        { kk: "🔲 Мөр — дайын суреттерді қою", ru: "🔲 Штамп — вставка готовых картинок", en: "🔲 Stamp — insert ready-made pictures" },
-        { kk: "📐 Сызық — түзу сызық салу", ru: "📐 Линия — рисование прямой линии", en: "📐 Line — draw a straight line" },
-        { kk: "🪣 Толтыру — аймақты бояу", ru: "🪣 Заливка — закрасить область", en: "🪣 Fill — paint an area" },
-        { kk: "✏️ Өшіргіш — салынған суретті өшіру", ru: "✏️ Ластик — стереть нарисованное", en: "✏️ Eraser — erase what you drew" },
-        { kk: "🪄 Сиқыр — арнайы эффекттер", ru: "🪄 Магия — специальные эффекты", en: "🪄 Magic — special effects" },
+        { kk: "🖌️ Бояу (Краска) — қылқаламмен сурет салады", ru: "🖌️ Краска — рисует кистью", en: "🖌️ Paint — draw with a brush" },
+        { kk: "🧽 Өшіргіш (Ластик) — суретті өшіреді", ru: "🧽 Ластик — стирает рисунок", en: "🧽 Eraser — erases the drawing" },
+        { kk: "🔷 Пішіндер (Формы) — әртүрлі фигуралар салады", ru: "🔷 Формы — рисует разные фигуры", en: "🔷 Shapes — draws different shapes" },
+        { kk: "💾 Сақтау (Сохранить) — суретті сақтайды", ru: "💾 Сохранить — сохраняет рисунок", en: "💾 Save — saves the drawing" },
       ],
       emoji: "🛠️",
     },
     {
       type: "topic",
-      title: { kk: "Сурет салу тәжірибесі", ru: "Практика рисования", en: "Drawing Practice" },
+      title: { kk: "Стандартты фигуралар", ru: "Стандартные фигуры", en: "Standard Shapes" },
       text: {
-        kk: "Қылқаламды таңдап, түсті таңда, тышқанмен тартып сурет сал. Толтыру құралымен аймақты боя. Өшіргішпен қажет емес жерді өшір.",
-        ru: "Выбери кисть, выбери цвет, рисуй мышкой. Заливкой закрашивай области. Ластиком стирай ненужное.",
-        en: "Pick a brush, choose a color, draw with the mouse. Use Fill to colour areas. Use Eraser to remove parts you don't need.",
+        kk: "Пішіндер құралында түзу, дөңгелек, ромб, үшбұрыш, тіктөртбұрыш бар. Олардың түсін өзгертіп, ою-өрнек құрастыруға болады.",
+        ru: "В инструменте Формы есть линии, круг, ромб, треугольник, прямоугольник. Можно менять их цвет и составлять орнаменты.",
+        en: "The Shapes tool has lines, circle, rhombus, triangle, rectangle. You can change colors and build ornaments.",
       },
-      image: drawCanvasImg,
+      image: shapesRowImg,
       videos: [paintToolsVideo.url, dancingToolsVideo.url],
     },
     {
@@ -70,31 +79,33 @@ export const lesson06: LessonData = {
       items: [
         {
           type: "choice",
-          question: {
-            kk: "Tux Paint-те аймақты бояу үшін қандай құрал қолданылады?",
-            ru: "Какой инструмент в Tux Paint используется для закраски области?",
-            en: "Which Tux Paint tool is used to fill an area with color?",
-          },
+          question: { kk: "Компьютерде сурет салуға арналған программа қалай аталады?", ru: "Как называется программа для рисования на компьютере?", en: "What is a drawing program on a computer called?" },
           options: [
-            { kk: "Қылқалам", ru: "Кисть", en: "Brush" },
-            { kk: "Толтыру", ru: "Заливка", en: "Fill" },
-            { kk: "Өшіргіш", ru: "Ластик", en: "Eraser" },
+            { kk: "Мәтіндік редактор", ru: "Текстовый редактор", en: "Text editor" },
+            { kk: "Графикалық редактор", ru: "Графический редактор", en: "Graphics editor" },
+            { kk: "Калькулятор", ru: "Калькулятор", en: "Calculator" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: {
-            kk: "Tux Paint-тегі көмекші кейіпкер кім?",
-            ru: "Кто помощник-персонаж в Tux Paint?",
-            en: "Who is the helper character in Tux Paint?",
-          },
+          question: { kk: "Қате суретті жою үшін қандай құрал керек?", ru: "Какой инструмент стирает ошибку?", en: "Which tool erases mistakes?" },
           options: [
-            { kk: "Аю", ru: "Медведь", en: "Bear" },
-            { kk: "Пингвин Tux", ru: "Пингвин Такс", en: "Tux the Penguin" },
-            { kk: "Мысық", ru: "Кошка", en: "Cat" },
+            { kk: "Бояу", ru: "Краска", en: "Paint" },
+            { kk: "Сақтау", ru: "Сохранить", en: "Save" },
+            { kk: "Өшіргіш", ru: "Ластик", en: "Eraser" },
           ],
-          correctIndex: 1,
+          correctIndex: 2,
+        },
+        {
+          type: "choice",
+          question: { kk: "Үшбұрыш салу үшін қай құрал керек?", ru: "Каким инструментом нарисовать треугольник?", en: "Which tool draws a triangle?" },
+          options: [
+            { kk: "Пішіндер", ru: "Формы", en: "Shapes" },
+            { kk: "Өшіргіш", ru: "Ластик", en: "Eraser" },
+            { kk: "Сақтау", ru: "Сохранить", en: "Save" },
+          ],
+          correctIndex: 0,
         },
       ],
     },
@@ -104,34 +115,30 @@ export const lesson06: LessonData = {
       items: [
         {
           type: "match",
-          instruction: {
-            kk: "Құралды оның қызметімен сәйкестендір",
-            ru: "Соедини инструмент с его функцией",
-            en: "Match the tool with its function",
-          },
+          instruction: { kk: "Құралды қызметімен сәйкестендір", ru: "Соедини инструмент с действием", en: "Match the tool with its action" },
           pairs: [
-            { left: { kk: "Қылқалам", ru: "Кисть", en: "Brush" }, right: { kk: "Еркін салу", ru: "Свободно рисовать", en: "Free draw" } },
-            { left: { kk: "Өшіргіш", ru: "Ластик", en: "Eraser" }, right: { kk: "Суретті өшіру", ru: "Стереть рисунок", en: "Erase drawing" } },
-            { left: { kk: "Мөр", ru: "Штамп", en: "Stamp" }, right: { kk: "Дайын сурет қою", ru: "Вставить картинку", en: "Insert picture" } },
-            { left: { kk: "Толтыру", ru: "Заливка", en: "Fill" }, right: { kk: "Аймақты бояу", ru: "Закрасить область", en: "Paint area" } },
+            { left: { kk: "🖌️ Бояу", ru: "🖌️ Краска", en: "🖌️ Paint" }, right: { kk: "Қылқаламмен сурет", ru: "Рисует кистью", en: "Draws with brush" } },
+            { left: { kk: "🧽 Өшіргіш", ru: "🧽 Ластик", en: "🧽 Eraser" }, right: { kk: "Суретті өшіреді", ru: "Стирает рисунок", en: "Erases drawing" } },
+            { left: { kk: "🔷 Пішіндер", ru: "🔷 Формы", en: "🔷 Shapes" }, right: { kk: "Фигура салады", ru: "Рисует фигуры", en: "Draws shapes" } },
+            { left: { kk: "💾 Сақтау", ru: "💾 Сохранить", en: "💾 Save" }, right: { kk: "Файлды жазады", ru: "Записывает файл", en: "Saves the file" } },
           ],
         },
       ],
     },
     {
       type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
+      title: { kk: "Видео: Tux Paint", ru: "Видео: Tux Paint", en: "Video: Tux Paint" },
       video: tuxPaintVideo.url,
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Tux Paint — балаларға арналған графикалық редактор", ru: "Tux Paint — графический редактор для детей", en: "Tux Paint is a drawing program for kids" },
-        { kk: "Оның құралдары: қылқалам, мөр, толтыру, өшіргіш", ru: "Его инструменты: кисть, штамп, заливка, ластик", en: "Its tools: brush, stamp, fill, eraser" },
-        { kk: "Пингвин Tux — бағдарламаның көмекшісі", ru: "Пингвин Такс — помощник программы", en: "Tux the penguin is the program's helper" },
+        { kk: "Tux Paint — компьютерде сурет салуға арналған графикалық редактор", ru: "Tux Paint — графический редактор для рисования на компьютере", en: "Tux Paint is a graphics editor for drawing on a computer" },
+        { kk: "Бояу, Өшіргіш, Пішіндер, Сақтау — негізгі құралдар", ru: "Краска, Ластик, Формы, Сохранить — основные инструменты", en: "Paint, Eraser, Shapes, Save — main tools" },
+        { kk: "Фигуралардан ою-өрнек құрастыруға болады", ru: "Из фигур можно составлять орнаменты", en: "You can build ornaments from shapes" },
       ],
-      emoji: "🎓",
+      emoji: "⭐",
     },
   ],
 };
