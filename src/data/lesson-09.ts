@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import shapeActionsVideo from "@/assets/lesson-09/videos/shape-actions.mp4.asset.json";
+import shapePracticeVideo from "@/assets/lesson-09/videos/shape-practice.mp4.asset.json";
 export const lesson09: LessonData = {
   id: "lesson-09",
   title: { kk: "Фигуралармен орындалатын амалдар", ru: "Действия с фигурами", en: "Actions with Shapes" },
@@ -41,6 +44,7 @@ export const lesson09: LessonData = {
         kk: "Tux Paint немесе басқа бағдарламада шаршы салып, оны жылжытып, көшіріп, бұрып көр. Әр фигурамен әр түрлі амал жасауға болады.",
         ru: "Нарисуй квадрат в Tux Paint и попробуй его переместить, скопировать, повернуть. С каждой фигурой можно делать разные действия.",
         en: "Draw a square in Tux Paint and try to move, copy, and rotate it. You can perform different actions with each shape.",
+      videos: [shapePracticeVideo.url, shapeActionsVideo.url],
       },
     },
     {
@@ -88,7 +92,7 @@ export const lesson09: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-09/video.mp4",
+      video: shapeActionsVideo.url,
     },
     {
       type: "summary",

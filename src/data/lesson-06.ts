@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import tuxPaintVideo from "@/assets/lesson-06/videos/tux-paint.mp4.asset.json";
+import paintToolsVideo from "@/assets/lesson-06/videos/paint-tools.mp4.asset.json";
 export const lesson06: LessonData = {
   id: "lesson-06",
   title: { kk: "Tux Paint графикалық редакторы", ru: "Графический редактор Tux Paint", en: "Tux Paint Graphics Editor" },
@@ -29,6 +32,7 @@ export const lesson06: LessonData = {
         kk: "Tux Paint — балаларға арналған тегін графикалық редактор. Онда сурет салуға, бояуға, мөр қоюға болады. Пингвин Tux көмекші ретінде бағдарлайды.",
         ru: "Tux Paint — бесплатный графический редактор для детей. В нём можно рисовать, раскрашивать, ставить штампы. Пингвин Такс подсказывает.",
         en: "Tux Paint is a free drawing program for kids. You can draw, paint, and use stamps. Tux the penguin helps you along the way.",
+      videos: [tuxPaintVideo.url, paintToolsVideo.url],
       },
     },
     {
@@ -101,7 +105,7 @@ export const lesson06: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-06/video.mp4",
+      video: tuxPaintVideo.url,
     },
     {
       type: "summary",

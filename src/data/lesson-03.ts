@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import fiveSensesVideo from "@/assets/lesson-03/videos/five-senses.mp4.asset.json";
+import signalMessageVideo from "@/assets/lesson-03/videos/signal-message.mp4.asset.json";
 export const lesson03: LessonData = {
   id: "lesson-03",
   title: { kk: "Адамның ақпаратты қабылдау түрлері", ru: "Виды восприятия информации", en: "How We Perceive Information" },
@@ -29,6 +32,7 @@ export const lesson03: LessonData = {
         kk: "Адам ақпаратты 5 сезім мүшесі арқылы қабылдайды: көру, есту, иіс сезу, дәм сезу және сезу (жанасу).",
         ru: "Человек воспринимает информацию через 5 органов чувств: зрение, слух, обоняние, вкус и осязание.",
         en: "Humans perceive information through 5 senses: sight, hearing, smell, taste, and touch.",
+      videos: [fiveSensesVideo.url, signalMessageVideo.url],
       },
       image: "/lessons/lesson-03/images/senses.jpg",
     },
@@ -98,7 +102,7 @@ export const lesson03: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-03/video.mp4",
+      video: fiveSensesVideo.url,
     },
     {
       type: "summary",

@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import algorithmTypesVideo from "@/assets/lesson-11/videos/algorithm-types.mp4.asset.json";
+import algorithmExamplesVideo from "@/assets/lesson-11/videos/algorithm-examples.mp4.asset.json";
 export const lesson11: LessonData = {
   id: "lesson-11",
   title: { kk: "Алгоритм түрлері", ru: "Виды алгоритмов", en: "Types of Algorithms" },
@@ -35,6 +38,7 @@ export const lesson11: LessonData = {
         kk: "Сызықтық: ас ішу қадамдары. Тармақталған: жаңбыр жауса — қолшатыр ал, жаумаса — алма. Циклдік: мерекеде 10 рет «ура» деп айқайлау.",
         ru: "Линейный: шаги приёма пищи. Разветвлённый: если дождь — бери зонт, нет — не бери. Циклический: крикнуть «ура» 10 раз на празднике.",
         en: "Linear: steps to eat a meal. Branching: if rain — take umbrella, no rain — don't. Loop: shout 'hooray' 10 times at a party.",
+      videos: [algorithmExamplesVideo.url, algorithmTypesVideo.url],
       },
     },
     {
@@ -81,7 +85,7 @@ export const lesson11: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-11/video.mp4",
+      video: algorithmTypesVideo.url,
     },
     {
       type: "summary",

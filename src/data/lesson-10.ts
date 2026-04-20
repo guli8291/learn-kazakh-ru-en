@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import algorithmStepsVideo from "@/assets/lesson-10/videos/algorithm-steps.mp4.asset.json";
+import algorithmPropertiesVideo from "@/assets/lesson-10/videos/algorithm-properties.mp4.asset.json";
 export const lesson10: LessonData = {
   id: "lesson-10",
   title: { kk: "Алгоритм", ru: "Алгоритм", en: "Algorithm" },
@@ -29,6 +32,7 @@ export const lesson10: LessonData = {
         kk: "Алгоритм — бір нәтижеге жету үшін орындалатын қадамдар тізбегі. Мысалы: таңертең тұру → бет жуу → тіс тазалау → киіну → мектепке бару.",
         ru: "Алгоритм — это последовательность шагов для достижения результата. Например: проснуться → умыться → почистить зубы → одеться → пойти в школу.",
         en: "An algorithm is a sequence of steps to achieve a result. Example: wake up → wash face → brush teeth → get dressed → go to school.",
+      videos: [algorithmStepsVideo.url, algorithmPropertiesVideo.url],
       },
     },
     {
@@ -87,7 +91,7 @@ export const lesson10: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-10/video.mp4",
+      video: algorithmStepsVideo.url,
     },
     {
       type: "summary",

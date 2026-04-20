@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import creativeProjectVideo from "@/assets/lesson-17/videos/creative-project.mp4.asset.json";
+import projectIdeasVideo from "@/assets/lesson-17/videos/project-ideas.mp4.asset.json";
 export const lesson17: LessonData = {
   id: "lesson-17",
   title: { kk: "Шығармашылық тапсырмалар", ru: "Творческие задания", en: "Creative Tasks" },
@@ -25,6 +28,7 @@ export const lesson17: LessonData = {
         kk: "Шығармашылық жоба — өз қиялыңнан жасалған Scratch жобасы. Сен өзің тақырып таңдайсың, спрайттар мен фон қосасың, анимация немесе ойын жасайсың. Бұл — бағдарламалаудағы шынайы шығармашылық!",
         ru: "Творческий проект — проект в Scratch, созданный по твоей фантазии. Ты сам выбираешь тему, добавляешь спрайты и фон, создаёшь анимацию или игру. Это настоящее творчество в программировании!",
         en: "A creative project is a Scratch project made from your imagination. You choose the topic, add sprites and backgrounds, create animations or games. This is real creativity in programming!",
+      videos: [creativeProjectVideo.url, projectIdeasVideo.url],
       },
     },
     {
@@ -82,7 +86,7 @@ export const lesson17: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-17/video.mp4",
+      video: creativeProjectVideo.url,
     },
     {
       type: "summary",

@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import projectVideo from "@/assets/lesson-15/videos/project.mp4.asset.json";
+import projectStepsVideo from "@/assets/lesson-15/videos/project-steps.mp4.asset.json";
 export const lesson15: LessonData = {
   id: "lesson-15",
   title: { kk: "Менің алғашқы жобам", ru: "Мой первый проект", en: "My First Project" },
@@ -25,6 +28,7 @@ export const lesson15: LessonData = {
         kk: "Жоба — Scratch-те жасалған бағдарлама. Жобада спрайттар, фон, блоктар (командалар) бар. Мысалы: мысық «Сәлем!» деп айтатын анимация — бұл қарапайым жоба. Жобаны сақтап, достарыңмен бөлісуге болады.",
         ru: "Проект — программа, созданная в Scratch. В проекте есть спрайты, фон и блоки (команды). Например: анимация, где кот говорит «Привет!» — это простой проект. Проект можно сохранить и поделиться с друзьями.",
         en: "A project is a program created in Scratch. It has sprites, backgrounds, and blocks (commands). For example: an animation where the cat says 'Hello!' — that's a simple project. You can save and share projects.",
+      videos: [projectVideo.url, projectStepsVideo.url],
       },
     },
     {
@@ -84,7 +88,7 @@ export const lesson15: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-15/video.mp4",
+      video: projectStepsVideo.url,
     },
     {
       type: "summary",

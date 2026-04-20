@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import drawPictureVideo from "@/assets/lesson-08/videos/draw-picture.mp4.asset.json";
+import editPictureVideo from "@/assets/lesson-08/videos/edit-picture.mp4.asset.json";
 export const lesson08: LessonData = {
   id: "lesson-08",
   title: { kk: "Суреттер салу және өңдеу", ru: "Рисование и редактирование картинок", en: "Drawing and Editing Pictures" },
@@ -29,6 +32,7 @@ export const lesson08: LessonData = {
         kk: "Tux Paint-те сурет салу үшін қылқалам, сызық, фигуралар құралдарын пайдаланасың. Түстерді таңдап, жұмыс аймағына саласың.",
         ru: "Чтобы нарисовать в Tux Paint, используй кисть, линии, фигуры. Выбирай цвета и рисуй на рабочей области.",
         en: "To draw in Tux Paint, use the brush, lines, and shapes. Choose colors and draw on the canvas.",
+      videos: [drawPictureVideo.url, editPictureVideo.url],
       },
     },
     {
@@ -87,7 +91,7 @@ export const lesson08: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-08/video.mp4",
+      video: drawPictureVideo.url,
     },
     {
       type: "summary",
