@@ -179,6 +179,7 @@ export const lesson01: LessonData = {
       type: "video",
       title: { kk: "Болашақтың қаласы", ru: "Город будущего", en: "Future City" },
       image: futureCityImg,
+      video: futureCityVideo.url,
     },
     {
       type: "summary",
