@@ -43,7 +43,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           initial={{ opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ type: "spring", stiffness: 90 }}
-          className={`relative md:col-span-4 md:row-span-2 overflow-hidden rounded-3xl bg-gradient-to-br ${gradient} shadow-xl min-h-[260px] md:min-h-[340px]`}
+          className={`relative md:col-span-4 md:row-span-2 overflow-hidden rounded-3xl bg-gradient-to-br ${gradient} shadow-xl min-h-[260px] md:min-h-[340px] lg:min-h-[460px]`}
         >
           {heroImg ? (
             <img src={heroImg} alt={t(slide.title, lang)} className="absolute inset-0 h-full w-full object-cover" />
