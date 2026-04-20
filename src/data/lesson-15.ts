@@ -173,7 +173,7 @@ export const lesson15: LessonData = {
       ],
     },
     {
-      type: "game">
+      type: "game",
       title: {
         kk: "Алгоритм қадамдарын ретімен қой",
         ru: "Расставь шаги алгоритма",
