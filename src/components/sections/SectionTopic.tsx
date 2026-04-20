@@ -1,4 +1,5 @@
 import { useLang, t } from "@/lib/language";
+import type { Translatable } from "@/lib/language";
 import { LessonSlide } from "@/lib/types";
 import { motion } from "framer-motion";
 import AudioButton from "@/components/AudioButton";
@@ -6,18 +7,36 @@ import MicroVideo from "@/components/MicroVideo";
 import { Sparkles } from "lucide-react";
 
 /**
- * Bento-grid topic slide. Eliminates "lonely text" — every sentence
- * is paired with a visual or micro-video tile in an asymmetric grid.
+ * Bento-grid topic slide. Each sentence gets:
+ *  - its own visual (video[i] matched by index — kept consistent with text order)
+ *  - its own audio button (TTS speaks ONLY that sentence in the active language)
+ * If there are more sentences than videos, extra blocks render text-only (no
+ * mismatched visual). If there are more videos than sentences, the extras are
+ * dropped (no orphan visuals).
  */
 export default function SectionTopic({ slide }: { slide: LessonSlide }) {
   const { lang } = useLang();
-  const fullText = slide.text ? t(slide.text, lang) : "";
-  const sentences = fullText
-    ? fullText.split(/(?<=[.!?])\s+/).filter(Boolean)
-    : [];
+
+  // Build a per-language sentence array so each block's audio plays the
+  // exact sentence the user is reading in their selected language.
+  const splitSentences = (txt: string) =>
+    txt ? txt.split(/(?<=[.!?])\s+/).map((s) => s.trim()).filter(Boolean) : [];
+
+  const kkSentences = slide.text ? splitSentences(slide.text.kk) : [];
+  const ruSentences = slide.text ? splitSentences(slide.text.ru) : [];
+  const enSentences = slide.text ? splitSentences(slide.text.en) : [];
+
+  const count = Math.max(kkSentences.length, ruSentences.length, enSentences.length);
+
+  const sentenceBlocks: Translatable[] = Array.from({ length: count }).map((_, i) => ({
+    kk: kkSentences[i] ?? kkSentences[kkSentences.length - 1] ?? "",
+    ru: ruSentences[i] ?? ruSentences[ruSentences.length - 1] ?? "",
+    en: enSentences[i] ?? enSentences[enSentences.length - 1] ?? "",
+  }));
 
   const heroImg = slide.image;
   const gradient = slide.color || "from-primary to-secondary";
+  const videos = slide.videos || [];
 
   return (
     <motion.div
@@ -53,10 +72,13 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
             <div className="inline-flex items-center gap-1.5 rounded-full bg-white/20 backdrop-blur-md px-3 py-1 text-xs font-semibold text-white mb-2">
               <Sparkles className="h-3 w-3" /> {t(slide.title, lang)}
             </div>
-            {sentences[0] && (
-              <p className="text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-snug drop-shadow-lg max-w-3xl">
-                {sentences[0]}
-              </p>
+            {sentenceBlocks[0] && (
+              <div className="flex items-end justify-between gap-3">
+                <p className="text-white text-lg md:text-2xl lg:text-3xl xl:text-4xl font-bold leading-snug drop-shadow-lg max-w-3xl">
+                  {t(sentenceBlocks[0], lang)}
+                </p>
+                <AudioButton text={sentenceBlocks[0]} />
+              </div>
             )}
           </div>
           {/* floating emoji */}
@@ -72,7 +94,7 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           )}
         </motion.div>
 
-        {/* SIDE micro-video tile (1st video) */}
+        {/* SIDE micro-video tile (matches sentence #1) */}
         <motion.div
           initial={{ opacity: 0, x: 20 }}
           animate={{ opacity: 1, x: 0 }}
@@ -80,16 +102,18 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
           className="md:col-span-2 md:row-span-2 min-h-[200px] md:min-h-[340px] lg:min-h-[460px]"
         >
           <div className="h-full">
-            <MicroVideo src={slide.videos?.[0]} index={0} />
+            <MicroVideo src={videos[0]} index={0} caption={sentenceBlocks[0]} />
           </div>
         </motion.div>
 
-        {/* Remaining sentences paired with micro-videos */}
-        {sentences.slice(1).map((sentence, i) => {
+        {/* Remaining sentences — each with its own audio button + matching video.
+            Only render a video tile when a video exists at this index; otherwise
+            the text spans full width to avoid mismatched visuals. */}
+        {sentenceBlocks.slice(1).map((sentence, i) => {
           const idx = i + 1;
-          const video = slide.videos?.[idx];
-          // alternate: text(span 4) + video(span 2), then video(span 2) + text(span 4)
+          const video = videos[idx];
           const flipped = i % 2 === 1;
+          const hasVideo = !!video;
           return (
             <motion.div
               key={idx}
@@ -99,23 +123,26 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
               className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-3"
             >
               <div
-                className={`md:col-span-4 rounded-2xl bg-card/90 backdrop-blur-sm p-5 md:p-6 lg:p-8 card-shadow border border-border/40 flex items-center ${flipped ? "md:order-2" : ""}`}
+                className={`${hasVideo ? "md:col-span-4" : "md:col-span-6"} rounded-2xl bg-card/90 backdrop-blur-sm p-5 md:p-6 lg:p-8 card-shadow border border-border/40 flex items-center justify-between gap-4 ${flipped && hasVideo ? "md:order-2" : ""}`}
               >
-                <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-medium">
+                <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-medium flex-1">
                   <span className="mr-2 inline-flex h-7 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-primary/15 text-sm lg:text-base font-bold text-primary">
                     {idx + 1}
                   </span>
-                  {sentence}
+                  {t(sentence, lang)}
                 </p>
+                <AudioButton text={sentence} />
               </div>
-              <div className={`md:col-span-2 ${flipped ? "md:order-1" : ""}`}>
-                <MicroVideo src={video} index={idx} />
-              </div>
+              {hasVideo && (
+                <div className={`md:col-span-2 ${flipped ? "md:order-1" : ""}`}>
+                  <MicroVideo src={video} index={idx} caption={sentence} />
+                </div>
+              )}
             </motion.div>
           );
         })}
 
-        {/* Audio replay tile (no counters) */}
+        {/* Footer audio replay (whole paragraph) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}

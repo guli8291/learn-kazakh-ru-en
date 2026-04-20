@@ -53,9 +53,10 @@ export default function SectionRules({ slide }: { slide: LessonSlide }) {
             <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-primary to-secondary text-xl font-bold text-primary-foreground shadow-md">
               {i + 1}
             </span>
-            <p className="text-base md:text-lg font-medium text-foreground/90 leading-snug">
+            <p className="flex-1 text-base md:text-lg font-medium text-foreground/90 leading-snug">
               {t(point, lang)}
             </p>
+            <AudioButton text={point} size="sm" />
           </div>
           {/* decorative corner */}
           <div className="absolute -bottom-6 -right-6 h-20 w-20 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-colors" />
