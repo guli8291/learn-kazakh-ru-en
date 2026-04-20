@@ -1,8 +1,11 @@
 import { LessonData } from "@/lib/types";
 
+import spritesImg from "@/assets/lesson-14/sprites.jpg";
 
 import spritesVideo from "@/assets/lesson-14/videos/sprites.mp4.asset.json";
 import addSpriteBgVideo from "@/assets/lesson-14/videos/add-sprite-bg.mp4.asset.json";
+import spriteLibraryVideo from "@/assets/lesson-14/videos/sprite-library.mp4.asset.json";
+
 export const lesson14: LessonData = {
   id: "lesson-14",
   title: { kk: "Scratch-те спрайт және фон таңдау", ru: "Выбор спрайта и фона в Scratch", en: "Choosing Sprites and Backgrounds in Scratch" },
@@ -28,8 +31,9 @@ export const lesson14: LessonData = {
         kk: "Спрайт — Scratch-тегі кейіпкер. Ол мысық, адам, жануар, зат бола алады. Scratch кітапханасынан дайын спрайттар таңдауға немесе өзің салуға болады. Әр спрайтқа бөлек команда беруге болады.",
         ru: "Спрайт — это персонаж в Scratch. Он может быть котом, человеком, животным, предметом. Из библиотеки Scratch можно выбрать готовые спрайты или нарисовать свой. Каждому спрайту можно дать отдельные команды.",
         en: "A sprite is a character in Scratch. It can be a cat, person, animal, or object. You can choose ready-made sprites from the Scratch library or draw your own. Each sprite can have its own commands.",
-      videos: [spritesVideo.url, addSpriteBgVideo.url],
       },
+      image: spritesImg,
+      videos: [spritesVideo.url, spriteLibraryVideo.url, addSpriteBgVideo.url],
     },
     {
       type: "rules",

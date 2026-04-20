@@ -1,8 +1,11 @@
 import { LessonData } from "@/lib/types";
 
+import scratchBuildImg from "@/assets/lesson-16/scratch-build.jpg";
 
 import buildProjectVideo from "@/assets/lesson-16/videos/build-project.mp4.asset.json";
 import codeBlocksVideo from "@/assets/lesson-16/videos/code-blocks.mp4.asset.json";
+import spriteActionsVideo from "@/assets/lesson-16/videos/sprite-actions.mp4.asset.json";
+
 export const lesson16: LessonData = {
   id: "lesson-16",
   title: { kk: "Scratch-те жоба құру", ru: "Создание проекта в Scratch", en: "Creating a Project in Scratch" },
@@ -28,8 +31,9 @@ export const lesson16: LessonData = {
         kk: "Scratch-те жоба құру — бұл сызықтық алгоритм. Блоктар ретімен орындалады: алдымен бір команда, содан кейін келесі. Спрайтты қозғалтуға, дыбыс шығаруға, сөйлетуге, костюмін ауыстыруға болады.",
         ru: "Создание проекта в Scratch — это линейный алгоритм. Блоки выполняются по порядку: сначала одна команда, потом следующая. Спрайт можно двигать, озвучивать, заставить говорить, менять костюм.",
         en: "Creating a project in Scratch is a linear algorithm. Blocks execute in order: first one command, then the next. You can move sprites, add sounds, make them talk, and change costumes.",
-      videos: [buildProjectVideo.url, codeBlocksVideo.url],
       },
+      image: scratchBuildImg,
+      videos: [buildProjectVideo.url, spriteActionsVideo.url, codeBlocksVideo.url],
     },
     {
       type: "rules",

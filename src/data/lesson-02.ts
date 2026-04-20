@@ -1,9 +1,15 @@
 import { LessonData } from "@/lib/types";
 
+import monitorImg from "@/assets/lesson-02/monitor.jpg";
+import keyboardMouseImg from "@/assets/lesson-02/keyboard-mouse.jpg";
+import systemUnitImg from "@/assets/lesson-02/system-unit.jpg";
 
 import monitorVideo from "@/assets/lesson-02/videos/monitor.mp4.asset.json";
 import keyboardMouseVideo from "@/assets/lesson-02/videos/keyboard-mouse.mp4.asset.json";
 import powerOnVideo from "@/assets/lesson-02/videos/power-on.mp4.asset.json";
+import typingHandsVideo from "@/assets/lesson-02/videos/typing-hands.mp4.asset.json";
+import systemUnitBrainVideo from "@/assets/lesson-02/videos/system-unit-brain.mp4.asset.json";
+
 export const lesson02: LessonData = {
   id: "lesson-02",
   title: { kk: "Компьютер құрылғылары", ru: "Устройства компьютера", en: "Computer Devices" },
@@ -33,9 +39,9 @@ export const lesson02: LessonData = {
         kk: "Монитор — компьютердің экраны. Ол бізге суреттер, мәтін және видео көрсетеді. Монитор — теледидарға ұқсайды.",
         ru: "Монитор — это экран компьютера. Он показывает нам картинки, текст и видео. Монитор похож на телевизор.",
         en: "The monitor is the computer screen. It shows us pictures, text, and video. The monitor looks like a TV.",
-      videos: [monitorVideo.url, keyboardMouseVideo.url, powerOnVideo.url],
       },
-      image: "/lessons/lesson-02/images/monitor.jpg",
+      image: monitorImg,
+      videos: [monitorVideo.url, powerOnVideo.url, typingHandsVideo.url],
     },
     {
       type: "topic",
@@ -45,7 +51,8 @@ export const lesson02: LessonData = {
         ru: "Клавиатура — устройство для ввода текста. Мышь — для нажатия на объекты на экране. Это основные устройства ввода.",
         en: "The keyboard is for typing text. The mouse is for clicking objects on screen. These are main input devices.",
       },
-      image: "/lessons/lesson-02/images/keyboard-mouse.jpg",
+      image: keyboardMouseImg,
+      videos: [keyboardMouseVideo.url, typingHandsVideo.url],
     },
     {
       type: "topic",
@@ -55,7 +62,8 @@ export const lesson02: LessonData = {
         ru: "Системный блок — «мозг» компьютера. Внутри него процессор, память и другие важные части.",
         en: "The system unit is the computer's \"brain\". Inside it are the processor, memory, and other important parts.",
       },
-      image: "/lessons/lesson-02/images/system-unit.jpg",
+      image: systemUnitImg,
+      videos: [systemUnitBrainVideo.url, powerOnVideo.url],
     },
     {
       type: "rules",
