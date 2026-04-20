@@ -99,10 +99,10 @@ export default function SectionTopic({ slide }: { slide: LessonSlide }) {
               className="md:col-span-6 grid grid-cols-1 md:grid-cols-6 gap-3"
             >
               <div
-                className={`md:col-span-4 rounded-2xl bg-card/90 backdrop-blur-sm p-5 md:p-6 card-shadow border border-border/40 flex items-center ${flipped ? "md:order-2" : ""}`}
+                className={`md:col-span-4 rounded-2xl bg-card/90 backdrop-blur-sm p-5 md:p-6 lg:p-8 card-shadow border border-border/40 flex items-center ${flipped ? "md:order-2" : ""}`}
               >
-                <p className="text-base md:text-xl leading-relaxed text-foreground/90 font-medium">
-                  <span className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary/15 text-sm font-bold text-primary">
+                <p className="text-base md:text-xl lg:text-2xl leading-relaxed text-foreground/90 font-medium">
+                  <span className="mr-2 inline-flex h-7 w-7 lg:h-9 lg:w-9 items-center justify-center rounded-full bg-primary/15 text-sm lg:text-base font-bold text-primary">
                     {idx + 1}
                   </span>
                   {sentence}
