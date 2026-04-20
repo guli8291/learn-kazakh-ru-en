@@ -12,6 +12,14 @@ import computerLabVideo from "@/assets/lesson-01/videos/computer-lab.mp4.asset.j
 import correctPostureVideo from "@/assets/lesson-01/videos/correct-posture.mp4.asset.json";
 import prohibitedActionsVideo from "@/assets/lesson-01/videos/prohibited-actions.mp4.asset.json";
 import eyeRestVideo from "@/assets/lesson-01/videos/eye-rest.mp4.asset.json";
+import individualWorkVideo from "@/assets/lesson-01/videos/individual-work.mp4.asset.json";
+import digitalLessonVideo from "@/assets/lesson-01/videos/digital-lesson.mp4.asset.json";
+import straightBackVideo from "@/assets/lesson-01/videos/straight-back.mp4.asset.json";
+import correctDistanceVideo from "@/assets/lesson-01/videos/correct-distance.mp4.asset.json";
+import noFoodVideo from "@/assets/lesson-01/videos/no-food.mp4.asset.json";
+import eyeRest2Video from "@/assets/lesson-01/videos/eye-rest-2.mp4.asset.json";
+import washHandsVideo from "@/assets/lesson-01/videos/wash-hands.mp4.asset.json";
+import futureCityVideo from "@/assets/lesson-01/videos/future-city.mp4.asset.json";
 
 export const lesson01: LessonData = {
   id: "lesson-01",
