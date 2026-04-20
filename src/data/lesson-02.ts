@@ -3,6 +3,10 @@ import { LessonData } from "@/lib/types";
 import monitorImg from "@/assets/lesson-02/monitor.jpg";
 import keyboardMouseImg from "@/assets/lesson-02/keyboard-mouse.jpg";
 import systemUnitImg from "@/assets/lesson-02/system-unit.jpg";
+import partsLabeledImg from "@/assets/lesson-02/computer-parts-labeled.jpg";
+import powerButtonImg from "@/assets/lesson-02/power-button.jpg";
+import shutdownMenuImg from "@/assets/lesson-02/shutdown-menu.jpg";
+import digitalDevicesImg from "@/assets/lesson-02/digital-devices.jpg";
 
 import monitorVideo from "@/assets/lesson-02/videos/monitor.mp4.asset.json";
 import keyboardMouseVideo from "@/assets/lesson-02/videos/keyboard-mouse.mp4.asset.json";
@@ -12,124 +16,195 @@ import systemUnitBrainVideo from "@/assets/lesson-02/videos/system-unit-brain.mp
 
 export const lesson02: LessonData = {
   id: "lesson-02",
-  title: { kk: "Компьютер құрылғылары", ru: "Устройства компьютера", en: "Computer Devices" },
+  title: { kk: "Компьютермен танысу", ru: "Знакомство с компьютером", en: "Meet the Computer" },
   description: {
-    kk: "Компьютердің негізгі бөліктерімен танысу",
-    ru: "Знакомство с основными частями компьютера",
-    en: "Getting to know the main parts of a computer",
+    kk: "Компьютер құрылғылары, оны іске қосу және өшіру",
+    ru: "Устройства компьютера, включение и выключение",
+    en: "Computer devices, turning on and off",
   },
   emoji: "🖥️",
   color: "from-blue-400 to-indigo-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Компьютер құрылғылары", ru: "Устройства компьютера", en: "Computer Devices" },
+      title: { kk: "Компьютермен танысу", ru: "Знакомство с компьютером", en: "Meet the Computer" },
       subtitle: {
-        kk: "Компьютердің бөліктерін білейік!",
-        ru: "Узнаем части компьютера!",
-        en: "Let's learn the parts of a computer!",
+        kk: "Компьютер қандай құрылғылардан тұрады?",
+        ru: "Из каких устройств состоит компьютер?",
+        en: "What devices make up a computer?",
       },
       emoji: "🖥️",
       color: "from-blue-400 to-indigo-500",
     },
     {
       type: "topic",
-      title: { kk: "Монитор", ru: "Монитор", en: "Monitor" },
+      title: { kk: "1-сурет. Цифрлық құрылғылар", ru: "Рис. 1. Цифровые устройства", en: "Pic. 1. Digital devices" },
       text: {
-        kk: "Монитор — компьютердің экраны. Ол бізге суреттер, мәтін және видео көрсетеді. Монитор — теледидарға ұқсайды.",
-        ru: "Монитор — это экран компьютера. Он показывает нам картинки, текст и видео. Монитор похож на телевизор.",
-        en: "The monitor is the computer screen. It shows us pictures, text, and video. The monitor looks like a TV.",
+        kk: "Қандай құрылғылар бейнеленген? Қайсысының қызметі басқаларынан өзгеше? Компьютер не үшін қажет деп ойлайсың?",
+        ru: "Какие устройства изображены? У какого функция отличается? Зачем нужен компьютер?",
+        en: "What devices do you see? Which one is different? Why do we need a computer?",
       },
-      image: monitorImg,
-      videos: [monitorVideo.url, powerOnVideo.url, typingHandsVideo.url],
+      image: digitalDevicesImg,
     },
     {
       type: "topic",
-      title: { kk: "Пернетақта және тышқан", ru: "Клавиатура и мышь", en: "Keyboard and Mouse" },
+      title: { kk: "Жаңа білім: Компьютер дегеніміз не?", ru: "Что такое компьютер?", en: "What is a computer?" },
       text: {
-        kk: "Пернетақта — мәтін жазуға арналған құрылғы. Тышқан — экрандағы нысандарды басуға арналған. Бұлар негізгі енгізу құрылғылары.",
-        ru: "Клавиатура — устройство для ввода текста. Мышь — для нажатия на объекты на экране. Это основные устройства ввода.",
-        en: "The keyboard is for typing text. The mouse is for clicking objects on screen. These are main input devices.",
+        kk: "Компьютер — ақпаратпен жұмыс істеуге арналған электрондық құрылғы. Ол төрт негізгі бөліктен тұрады: монитор, жүйелік блок, пернетақта, тінтуір.",
+        ru: "Компьютер — электронное устройство для работы с информацией. Состоит из 4 частей: монитор, системный блок, клавиатура, мышь.",
+        en: "A computer is an electronic device for working with information. It has 4 main parts: monitor, system unit, keyboard, mouse.",
+      },
+      image: partsLabeledImg,
+    },
+    {
+      type: "rules",
+      title: { kk: "2-сурет. Компьютердің құрылғылары", ru: "Рис. 2. Устройства компьютера", en: "Pic. 2. Computer devices" },
+      points: [
+        { kk: "🖥️ Монитор — мәтінді, цифрлар мен суреттерді көрсетеді", ru: "🖥️ Монитор — показывает текст, цифры и картинки", en: "🖥️ Monitor — shows text, numbers and pictures" },
+        { kk: "🗄️ Жүйелік блок — компьютердің ішкі құрылғылары орналасады", ru: "🗄️ Системный блок — содержит внутренние устройства", en: "🗄️ System unit — holds internal devices" },
+        { kk: "⌨️ Пернетақта — компьютерге мәтін енгізеді", ru: "⌨️ Клавиатура — вводит текст в компьютер", en: "⌨️ Keyboard — enters text" },
+        { kk: "🖱️ Тінтуір — меңзермен басқарып, команда береді", ru: "🖱️ Мышь — управляет курсором и даёт команды", en: "🖱️ Mouse — controls the cursor and gives commands" },
+      ],
+      emoji: "🧩",
+    },
+    {
+      type: "topic",
+      title: { kk: "Монитор", ru: "Монитор", en: "Monitor" },
+      text: {
+        kk: "Монитор — теледидарға ұқсас экран. Онда мәтін, сандар, суреттер мен видео көрінеді.",
+        ru: "Монитор похож на телевизор. На нём видны текст, цифры, картинки и видео.",
+        en: "The monitor looks like a TV. It shows text, numbers, pictures and videos.",
+      },
+      image: monitorImg,
+      videos: [monitorVideo.url],
+    },
+    {
+      type: "topic",
+      title: { kk: "Пернетақта және тінтуір", ru: "Клавиатура и мышь", en: "Keyboard and Mouse" },
+      text: {
+        kk: "Пернетақта арқылы әріп пен сан енгіземіз. Тінтуір экрандағы меңзерді басқарады және команда береді.",
+        ru: "Клавиатурой вводим буквы и цифры. Мышь управляет курсором и даёт команды.",
+        en: "We type letters and numbers with the keyboard. The mouse moves the cursor and gives commands.",
       },
       image: keyboardMouseImg,
       videos: [keyboardMouseVideo.url, typingHandsVideo.url],
     },
     {
       type: "topic",
-      title: { kk: "Жүйелік блок", ru: "Системный блок", en: "System Unit" },
+      title: { kk: "Жүйелік блок — компьютердің «миы»", ru: "Системный блок — «мозг»", en: "System Unit — the \"brain\"" },
       text: {
-        kk: "Жүйелік блок — компьютердің «миы». Оның ішінде процессор, жад және басқа маңызды бөліктер бар.",
-        ru: "Системный блок — «мозг» компьютера. Внутри него процессор, память и другие важные части.",
-        en: "The system unit is the computer's \"brain\". Inside it are the processor, memory, and other important parts.",
+        kk: "Жүйелік блоктың ішінде процессор, жад және басқа маңызды құрылғылар орналасқан. Ол барлық есептеуді жүргізеді.",
+        ru: "Внутри системного блока — процессор, память и другие важные устройства. Он выполняет все вычисления.",
+        en: "Inside the system unit are the processor, memory and other parts. It performs all computations.",
       },
       image: systemUnitImg,
-      videos: [systemUnitBrainVideo.url, powerOnVideo.url],
+      videos: [systemUnitBrainVideo.url],
     },
     {
-      type: "rules",
-      title: { kk: "Компьютерді қосу және өшіру", ru: "Включение и выключение", en: "Turning On and Off" },
-      points: [
-        { kk: "Қосу: жүйелік блоктағы батырманы бас", ru: "Включение: нажми кнопку на системном блоке", en: "Turn on: press the button on the system unit" },
-        { kk: "Жүктелуін күт", ru: "Подожди загрузки", en: "Wait for it to load" },
-        { kk: "Өшіру: «Пуск» → «Өшіру» бас", ru: "Выключение: «Пуск» → «Выключить»", en: "Turn off: Start → Shut down" },
-        { kk: "Ешқашан сымнан суырма!", ru: "Никогда не выдёргивай из розетки!", en: "Never unplug from the outlet!" },
-      ],
-      emoji: "🔌",
+      type: "topic",
+      title: { kk: "3-сурет. Компьютерді іске қосу", ru: "Рис. 3. Включение компьютера", en: "Pic. 3. Turning on" },
+      text: {
+        kk: "Жүйелік блокты және мониторды сыртқы батырмамен іске қосады. Күт — компьютер жүктеледі.",
+        ru: "Системный блок и монитор включают внешней кнопкой. Подожди — компьютер загружается.",
+        en: "Press the external buttons on the system unit and monitor. Wait while it loads.",
+      },
+      image: powerButtonImg,
+      videos: [powerOnVideo.url],
+    },
+    {
+      type: "topic",
+      title: { kk: "4-сурет. Компьютерді өшіру", ru: "Рис. 4. Выключение", en: "Pic. 4. Turning off" },
+      text: {
+        kk: "Өшіру үшін: Іске қосу → Өшіру (Пуск → Выключение). Ешқашан жүйелік блоктан өшірме!",
+        ru: "Выключение: Пуск → Выключение. Никогда не выключай через системный блок!",
+        en: "To turn off: Start → Shut down. Never power-off via the system unit!",
+      },
+      image: shutdownMenuImg,
     },
     {
       type: "interactive",
-      title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
+      title: { kk: "Ойлан, тап, жаз", ru: "Подумай, найди, напиши", en: "Think and find" },
       items: [
         {
           type: "choice",
-          question: { kk: "Монитор нені көрсетеді?", ru: "Что показывает монитор?", en: "What does the monitor show?" },
+          question: { kk: "Қай құрылғы мәтінді көрсетеді?", ru: "Какое устройство показывает текст?", en: "Which one shows text?" },
           options: [
-            { kk: "Дыбыс", ru: "Звук", en: "Sound" },
-            { kk: "Сурет, мәтін, видео", ru: "Картинки, текст, видео", en: "Pictures, text, video" },
-            { kk: "Иіс", ru: "Запах", en: "Smell" },
+            { kk: "Тінтуір", ru: "Мышь", en: "Mouse" },
+            { kk: "Монитор", ru: "Монитор", en: "Monitor" },
+            { kk: "Жүйелік блок", ru: "Системный блок", en: "System unit" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Компьютердің «миы» қалай аталады?", ru: "Как называется «мозг» компьютера?", en: "What is the computer's \"brain\" called?" },
+          question: { kk: "Меңзерді не басқарады?", ru: "Что управляет курсором?", en: "What controls the cursor?" },
           options: [
+            { kk: "Пернетақта", ru: "Клавиатура", en: "Keyboard" },
+            { kk: "Тінтуір", ru: "Мышь", en: "Mouse" },
             { kk: "Монитор", ru: "Монитор", en: "Monitor" },
-            { kk: "Тышқан", ru: "Мышь", en: "Mouse" },
-            { kk: "Жүйелік блок", ru: "Системный блок", en: "System unit" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: { kk: "Компьютердің «миы» қайда?", ru: "Где «мозг» компьютера?", en: "Where is the brain?" },
+          options: [
+            { kk: "Мониторда", ru: "В мониторе", en: "In monitor" },
+            { kk: "Тінтуірде", ru: "В мыши", en: "In mouse" },
+            { kk: "Жүйелік блокта", ru: "В системном блоке", en: "In system unit" },
           ],
           correctIndex: 2,
+        },
+        {
+          type: "choice",
+          question: { kk: "Компьютерді қалай дұрыс өшіру керек?", ru: "Как правильно выключить?", en: "Correct way to shut down?" },
+          options: [
+            { kk: "Сымнан суыру", ru: "Выдернуть из розетки", en: "Unplug it" },
+            { kk: "Іске қосу → Өшіру", ru: "Пуск → Выключение", en: "Start → Shut down" },
+            { kk: "Мониторды сөндіру", ru: "Выключить монитор", en: "Turn off monitor" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: { kk: "Әріп енгізу үшін қандай құрылғы қажет?", ru: "Чем вводят буквы?", en: "What types letters?" },
+          options: [
+            { kk: "Тінтуір", ru: "Мышь", en: "Mouse" },
+            { kk: "Пернетақта", ru: "Клавиатура", en: "Keyboard" },
+            { kk: "Монитор", ru: "Монитор", en: "Monitor" },
+          ],
+          correctIndex: 1,
         },
       ],
     },
     {
       type: "game",
-      title: { kk: "Сәйкестендіру ойыны", ru: "Игра на соответствие", en: "Matching Game" },
+      title: { kk: "Сәйкестендір", ru: "Соедини", en: "Match" },
       items: [
         {
           type: "match",
-          instruction: { kk: "Құрылғыны қызметімен сәйкестендір", ru: "Соедини устройство с его функцией", en: "Match the device with its function" },
+          instruction: { kk: "Құрылғыны қызметімен сәйкестендір", ru: "Соедини устройство с функцией", en: "Match device to function" },
           pairs: [
-            { left: { kk: "Монитор", ru: "Монитор", en: "Monitor" }, right: { kk: "Көрсету", ru: "Показывать", en: "Display" } },
-            { left: { kk: "Пернетақта", ru: "Клавиатура", en: "Keyboard" }, right: { kk: "Жазу", ru: "Печатать", en: "Type" } },
-            { left: { kk: "Тышқан", ru: "Мышь", en: "Mouse" }, right: { kk: "Басу", ru: "Нажимать", en: "Click" } },
-            { left: { kk: "Жүйелік блок", ru: "Сист. блок", en: "System unit" }, right: { kk: "Есептеу", ru: "Вычислять", en: "Compute" } },
+            { left: { kk: "🖥️ Монитор", ru: "🖥️ Монитор", en: "🖥️ Monitor" }, right: { kk: "Көрсетеді", ru: "Показывает", en: "Displays" } },
+            { left: { kk: "⌨️ Пернетақта", ru: "⌨️ Клавиатура", en: "⌨️ Keyboard" }, right: { kk: "Мәтін енгізеді", ru: "Вводит текст", en: "Enters text" } },
+            { left: { kk: "🖱️ Тінтуір", ru: "🖱️ Мышь", en: "🖱️ Mouse" }, right: { kk: "Меңзерді басқарады", ru: "Управляет курсором", en: "Moves cursor" } },
+            { left: { kk: "🗄️ Жүйелік блок", ru: "🗄️ Системный блок", en: "🗄️ System unit" }, right: { kk: "Есептеуді жүргізеді", ru: "Выполняет вычисления", en: "Computes" } },
           ],
         },
       ],
     },
     {
       type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
+      title: { kk: "Компьютерді іске қосу", ru: "Включение компьютера", en: "Turning on the computer" },
       video: powerOnVideo.url,
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Монитор — экран, ол ақпаратты көрсетеді", ru: "Монитор — экран, показывает информацию", en: "Monitor — screen that shows information" },
-        { kk: "Пернетақта мен тышқан — енгізу құрылғылары", ru: "Клавиатура и мышь — устройства ввода", en: "Keyboard and mouse — input devices" },
-        { kk: "Жүйелік блок — компьютердің негізі", ru: "Системный блок — основа компьютера", en: "System unit — the core of the computer" },
+        { kk: "Компьютер — ақпаратпен жұмыс істейтін электрондық құрылғы", ru: "Компьютер — электронное устройство для работы с информацией", en: "A computer is an electronic device for information" },
+        { kk: "4 негізгі бөлік: монитор, жүйелік блок, пернетақта, тінтуір", ru: "4 части: монитор, системный блок, клавиатура, мышь", en: "4 parts: monitor, system unit, keyboard, mouse" },
+        { kk: "Қосу — батырмамен, өшіру — Пуск → Өшіру", ru: "Включение — кнопкой, выключение — Пуск → Выключение", en: "Power on — button; off — Start → Shut down" },
       ],
       emoji: "🏆",
     },

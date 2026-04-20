@@ -5,19 +5,18 @@ import classroomRulesImg from "@/assets/lesson-01/classroom-rules.jpg";
 import correctPostureImg from "@/assets/lesson-01/correct-posture.jpg";
 import prohibitedActionsImg from "@/assets/lesson-01/prohibited-actions.jpg";
 import safetyTipsImg from "@/assets/lesson-01/safety-tips.jpg";
-import quizTimeImg from "@/assets/lesson-01/quiz-time.jpg";
 import futureCityImg from "@/assets/lesson-01/future-city.jpg";
+import postureComparisonImg from "@/assets/lesson-01/posture-comparison.jpg";
+import ruleBreakersImg from "@/assets/lesson-01/rule-breakers.jpg";
 
 import computerLabVideo from "@/assets/lesson-01/videos/computer-lab.mp4.asset.json";
 import correctPostureVideo from "@/assets/lesson-01/videos/correct-posture.mp4.asset.json";
 import prohibitedActionsVideo from "@/assets/lesson-01/videos/prohibited-actions.mp4.asset.json";
 import eyeRestVideo from "@/assets/lesson-01/videos/eye-rest.mp4.asset.json";
-import individualWorkVideo from "@/assets/lesson-01/videos/individual-work.mp4.asset.json";
 import digitalLessonVideo from "@/assets/lesson-01/videos/digital-lesson.mp4.asset.json";
 import straightBackVideo from "@/assets/lesson-01/videos/straight-back.mp4.asset.json";
 import correctDistanceVideo from "@/assets/lesson-01/videos/correct-distance.mp4.asset.json";
 import noFoodVideo from "@/assets/lesson-01/videos/no-food.mp4.asset.json";
-import eyeRest2Video from "@/assets/lesson-01/videos/eye-rest-2.mp4.asset.json";
 import washHandsVideo from "@/assets/lesson-01/videos/wash-hands.mp4.asset.json";
 import futureCityVideo from "@/assets/lesson-01/videos/future-city.mp4.asset.json";
 
@@ -25,9 +24,9 @@ export const lesson01: LessonData = {
   id: "lesson-01",
   title: { kk: "Денсаулық және компьютер", ru: "Здоровье и компьютер", en: "Health and Computer" },
   description: {
-    kk: "Компьютермен жұмыс істеу кезінде денсаулықты сақтау ережелері",
-    ru: "Правила сохранения здоровья при работе за компьютером",
-    en: "Rules for staying healthy while using a computer",
+    kk: "Информатика кабинетіндегі тәртіп ережелері",
+    ru: "Правила поведения в кабинете информатики",
+    en: "Rules of conduct in the computer lab",
   },
   emoji: "🏥",
   color: "from-green-400 to-teal-500",
@@ -36,117 +35,102 @@ export const lesson01: LessonData = {
       type: "hero",
       title: { kk: "Денсаулық және компьютер", ru: "Здоровье и компьютер", en: "Health and Computer" },
       subtitle: {
-        kk: "Компьютермен дұрыс жұмыс істеуді үйренеміз!",
-        ru: "Научимся правильно работать за компьютером!",
-        en: "Let's learn to use the computer correctly!",
+        kk: "Болашақ қаласына саяхат жасайық!",
+        ru: "Отправимся в город будущего!",
+        en: "Let's travel to the city of the future!",
       },
       emoji: "💻",
       color: "from-green-400 to-teal-500",
     },
     {
+      type: "video",
+      title: { kk: "Болашақтың қаласы", ru: "Город будущего", en: "City of the Future" },
+      video: futureCityVideo.url,
+    },
+    {
       type: "topic",
-      title: {
-        kk: "Жаңа білім",
-        ru: "Новые знания",
-        en: "New Knowledge",
-      },
+      title: { kk: "Информатика кабинеті", ru: "Кабинет информатики", en: "Computer Lab" },
       text: {
         kk: "Суретте информатика кабинеті бейнеленген. Кабинетте әр оқушының жеке отырып жұмыс істеуі үшін компьютерлер қойылған. Цифрлық сауаттылық сабағы информатика кабинетінде өтеді.",
-        ru: "На рисунке изображена компьютерная комната. В комнате установлены компьютеры для работы каждого ученика отдельно. Урок цифровой грамотности проходит в компьютерной комнате.",
-        en: "The picture shows a computer lab. Computers are set up for each student to work individually. The digital literacy lesson takes place in the computer lab.",
+        ru: "На рисунке — кабинет информатики. Для каждого ученика стоит отдельный компьютер. Урок цифровой грамотности проходит здесь.",
+        en: "The picture shows a computer lab. Each student has their own computer. The digital literacy lesson takes place here.",
       },
       image: computerLabImg,
-      videos: [computerLabVideo.url, individualWorkVideo.url, digitalLessonVideo.url],
+      videos: [computerLabVideo.url, digitalLessonVideo.url],
     },
     {
       type: "rules",
-      title: {
-        kk: "1-ереже. Кабинетке кіру тәртібі",
-        ru: "Правило 1. Порядок входа в кабинет",
-        en: "Rule 1. Entering the classroom",
-      },
+      title: { kk: "Информатика кабинетіндегі ережелер", ru: "Правила в кабинете информатики", en: "Computer Lab Rules" },
       points: [
-        { kk: "Кабинетке мұғалімнің рұқсатынсыз кіруге болмайды", ru: "Входить в кабинет без разрешения учителя запрещено", en: "Entering the classroom without the teacher's permission is prohibited" },
-        { kk: "Мониторға 50-70 см қашықтықта отыр", ru: "Сиди на расстоянии 50-70 см от монитора", en: "Sit 50-70 cm away from the monitor" },
-        { kk: "Арқаңды тік ұста", ru: "Держи спину прямо", en: "Keep your back straight" },
-        { kk: "Әр 15 минут сайын көзіңе демалыс бер", ru: "Каждые 15 минут давай глазам отдых", en: "Rest your eyes every 15 minutes" },
-        { kk: "Компьютерде тамақ ішпе", ru: "Не ешь за компьютером", en: "Don't eat at the computer" },
-        { kk: "Сабақтан кейін қолыңды жу", ru: "После занятия вымой руки", en: "Wash your hands after class" },
+        { kk: "1️⃣ Кабинетке мұғалімнің рұқсатынсыз кіруге болмайды", ru: "1️⃣ Без разрешения учителя в кабинет входить нельзя", en: "1️⃣ Don't enter the lab without teacher's permission" },
+        { kk: "2️⃣ Компьютерде тек мұғалімнің рұқсатымен жұмыс істейміз", ru: "2️⃣ За компьютером работаем только с разрешения учителя", en: "2️⃣ Use the computer only with teacher's permission" },
+        { kk: "3️⃣ Экран мен көздің арасы 50–70 см болсын", ru: "3️⃣ Расстояние от глаз до экрана — 50–70 см", en: "3️⃣ Keep eyes 50–70 cm from screen" },
+        { kk: "4️⃣ Үзіліссіз 15 минуттан артық отырма", ru: "4️⃣ Не сиди подряд более 15 минут", en: "4️⃣ Don't sit longer than 15 minutes nonstop" },
+        { kk: "5️⃣ Арқаңды тік ұста, аяғыңды еденге қой", ru: "5️⃣ Спина прямая, ноги на полу", en: "5️⃣ Back straight, feet on floor" },
       ],
       emoji: "📋",
       image: classroomRulesImg,
     },
     {
       type: "topic",
-      title: {
-        kk: "Компьютердің алдында дұрыс отыру",
-        ru: "Правильная посадка за компьютером",
-        en: "Correct Posture at the Computer",
-      },
+      title: { kk: "3-сурет. Дұрыс отыру", ru: "Рис. 3. Правильная посадка", en: "Pic. 3. Correct Posture" },
       text: {
-        kk: "Компьютерде жұмыс істегенде дұрыс отыру өте маңызды. Арқаңды тік ұстап, аяғыңды еденге қой. Компьютердің алдында дұрыс отырған оқушыны белгіле.",
-        ru: "Правильная посадка очень важна при работе за компьютером. Держи спину прямо и поставь ноги на пол. Найдите ученика, который правильно сидит за компьютером.",
-        en: "Good posture is very important when working at the computer. Keep your back straight and feet on the floor. Find the student who is sitting correctly.",
+        kk: "Компьютердің алдында дұрыс отырған оқушыны белгіле. Арқаңды тік ұста, аяғыңды еденге қой, экранға тым жақын отырма.",
+        ru: "Найди ученика, который сидит правильно. Спина прямая, ноги на полу, не наклоняйся слишком близко к экрану.",
+        en: "Find the student sitting correctly. Back straight, feet on floor, don't lean too close to the screen.",
       },
       image: correctPostureImg,
       videos: [correctPostureVideo.url, straightBackVideo.url, correctDistanceVideo.url],
     },
     {
       type: "topic",
-      title: {
-        kk: "Тыйым салынған әрекеттер",
-        ru: "Запрещенные действия",
-        en: "Prohibited Actions",
-      },
+      title: { kk: "4-сурет. Кім дұрыс отыр?", ru: "Рис. 4. Кто сидит правильно?", en: "Pic. 4. Who sits right?" },
       text: {
-        kk: "Компьютермен жұмыс барысында не істеуге болмайды? Себебін түсіндір.",
-        ru: "Что нельзя делать во время работы с компьютером? Объясните причину.",
-        en: "What can't you do while working with a computer? Explain why.",
+        kk: "Қай оқушы дұрыс отыр? Қалғандарының қандай қатесі бар? Дұрыс отырмаудың зияны қандай?",
+        ru: "Какой ученик сидит правильно? Какие ошибки у остальных? Чем вредна неправильная посадка?",
+        en: "Which one is sitting right? What mistakes do the others make? Why is bad posture harmful?",
       },
-      image: prohibitedActionsImg,
+      image: postureComparisonImg,
+    },
+    {
+      type: "topic",
+      title: { kk: "Тыйым салынған әрекеттер", ru: "Запрещённые действия", en: "Prohibited Actions" },
+      text: {
+        kk: "❌ Монитордың экранын қолмен ұстама. ❌ Компьютердің сымдарын ұстама. ❌ Пернетақтаны су қолмен баспа. ❌ Кабинетке тамақ алып кірме. ❌ Жүйелік блоктан өшірме.",
+        ru: "❌ Не трогай экран руками. ❌ Не трогай провода. ❌ Не нажимай мокрыми руками. ❌ Не приноси еду. ❌ Не выключай через системный блок.",
+        en: "❌ Don't touch the screen. ❌ Don't touch cables. ❌ No wet hands on keyboard. ❌ No food. ❌ Don't unplug the system unit.",
+      },
+      image: ruleBreakersImg,
       videos: [prohibitedActionsVideo.url, noFoodVideo.url, washHandsVideo.url],
     },
     {
       type: "topic",
-      title: {
-        kk: "Компьютермен жұмыс істегенде есіңде сақта!",
-        ru: "Запомни при работе с компьютером!",
-        en: "Remember when working with a computer!",
-      },
+      title: { kk: "Есіңде сақта!", ru: "Запомни!", en: "Remember!" },
       text: {
-        kk: "Информатика кабинетінің мектептегі басқа кабинеттерден қандай айырмашылығы бар? Информатика кабинетіндегі тәртіп ережелерін сақтауды үйренесің.",
-        ru: "Чем отличается компьютерный класс от других кабинетов школы? Ты научишься соблюдать правила поведения в компьютерном классе.",
-        en: "How is the computer lab different from other classrooms? You will learn to follow the rules in the computer lab.",
+        kk: "Экран мен көздің арасы 50–70 см болуы керек. Компьютердің алдында үзіліссіз 15 минуттан артық отырма. Көзіңе демалыс бер!",
+        ru: "Расстояние от глаз до экрана — 50–70 см. Не сиди дольше 15 минут подряд. Дай отдых глазам!",
+        en: "Eye-to-screen distance: 50–70 cm. Don't sit longer than 15 minutes. Rest your eyes!",
       },
       image: safetyTipsImg,
-      videos: [eyeRestVideo.url, eyeRest2Video.url, straightBackVideo.url],
+      videos: [eyeRestVideo.url],
     },
     {
       type: "interactive",
       title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
-      image: quizTimeImg,
       items: [
         {
           type: "choice",
-          question: {
-            kk: "Мониторға қанша қашықтықта отыру керек?",
-            ru: "На каком расстоянии нужно сидеть от монитора?",
-            en: "How far should you sit from the monitor?",
-          },
+          question: { kk: "Мониторға қанша қашықтықта отыру керек?", ru: "На каком расстоянии сидеть от монитора?", en: "How far from the monitor?" },
           options: [
-            { kk: "10-20 см", ru: "10-20 см", en: "10-20 cm" },
-            { kk: "50-70 см", ru: "50-70 см", en: "50-70 cm" },
+            { kk: "10–20 см", ru: "10–20 см", en: "10–20 cm" },
+            { kk: "50–70 см", ru: "50–70 см", en: "50–70 cm" },
             { kk: "2 метр", ru: "2 метра", en: "2 meters" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: {
-            kk: "Әр неше минут сайын көзге демалыс беру керек?",
-            ru: "Через сколько минут нужно давать отдых глазам?",
-            en: "How often should you rest your eyes?",
-          },
+          question: { kk: "Үзіліссіз неше минут отыруға болады?", ru: "Сколько минут можно сидеть без перерыва?", en: "Max nonstop minutes?" },
           options: [
             { kk: "5 минут", ru: "5 минут", en: "5 minutes" },
             { kk: "15 минут", ru: "15 минут", en: "15 minutes" },
@@ -154,41 +138,68 @@ export const lesson01: LessonData = {
           ],
           correctIndex: 1,
         },
+        {
+          type: "choice",
+          question: { kk: "Кабинетке кім рұқсат береді?", ru: "Кто разрешает войти в кабинет?", en: "Who lets you in?" },
+          options: [
+            { kk: "Дос", ru: "Друг", en: "Friend" },
+            { kk: "Мұғалім", ru: "Учитель", en: "Teacher" },
+            { kk: "Өзім", ru: "Сам", en: "Myself" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: { kk: "Компьютермен жұмыс істегенде не істеуге болмайды?", ru: "Что нельзя делать за компьютером?", en: "What's NOT allowed?" },
+          options: [
+            { kk: "Тамақ ішу", ru: "Есть еду", en: "Eat food" },
+            { kk: "Тапсырма орындау", ru: "Выполнять задания", en: "Do tasks" },
+            { kk: "Көзге демалыс беру", ru: "Давать отдых глазам", en: "Rest eyes" },
+          ],
+          correctIndex: 0,
+        },
+        {
+          type: "choice",
+          question: { kk: "Қай әрекет дұрыс?", ru: "Какое действие правильное?", en: "Which is correct?" },
+          options: [
+            { kk: "Экранды саусақпен басу", ru: "Тыкать пальцем в экран", en: "Poke screen with finger" },
+            { kk: "Сабақтан кейін қолды жуу", ru: "Мыть руки после урока", en: "Wash hands after class" },
+            { kk: "Сымды жұлу", ru: "Дёргать провод", en: "Pull the cable" },
+          ],
+          correctIndex: 1,
+        },
       ],
     },
     {
       type: "game",
-      title: { kk: "Қауіпсіздік ережелерін сәйкестендір", ru: "Соедини правила безопасности", en: "Match Safety Rules" },
+      title: { kk: "Қауіпсіз/қауіпті — сәйкестендір", ru: "Безопасно/опасно — соедини", en: "Safe/Dangerous — match" },
       items: [
         {
           type: "match",
           instruction: {
-            kk: "Компьютермен жұмыс кезіндегі қауіпсіздік ережелерін дұрыс сәйкестендір",
-            ru: "Правильно соедини правила безопасности при работе с компьютером",
-            en: "Correctly match the safety rules when working with a computer",
+            kk: "Әрекетті дұрыс санатқа сәйкестендір",
+            ru: "Соедини действие с категорией",
+            en: "Match the action to category",
           },
           pairs: [
-            { left: { kk: "Арқа", ru: "Спина", en: "Back" }, right: { kk: "Тік ұстау", ru: "Держать прямо", en: "Keep straight" } },
-            { left: { kk: "Көз", ru: "Глаза", en: "Eyes" }, right: { kk: "Демалыс беру", ru: "Давать отдых", en: "Give rest" } },
-            { left: { kk: "Қол", ru: "Руки", en: "Hands" }, right: { kk: "Жуу", ru: "Мыть", en: "Wash" } },
+            { left: { kk: "Арқаны тік ұстау", ru: "Держать спину прямо", en: "Straight back" }, right: { kk: "✅ Дұрыс", ru: "✅ Правильно", en: "✅ Correct" } },
+            { left: { kk: "Экранды қолмен ұстау", ru: "Трогать экран рукой", en: "Touch the screen" }, right: { kk: "❌ Қате", ru: "❌ Неверно", en: "❌ Wrong" } },
+            { left: { kk: "Қолды жуу", ru: "Мыть руки", en: "Wash hands" }, right: { kk: "✅ Дұрыс", ru: "✅ Правильно", en: "✅ Correct" } },
+            { left: { kk: "Тамақ алып кіру", ru: "Принести еду", en: "Bring food" }, right: { kk: "❌ Қате", ru: "❌ Неверно", en: "❌ Wrong" } },
+            { left: { kk: "Сым жұлу", ru: "Дёргать провод", en: "Pull cable" }, right: { kk: "❌ Қате", ru: "❌ Неверно", en: "❌ Wrong" } },
+            { left: { kk: "Көзге демалыс", ru: "Отдых глазам", en: "Rest eyes" }, right: { kk: "✅ Дұрыс", ru: "✅ Правильно", en: "✅ Correct" } },
           ],
         },
       ],
     },
     {
-      type: "video",
-      title: { kk: "Болашақтың қаласы", ru: "Город будущего", en: "Future City" },
-      image: futureCityImg,
-      video: futureCityVideo.url,
-    },
-    {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Компьютерде тәртіп сақтау маңызды", ru: "Важно соблюдать правила за компьютером", en: "It's important to follow computer rules" },
-        { kk: "Дұрыс отыру — денсаулық кепілі", ru: "Правильная посадка — залог здоровья", en: "Good posture is key to health" },
-        { kk: "Көзге тынығу беру керек", ru: "Нужно давать отдых глазам", en: "You need to rest your eyes" },
-        { kk: "Информатика кабинетіндегі тәртіп ережелерін сақтауды үйренесің", ru: "Ты научишься соблюдать правила поведения в компьютерном классе", en: "You will learn to follow the rules in the computer lab" },
+        { kk: "Кабинетке тек мұғалімнің рұқсатымен кіреміз", ru: "В кабинет — только с разрешения учителя", en: "Enter only with teacher's OK" },
+        { kk: "Экран мен көздің арасы 50–70 см", ru: "Расстояние до экрана 50–70 см", en: "Eye-to-screen 50–70 cm" },
+        { kk: "Үзіліссіз 15 минуттан артық отырма", ru: "Не сиди более 15 минут подряд", en: "Max 15 min nonstop" },
+        { kk: "Сабақтан кейін қолыңды жу", ru: "После урока вымой руки", en: "Wash hands after class" },
       ],
       emoji: "⭐",
     },
