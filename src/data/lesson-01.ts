@@ -56,7 +56,7 @@ export const lesson01: LessonData = {
         en: "The picture shows a computer lab. Computers are set up for each student to work individually. The digital literacy lesson takes place in the computer lab.",
       },
       image: computerLabImg,
-      videos: [computerLabVideo.url],
+      videos: [computerLabVideo.url, individualWorkVideo.url, digitalLessonVideo.url],
     },
     {
       type: "rules",
@@ -89,7 +89,7 @@ export const lesson01: LessonData = {
         en: "Good posture is very important when working at the computer. Keep your back straight and feet on the floor. Find the student who is sitting correctly.",
       },
       image: correctPostureImg,
-      videos: [correctPostureVideo.url],
+      videos: [correctPostureVideo.url, straightBackVideo.url, correctDistanceVideo.url],
     },
     {
       type: "topic",
@@ -104,7 +104,7 @@ export const lesson01: LessonData = {
         en: "What can't you do while working with a computer? Explain why.",
       },
       image: prohibitedActionsImg,
-      videos: [prohibitedActionsVideo.url],
+      videos: [prohibitedActionsVideo.url, noFoodVideo.url, washHandsVideo.url],
     },
     {
       type: "topic",
@@ -119,7 +119,7 @@ export const lesson01: LessonData = {
         en: "How is the computer lab different from other classrooms? You will learn to follow the rules in the computer lab.",
       },
       image: safetyTipsImg,
-      videos: [eyeRestVideo.url],
+      videos: [eyeRestVideo.url, eyeRest2Video.url, straightBackVideo.url],
     },
     {
       type: "interactive",
