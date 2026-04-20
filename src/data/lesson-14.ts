@@ -1,6 +1,9 @@
 import { LessonData } from "@/lib/types";
 
-import spritesImg from "@/assets/lesson-14/sprites.jpg";
+import soccerImg from "@/assets/lesson-14/soccer-game.jpg";
+import fishImg from "@/assets/lesson-14/fish-underwater.jpg";
+import spriteBgButtonsImg from "@/assets/lesson-14/sprite-bg-buttons.jpg";
+import saigaImg from "@/assets/lesson-14/saiga-steppe.jpg";
 
 import spritesVideo from "@/assets/lesson-14/videos/sprites.mp4.asset.json";
 import addSpriteBgVideo from "@/assets/lesson-14/videos/add-sprite-bg.mp4.asset.json";
@@ -10,96 +13,242 @@ export const lesson14: LessonData = {
   id: "lesson-14",
   title: { kk: "Scratch-те спрайт және фон таңдау", ru: "Выбор спрайта и фона в Scratch", en: "Choosing Sprites and Backgrounds in Scratch" },
   description: {
-    kk: "Scratch-те спрайт пен фон таңдауды үйрену",
-    ru: "Учимся выбирать спрайт и фон в Scratch",
-    en: "Learning to choose sprites and backgrounds in Scratch",
+    kk: "Сахнаға спрайт пен фон қоюды үйрену",
+    ru: "Учимся добавлять спрайт и фон на сцену",
+    en: "Learning to add sprites and backdrops to the stage",
   },
   emoji: "🎨",
   color: "from-purple-400 to-indigo-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Scratch-те спрайт және фон таңдау", ru: "Выбор спрайта и фона в Scratch", en: "Choosing Sprites and Backgrounds" },
-      subtitle: { kk: "Өз кейіпкеріңді және фоныңды таңда!", ru: "Выбери своего персонажа и фон!", en: "Choose your character and background!" },
-      emoji: "🎨",
+      title: { kk: "Спрайт және фон", ru: "Спрайт и фон", en: "Sprite and Backdrop" },
+      subtitle: {
+        kk: "«Теңбіл доп» жобасын құрастырамыз!",
+        ru: "Создаём проект «Футбольный мяч»!",
+        en: "Let's build the «Soccer Ball» project!",
+      },
+      emoji: "⚽",
       color: "from-purple-400 to-indigo-500",
     },
+    // Кіріспе: спорт
     {
       type: "topic",
-      title: { kk: "Спрайт дегеніміз не?", ru: "Что такое спрайт?", en: "What is a Sprite?" },
-      text: {
-        kk: "Спрайт — Scratch-тегі кейіпкер. Ол мысық, адам, жануар, зат бола алады. Scratch кітапханасынан дайын спрайттар таңдауға немесе өзің салуға болады. Әр спрайтқа бөлек команда беруге болады.",
-        ru: "Спрайт — это персонаж в Scratch. Он может быть котом, человеком, животным, предметом. Из библиотеки Scratch можно выбрать готовые спрайты или нарисовать свой. Каждому спрайту можно дать отдельные команды.",
-        en: "A sprite is a character in Scratch. It can be a cat, person, animal, or object. You can choose ready-made sprites from the Scratch library or draw your own. Each sprite can have its own commands.",
+      title: {
+        kk: "Спорттық ойындар",
+        ru: "Спортивные игры",
+        en: "Sports Games",
       },
-      image: spritesImg,
-      videos: [spritesVideo.url, spriteLibraryVideo.url, addSpriteBgVideo.url],
+      text: {
+        kk: "Қандай спорттық ойындарды білесің? Суреттің кейіпкерлерін ата. Олар қай жерде ойнайды? Ойыңды ортаға сал.",
+        ru: "Какие спортивные игры ты знаешь? Назови героев картинки. Где они играют? Поделись своими мыслями.",
+        en: "What sports games do you know? Name the characters in the picture. Where do they play? Share your thoughts.",
+      },
+      image: soccerImg,
+      videos: [spritesVideo.url, addSpriteBgVideo.url],
+      emoji: "⚽",
     },
+    // Жаңа білім: сахна, спрайт, фон
+    {
+      type: "topic",
+      title: {
+        kk: "Сахна, спрайт, фон",
+        ru: "Сцена, спрайт, фон",
+        en: "Stage, Sprite, Backdrop",
+      },
+      text: {
+        kk: "Сахна — Scratch-те жоба құрастыратын алаң. Сахнаның кейіпкері — спрайт (мысалы, балық спрайты). Фон — сахнада спрайттың артында тұратын түс немесе сурет (мысалы, суасты суреті).",
+        ru: "Сцена — это область, где собирается проект в Scratch. Персонаж сцены — спрайт (например, спрайт рыбки). Фон — это цвет или картинка за спрайтом на сцене (например, картинка под водой).",
+        en: "The stage is the area where you build a project in Scratch. The stage character is a sprite (e.g., a fish sprite). The backdrop is the color or picture behind the sprite (e.g., an underwater scene).",
+      },
+      image: fishImg,
+      videos: [spritesVideo.url, spriteLibraryVideo.url, addSpriteBgVideo.url],
+      emoji: "🐠",
+    },
+    // Спрайт, фон қою батырмалары
     {
       type: "rules",
-      title: { kk: "Спрайт және фон қосу", ru: "Добавление спрайта и фона", en: "Adding Sprites and Backgrounds" },
+      title: {
+        kk: "Спрайт пен фон қою батырмалары",
+        ru: "Кнопки добавления спрайта и фона",
+        en: "Sprite and Backdrop Buttons",
+      },
       points: [
-        { kk: "🐱 Спрайт қосу — «Спрайт таңдау» батырмасын бас", ru: "🐱 Добавить спрайт — нажми кнопку «Выбрать спрайт»", en: "🐱 Add sprite — click 'Choose a Sprite' button" },
-        { kk: "🎨 Спрайтты салу — «Салу» батырмасын бас", ru: "🎨 Нарисовать спрайт — нажми кнопку «Нарисовать»", en: "🎨 Draw sprite — click 'Paint' button" },
-        { kk: "🖼️ Фон таңдау — «Фон таңдау» батырмасын бас", ru: "🖼️ Выбрать фон — нажми кнопку «Выбрать фон»", en: "🖼️ Choose background — click 'Choose a Backdrop' button" },
-        { kk: "📂 Файлдан жүктеу — компьютерден сурет қосу", ru: "📂 Загрузить из файла — добавить картинку с компьютера", en: "📂 Upload from file — add image from computer" },
-        { kk: "🗑️ Спрайтты жою — оң батырмамен «Жою» таңда", ru: "🗑️ Удалить спрайт — правой кнопкой «Удалить»", en: "🗑️ Delete sprite — right-click 'Delete'" },
+        {
+          kk: "🐱 «Choose a Sprite» — спрайт кітапханасынан спрайт таңдау",
+          ru: "🐱 «Choose a Sprite» — выбрать спрайт из библиотеки",
+          en: "🐱 «Choose a Sprite» — pick a sprite from the library",
+        },
+        {
+          kk: "🖼️ «Choose a Backdrop» — фон кітапханасынан фон таңдау",
+          ru: "🖼️ «Choose a Backdrop» — выбрать фон из библиотеки",
+          en: "🖼️ «Choose a Backdrop» — pick a backdrop from the library",
+        },
+        {
+          kk: "🎨 Өз суретіңді жүктеу немесе салу да мүмкін",
+          ru: "🎨 Можно загрузить или нарисовать свою картинку",
+          en: "🎨 You can also upload or draw your own image",
+        },
+        {
+          kk: "🗑️ Қажетсіз спрайтты жоюға болады",
+          ru: "🗑️ Ненужный спрайт можно удалить",
+          en: "🗑️ Unwanted sprites can be deleted",
+        },
       ],
-      emoji: "🛠️",
+      emoji: "🔘",
     },
+    // Спрайт + фон бірге
+    {
+      type: "topic",
+      title: {
+        kk: "Спрайт пен фонды бірге пайдаланамыз",
+        ru: "Используем спрайт и фон вместе",
+        en: "Using Sprite and Backdrop Together",
+      },
+      text: {
+        kk: "Жоба құру үшін алдымен спрайтты таңдаймыз. Содан кейін жобаға сәйкес фон таңдаймыз. Мысалы, киіктің даладағы қозғалысын сипаттайтын жоба — фон ретінде даланың суретін, спрайт ретінде киікті орналастырамыз.",
+        ru: "Чтобы создать проект, сначала выбираем спрайт. Затем выбираем подходящий фон. Например, проект «Сайга в степи» — фон это степь, а спрайт это сайга.",
+        en: "To create a project, first choose a sprite. Then pick a matching backdrop. For example, a «Saiga in the steppe» project uses a steppe backdrop and a saiga sprite.",
+      },
+      image: saigaImg,
+      videos: [addSpriteBgVideo.url, spriteLibraryVideo.url, spritesVideo.url],
+      emoji: "🦌",
+    },
+    // «Теңбіл доп» жобасы
+    {
+      type: "topic",
+      title: {
+        kk: "«Теңбіл доп» жобасы",
+        ru: "Проект «Футбольный мяч»",
+        en: "«Soccer Ball» Project",
+      },
+      text: {
+        kk: "Футбол тақырыбына жоба құрастырамыз. Фон — футбол алаңы. Спрайт — футбол добы. Жоба орындалғанда, доп екі қақпаның ішіне кіріп шығады.",
+        ru: "Создаём проект на тему футбола. Фон — футбольное поле. Спрайт — футбольный мяч. При запуске проекта мяч заходит в обе ворота.",
+        en: "We build a soccer-themed project. Backdrop — soccer field. Sprite — soccer ball. When run, the ball goes into both goals.",
+      },
+      image: soccerImg,
+      videos: [spritesVideo.url, addSpriteBgVideo.url, spriteLibraryVideo.url],
+      emoji: "⚽",
+    },
+    // Алгоритм: блоктарға қандай сандар?
+    {
+      type: "rules",
+      title: {
+        kk: "Спрайттың қозғалу алгоритмі",
+        ru: "Алгоритм движения спрайта",
+        en: "Sprite Movement Algorithm",
+      },
+      points: [
+        { kk: "1) 20 қадам артқа жылжиды (-20)", ru: "1) Двигается на 20 шагов назад (-20)", en: "1) Moves 20 steps back (-20)" },
+        { kk: "2) 3 секунд күтеді", ru: "2) Ждёт 3 секунды", en: "2) Waits 3 seconds" },
+        { kk: "3) 30 қадам алға жылжиды", ru: "3) Двигается на 30 шагов вперёд", en: "3) Moves 30 steps forward" },
+        { kk: "4) 2 секунд күтеді", ru: "4) Ждёт 2 секунды", en: "4) Waits 2 seconds" },
+        { kk: "5) 20 қадам артқа жылжиды", ru: "5) Двигается на 20 шагов назад", en: "5) Moves 20 steps back" },
+      ],
+      emoji: "📐",
+    },
+    // Интерактив: біліміңді тексер
     {
       type: "interactive",
-      title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
+      title: {
+        kk: "Білімді тексер",
+        ru: "Проверь знания",
+        en: "Test Your Knowledge",
+      },
+      image: spriteBgButtonsImg,
       items: [
         {
           type: "choice",
-          question: { kk: "Scratch-те жаңа спрайт қалай қосасың?", ru: "Как добавить новый спрайт в Scratch?", en: "How do you add a new sprite in Scratch?" },
+          question: {
+            kk: "Сахнаға не қою керек?",
+            ru: "Что нужно поставить на сцену?",
+            en: "What should be placed on the stage?",
+          },
           options: [
-            { kk: "Enter басу", ru: "Нажать Enter", en: "Press Enter" },
-            { kk: "«Спрайт таңдау» батырмасын басу", ru: "Нажать кнопку «Выбрать спрайт»", en: "Click 'Choose a Sprite'" },
-            { kk: "Тышқанды екі рет басу", ru: "Дважды кликнуть мышкой", en: "Double-click the mouse" },
+            { kk: "Тек фон", ru: "Только фон", en: "Only backdrop" },
+            { kk: "Спрайт пен фон", ru: "Спрайт и фон", en: "Sprite and backdrop" },
+            { kk: "Тек скрипт", ru: "Только скрипт", en: "Only script" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Фон дегеніміз не?", ru: "Что такое фон?", en: "What is a backdrop?" },
+          question: {
+            kk: "Фон дегеніміз не?",
+            ru: "Что такое фон?",
+            en: "What is a backdrop?",
+          },
           options: [
-            { kk: "Кейіпкер", ru: "Персонаж", en: "Character" },
-            { kk: "Сахнаның артқы суреті", ru: "Картинка позади сцены", en: "Image behind the stage" },
-            { kk: "Дыбыс", ru: "Звук", en: "Sound" },
+            { kk: "Спрайттың артындағы түс немесе сурет", ru: "Цвет или картинка за спрайтом", en: "Color or picture behind the sprite" },
+            { kk: "Команда блогы", ru: "Блок команды", en: "A command block" },
+            { kk: "Программа атауы", ru: "Название программы", en: "Program name" },
+          ],
+          correctIndex: 0,
+        },
+        {
+          type: "choice",
+          question: {
+            kk: "«Теңбіл доп» жобасында спрайт ретінде не қойылады?",
+            ru: "Что является спрайтом в проекте «Футбольный мяч»?",
+            en: "What is the sprite in the «Soccer Ball» project?",
+          },
+          options: [
+            { kk: "Футбол алаңы", ru: "Футбольное поле", en: "Soccer field" },
+            { kk: "Футбол добы", ru: "Футбольный мяч", en: "Soccer ball" },
+            { kk: "Қақпа", ru: "Ворота", en: "Goal" },
           ],
           correctIndex: 1,
         },
       ],
     },
+    // Зерттеу
     {
-      type: "game",
-      title: { kk: "Scratch әрекеттерін сәйкестендір", ru: "Соедини действия в Scratch", en: "Match Scratch Actions" },
+      type: "interactive",
+      title: {
+        kk: "Зертте: алгоритм бойынша қозғалыс",
+        ru: "Исследуй: движение по алгоритму",
+        en: "Investigate: Movement by Algorithm",
+      },
       items: [
         {
-          type: "match",
-          instruction: { kk: "Әрекетті нәтижемен сәйкестендір", ru: "Соедини действие с результатом", en: "Match action with result" },
-          pairs: [
-            { left: { kk: "Спрайт таңдау", ru: "Выбрать спрайт", en: "Choose sprite" }, right: { kk: "Жаңа кейіпкер қосылады", ru: "Добавится новый персонаж", en: "New character added" } },
-            { left: { kk: "Фон таңдау", ru: "Выбрать фон", en: "Choose backdrop" }, right: { kk: "Сахна суреті өзгереді", ru: "Картинка сцены изменится", en: "Stage image changes" } },
-            { left: { kk: "Спрайтты салу", ru: "Нарисовать спрайт", en: "Paint sprite" }, right: { kk: "Өзіңнің кейіпкерің пайда болады", ru: "Появится свой персонаж", en: "Your own character appears" } },
+          type: "choice",
+          question: {
+            kk: "Артқа 20 қадам жылжу үшін блокқа қандай сан жазылады?",
+            ru: "Какое число пишется в блок, чтобы двигаться на 20 шагов назад?",
+            en: "What number goes in the block to move 20 steps back?",
+          },
+          options: [
+            { kk: "20", ru: "20", en: "20" },
+            { kk: "-20", ru: "-20", en: "-20" },
+            { kk: "0", ru: "0", en: "0" },
           ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: {
+            kk: "30 қадам алға жылжу үшін:",
+            ru: "Чтобы двигаться на 30 шагов вперёд:",
+            en: "To move 30 steps forward:",
+          },
+          options: [
+            { kk: "Move -30 steps", ru: "Move -30 steps", en: "Move -30 steps" },
+            { kk: "Move 30 steps", ru: "Move 30 steps", en: "Move 30 steps" },
+            { kk: "Wait 30 seconds", ru: "Wait 30 seconds", en: "Wait 30 seconds" },
+          ],
+          correctIndex: 1,
         },
       ],
-    },
-    {
-      type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: addSpriteBgVideo.url,
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Спрайт — Scratch-тегі кейіпкер, оны таңдауға немесе салуға болады", ru: "Спрайт — персонаж в Scratch, его можно выбрать или нарисовать", en: "Sprite — character in Scratch, you can choose or draw one" },
-        { kk: "Фон — сахнаның артқы суреті", ru: "Фон — задний план сцены", en: "Backdrop — background image of the stage" },
-        { kk: "Scratch кітапханасында көптеген дайын спрайттар мен фондар бар", ru: "В библиотеке Scratch много готовых спрайтов и фонов", en: "Scratch library has many ready-made sprites and backdrops" },
+        { kk: "Сахна — жоба құрастыратын алаң", ru: "Сцена — область создания проекта", en: "Stage — project area" },
+        { kk: "Спрайт — сахнаның кейіпкері", ru: "Спрайт — персонаж сцены", en: "Sprite — stage character" },
+        { kk: "Фон — спрайттың артындағы сурет немесе түс", ru: "Фон — картинка или цвет за спрайтом", en: "Backdrop — image or color behind the sprite" },
+        { kk: "Жоба үшін спрайт пен фонды бірге пайдаланамыз", ru: "Для проекта используем спрайт и фон вместе", en: "Use sprite and backdrop together for a project" },
       ],
       emoji: "🎓",
     },

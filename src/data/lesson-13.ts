@@ -1,6 +1,8 @@
 import { LessonData } from "@/lib/types";
 
-import scratchIntroImg from "@/assets/lesson-13/scratch-intro.jpg";
+import cartoonGameImg from "@/assets/lesson-13/cartoon-game.jpg";
+import scratchWindowImg from "@/assets/lesson-13/scratch-window.jpg";
+import scratchBlocksImg from "@/assets/lesson-13/scratch-blocks.jpg";
 
 import scratchIntroVideo from "@/assets/lesson-13/videos/scratch-intro.mp4.asset.json";
 import scratchInterfaceVideo from "@/assets/lesson-13/videos/scratch-interface.mp4.asset.json";
@@ -10,107 +12,257 @@ export const lesson13: LessonData = {
   id: "lesson-13",
   title: { kk: "Scratch-пен танысу", ru: "Знакомство со Scratch", en: "Introduction to Scratch" },
   description: {
-    kk: "Scratch бағдарламасымен алғашқы танысу",
-    ru: "Первое знакомство с программой Scratch",
-    en: "First introduction to the Scratch program",
+    kk: "Scratch программалау ортасымен танысу",
+    ru: "Знакомство со средой программирования Scratch",
+    en: "Introduction to the Scratch programming environment",
   },
   emoji: "🐱",
   color: "from-orange-400 to-amber-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Scratch-пен танысу", ru: "Знакомство со Scratch", en: "Introduction to Scratch" },
-      subtitle: { kk: "Бағдарламалау әлеміне қош келдің!", ru: "Добро пожаловать в мир программирования!", en: "Welcome to the world of programming!" },
+      title: { kk: "Scratch-пен танысу", ru: "Знакомство со Scratch", en: "Meet Scratch" },
+      subtitle: {
+        kk: "Анимация мен ойын құрастырамыз!",
+        ru: "Создаём анимации и игры!",
+        en: "Let's build animations and games!",
+      },
       emoji: "🐱",
       color: "from-orange-400 to-amber-500",
     },
+    // Кіріспе: мультфильм мен ойын
     {
       type: "topic",
-      title: { kk: "Scratch дегеніміз не?", ru: "Что такое Scratch?", en: "What is Scratch?" },
-      text: {
-        kk: "Scratch — балаларға арналған бағдарламалау ортасы. Онда блоктарды біріктіріп, анимациялар, ойындар және әңгімелер жасауға болады. Scratch-те мысық — негізгі кейіпкер (спрайт).",
-        ru: "Scratch — среда программирования для детей. В ней можно соединять блоки, чтобы создавать анимации, игры и истории. Кот в Scratch — главный персонаж (спрайт).",
-        en: "Scratch is a programming environment for kids. You can connect blocks to create animations, games, and stories. The cat in Scratch is the main character (sprite).",
+      title: {
+        kk: "Мультфильм мен компьютерлік ойын",
+        ru: "Мультфильмы и компьютерные игры",
+        en: "Cartoons and Computer Games",
       },
-      image: scratchIntroImg,
-      videos: [scratchIntroVideo.url, scratchCatWaveVideo.url, scratchInterfaceVideo.url],
+      text: {
+        kk: "Өзің ұнататын компьютерлік ойындар мен мультфильмдер туралы әңгімеле. Ойын мен мультфильмдердің қалай жасалатынын білесің бе? Оларды программалау тілінің көмегімен жасайды.",
+        ru: "Расскажи о любимых компьютерных играх и мультфильмах. Знаешь ли ты, как их делают? Их создают с помощью языка программирования.",
+        en: "Tell about your favorite computer games and cartoons. Do you know how they are made? They are created using a programming language.",
+      },
+      image: cartoonGameImg,
+      videos: [scratchIntroVideo.url, scratchCatWaveVideo.url],
+      emoji: "🎮",
     },
+    // Жаңа білім: программалау тілі
+    {
+      type: "topic",
+      title: {
+        kk: "Программалау тілі дегеніміз не?",
+        ru: "Что такое язык программирования?",
+        en: "What is a Programming Language?",
+      },
+      text: {
+        kk: "Программалау тілі — компьютер түсінетін командалардан тұратын тіл. Программа — программалау тілінде жазылған алгоритм. Scratch — программалау ортасы, онда анимация, мультфильм және ойын құрастыруға болады.",
+        ru: "Язык программирования — это язык из команд, понятных компьютеру. Программа — это алгоритм, записанный на языке программирования. Scratch — среда программирования, в ней можно создавать анимации, мультфильмы и игры.",
+        en: "A programming language is a language of commands the computer understands. A program is an algorithm written in a programming language. Scratch is a programming environment for creating animations, cartoons, and games.",
+      },
+      image: scratchWindowImg,
+      videos: [scratchInterfaceVideo.url, scratchIntroVideo.url, scratchCatWaveVideo.url],
+      emoji: "💻",
+    },
+    // Scratch терезесі
     {
       type: "rules",
-      title: { kk: "Scratch интерфейсі", ru: "Интерфейс Scratch", en: "Scratch Interface" },
+      title: { kk: "Scratch терезесі және Мысық спрайты", ru: "Окно Scratch и спрайт Кота", en: "Scratch Window and Cat Sprite" },
       points: [
-        { kk: "🎭 Сахна — спрайттар қозғалатын аймақ", ru: "🎭 Сцена — область, где двигаются спрайты", en: "🎭 Stage — area where sprites move" },
-        { kk: "🧩 Блоктар тақтасы — командалар тізімі", ru: "🧩 Палитра блоков — список команд", en: "🧩 Block palette — list of commands" },
-        { kk: "📝 Скрипт аймағы — блоктарды біріктіретін орын", ru: "📝 Область скриптов — место для соединения блоков", en: "📝 Script area — place to connect blocks" },
-        { kk: "🐱 Спрайт — кейіпкер (мысық, адам, зат)", ru: "🐱 Спрайт — персонаж (кот, человек, предмет)", en: "🐱 Sprite — character (cat, person, object)" },
-        { kk: "🟢 Жасыл жалауша — бағдарламаны іске қосу", ru: "🟢 Зелёный флажок — запуск программы", en: "🟢 Green flag — start the program" },
+        {
+          kk: "📋 Терезе бөліктері: мәзір, сахна, скрипт алаңы",
+          ru: "📋 Части окна: меню, сцена, область скриптов",
+          en: "📋 Window parts: menu, stage, scripts area",
+        },
+        {
+          kk: "🚀 Іске қосу → Барлық қолданбалар → Scratch 3",
+          ru: "🚀 Пуск → Все приложения → Scratch 3",
+          en: "🚀 Start → All apps → Scratch 3",
+        },
+        {
+          kk: "🐱 Сахна кейіпкері — спрайт деп аталады (мысалы, Мысық)",
+          ru: "🐱 Персонаж сцены называется спрайт (например, Кот)",
+          en: "🐱 Stage character is called a sprite (e.g., Cat)",
+        },
+        {
+          kk: "💾 Жоба құру, ашу, сақтау командалары мәзірде",
+          ru: "💾 Команды создания, открытия, сохранения проекта в меню",
+          en: "💾 New / open / save commands are in the menu",
+        },
       ],
-      emoji: "🖥️",
+      emoji: "🪟",
     },
+    // Жиі қолданылатын командалар
+    {
+      type: "topic",
+      title: {
+        kk: "Жиі қолданылатын командалар",
+        ru: "Часто используемые команды",
+        en: "Frequently Used Commands",
+      },
+      text: {
+        kk: "«Move 10 steps» — спрайтты 10 қадам алға жылжытады. «-10» таңбасы — 10 қадам артқа жылжытады. Жасыл жалауша — жобаны іске қосады. «Say Hello» — спрайт «Сәлем!» деп айтады. «Wait 1 second» — белгілі бір секунд күтеді.",
+        ru: "«Move 10 steps» — двигает спрайт на 10 шагов вперёд. «-10» — на 10 шагов назад. Зелёный флажок — запускает проект. «Say Hello» — спрайт говорит «Привет!». «Wait 1 second» — ждёт указанное число секунд.",
+        en: "«Move 10 steps» — moves the sprite 10 steps forward. «-10» — 10 steps back. Green flag — starts the project. «Say Hello» — the sprite says «Hello!». «Wait 1 second» — waits the given seconds.",
+      },
+      image: scratchBlocksImg,
+      videos: [scratchInterfaceVideo.url, scratchCatWaveVideo.url, scratchIntroVideo.url],
+      emoji: "🧩",
+    },
+    // Скрипт пен жоба
+    {
+      type: "topic",
+      title: {
+        kk: "Скрипт және жоба",
+        ru: "Скрипт и проект",
+        en: "Script and Project",
+      },
+      text: {
+        kk: "Scratch-те командалардан скрипт құрылады. Скриптілерден жоба құрылады. Жобаның жойылмауы үшін оны міндетті түрде сақтайды.",
+        ru: "В Scratch из команд собирается скрипт. Из скриптов собирается проект. Чтобы проект не пропал, его обязательно сохраняют.",
+        en: "In Scratch, commands form a script. Scripts make up a project. To keep the project safe, you must save it.",
+      },
+      image: scratchBlocksImg,
+      videos: [scratchInterfaceVideo.url, scratchIntroVideo.url],
+      emoji: "💾",
+    },
+    // Тапсырма: Сырым алгоритмі
+    {
+      type: "rules",
+      title: {
+        kk: "Тапсырма: Сырым баланың алгоритмі",
+        ru: "Задание: алгоритм мальчика Сырыма",
+        en: "Task: Syrym's Algorithm",
+      },
+      points: [
+        { kk: "1. Алға қозғалды", ru: "1. Двинулся вперёд", en: "1. Moved forward" },
+        { kk: "2. Сәлем берді", ru: "2. Поздоровался", en: "2. Said hello" },
+        { kk: "3. Кідірді (күтті)", ru: "3. Подождал", en: "3. Waited" },
+        { kk: "4. Алға қозғалды", ru: "4. Двинулся вперёд", en: "4. Moved forward" },
+        { kk: "5. Қоштасты", ru: "5. Попрощался", en: "5. Said goodbye" },
+        { kk: "6. Кідірді", ru: "6. Подождал", en: "6. Waited" },
+        { kk: "7. Сахнадан шықты", ru: "7. Ушёл со сцены", en: "7. Left the stage" },
+      ],
+      emoji: "🚶",
+    },
+    // Интерактив: Мысық скриптісі
     {
       type: "interactive",
-      title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
+      title: {
+        kk: "Мысық спрайтының скриптісі",
+        ru: "Скрипт спрайта Кота",
+        en: "Cat Sprite Script",
+      },
       items: [
         {
           type: "choice",
-          question: { kk: "Scratch-те негізгі кейіпкер кім?", ru: "Кто главный персонаж в Scratch?", en: "Who is the main character in Scratch?" },
+          question: {
+            kk: "Программа дегеніміз не?",
+            ru: "Что такое программа?",
+            en: "What is a program?",
+          },
           options: [
-            { kk: "Ит", ru: "Собака", en: "Dog" },
-            { kk: "Мысық", ru: "Кот", en: "Cat" },
-            { kk: "Құс", ru: "Птица", en: "Bird" },
+            { kk: "Жай мәтін", ru: "Просто текст", en: "Just text" },
+            {
+              kk: "Программалау тілінде жазылған алгоритм",
+              ru: "Алгоритм, записанный на языке программирования",
+              en: "An algorithm in a programming language",
+            },
+            { kk: "Сурет", ru: "Картинка", en: "A picture" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Scratch-те бағдарламаны не іске қосады?", ru: "Что запускает программу в Scratch?", en: "What starts the program in Scratch?" },
+          question: {
+            kk: "Scratch-тегі сахна кейіпкері қалай аталады?",
+            ru: "Как называется персонаж сцены в Scratch?",
+            en: "What is the stage character in Scratch called?",
+          },
           options: [
-            { kk: "Қызыл түйме", ru: "Красная кнопка", en: "Red button" },
-            { kk: "Жасыл жалауша", ru: "Зелёный флажок", en: "Green flag" },
-            { kk: "Көк жұлдыз", ru: "Синяя звезда", en: "Blue star" },
+            { kk: "Скрипт", ru: "Скрипт", en: "Script" },
+            { kk: "Спрайт", ru: "Спрайт", en: "Sprite" },
+            { kk: "Мәзір", ru: "Меню", en: "Menu" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "Спрайт дегеніміз не?", ru: "Что такое спрайт?", en: "What is a sprite?" },
+          question: {
+            kk: "«Move 10 steps» командасы не істейді?",
+            ru: "Что делает команда «Move 10 steps»?",
+            en: "What does «Move 10 steps» do?",
+          },
           options: [
-            { kk: "Фон суреті", ru: "Фоновая картинка", en: "Background image" },
-            { kk: "Кейіпкер немесе зат", ru: "Персонаж или предмет", en: "Character or object" },
-            { kk: "Дыбыс файлы", ru: "Звуковой файл", en: "Sound file" },
+            { kk: "Спрайтты 10 қадам алға жылжытады", ru: "Двигает спрайт на 10 шагов вперёд", en: "Moves the sprite 10 steps forward" },
+            { kk: "Спрайтты жояды", ru: "Удаляет спрайт", en: "Deletes the sprite" },
+            { kk: "Жобаны сақтайды", ru: "Сохраняет проект", en: "Saves the project" },
           ],
-          correctIndex: 1,
+          correctIndex: 0,
         },
       ],
     },
+    // Ауысқан әріптер
     {
       type: "game",
-      title: { kk: "Scratch элементтерін сәйкестендір", ru: "Соедини элементы Scratch", en: "Match Scratch Elements" },
+      title: {
+        kk: "Ауысқан әріптерді тап",
+        ru: "Найди перепутанные буквы",
+        en: "Unscramble the Letters",
+      },
       items: [
         {
           type: "match",
-          instruction: { kk: "Элементті оның қызметімен сәйкестендір", ru: "Соедини элемент с его функцией", en: "Match element with its function" },
+          instruction: {
+            kk: "Ауысқан әріптердің дұрыс ретін тап (Scratch сөздерін жина)",
+            ru: "Найди правильный порядок букв (собери слова Scratch)",
+            en: "Find the correct order of letters (Scratch words)",
+          },
           pairs: [
-            { left: { kk: "Сахна", ru: "Сцена", en: "Stage" }, right: { kk: "Спрайттар қозғалады", ru: "Спрайты двигаются", en: "Sprites move here" } },
-            { left: { kk: "Блоктар", ru: "Блоки", en: "Blocks" }, right: { kk: "Командалар тізімі", ru: "Список команд", en: "List of commands" } },
-            { left: { kk: "Жасыл жалауша", ru: "Зелёный флажок", en: "Green flag" }, right: { kk: "Бағдарламаны іске қосу", ru: "Запуск программы", en: "Start program" } },
-            { left: { kk: "Спрайт", ru: "Спрайт", en: "Sprite" }, right: { kk: "Кейіпкер", ru: "Персонаж", en: "Character" } },
+            { left: { kk: "Т СК П РИ", ru: "Т СК П РИ", en: "T SK P RI" }, right: { kk: "СКРИПТ", ru: "СКРИПТ", en: "SCRIPT" } },
+            { left: { kk: "СТРАЙП", ru: "СТРАЙП", en: "STRAIP" }, right: { kk: "СПРАЙТ", ru: "СПРАЙТ", en: "SPRITE" } },
+            { left: { kk: "ПАММРАОГР", ru: "ПАММРАОГР", en: "PAMMRAOGR" }, right: { kk: "ПРОГРАММА", ru: "ПРОГРАММА", en: "PROGRAM" } },
+            { left: { kk: "АЖБО", ru: "АЖБО", en: "AZHBO" }, right: { kk: "ЖОБА", ru: "ЖОБА (проект)", en: "PROJECT" } },
+            { left: { kk: "ЗӘМІР", ru: "ЗӘМІР", en: "ZAMIR" }, right: { kk: "МӘЗІР", ru: "МӘЗІР (меню)", en: "MENU" } },
           ],
         },
       ],
+      emoji: "🔤",
     },
+    // Сөздерді сәйкестендіру
     {
-      type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: scratchIntroVideo.url,
+      type: "game",
+      title: {
+        kk: "Командаларды сәйкестендір",
+        ru: "Соедини команды",
+        en: "Match the Commands",
+      },
+      items: [
+        {
+          type: "match",
+          instruction: {
+            kk: "Әрекеттің атауын сипаттамасымен сәйкестендір",
+            ru: "Соедини название действия с описанием",
+            en: "Match the action name with its description",
+          },
+          pairs: [
+            { left: { kk: "қозғалу", ru: "движение", en: "move" }, right: { kk: "10 қадам алға жылжу", ru: "сдвиг на 10 шагов вперёд", en: "move 10 steps forward" } },
+            { left: { kk: "сәлем беру", ru: "приветствие", en: "greet" }, right: { kk: "«Сәлем!» деп айту", ru: "сказать «Привет!»", en: "say «Hello!»" } },
+            { left: { kk: "кідіру", ru: "пауза", en: "wait" }, right: { kk: "белгілі секунд күту", ru: "ожидать N секунд", en: "wait N seconds" } },
+            { left: { kk: "кейіпкер", ru: "персонаж", en: "character" }, right: { kk: "сахнадағы спрайт", ru: "спрайт на сцене", en: "sprite on stage" } },
+          ],
+        },
+      ],
+      emoji: "🔗",
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Scratch — балаларға арналған бағдарламалау ортасы", ru: "Scratch — среда программирования для детей", en: "Scratch — programming environment for kids" },
-        { kk: "Сахна, блоктар, скрипт аймағы, спрайт — негізгі бөліктер", ru: "Сцена, блоки, область скриптов, спрайт — основные части", en: "Stage, blocks, script area, sprite — main parts" },
-        { kk: "Жасыл жалауша — бағдарламаны бастау", ru: "Зелёный флажок — запуск программы", en: "Green flag — start the program" },
+        { kk: "Программалау тілі — компьютер түсінетін командалар", ru: "Язык программирования — команды для компьютера", en: "Programming language — commands the computer understands" },
+        { kk: "Scratch — анимация мен ойын құрастыру ортасы", ru: "Scratch — среда для создания анимаций и игр", en: "Scratch — environment for animations and games" },
+        { kk: "Спрайт — Scratch сахнасының кейіпкері", ru: "Спрайт — персонаж сцены Scratch", en: "Sprite — character on the Scratch stage" },
+        { kk: "Командалардан скрипт, скриптілерден жоба құрылады", ru: "Из команд — скрипт, из скриптов — проект", en: "Commands form a script, scripts form a project" },
       ],
       emoji: "🎓",
     },
