@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import scratchIntroVideo from "@/assets/lesson-13/videos/scratch-intro.mp4.asset.json";
+import scratchInterfaceVideo from "@/assets/lesson-13/videos/scratch-interface.mp4.asset.json";
 export const lesson13: LessonData = {
   id: "lesson-13",
   title: { kk: "Scratch-пен танысу", ru: "Знакомство со Scratch", en: "Introduction to Scratch" },
@@ -25,6 +28,7 @@ export const lesson13: LessonData = {
         kk: "Scratch — балаларға арналған бағдарламалау ортасы. Онда блоктарды біріктіріп, анимациялар, ойындар және әңгімелер жасауға болады. Scratch-те мысық — негізгі кейіпкер (спрайт).",
         ru: "Scratch — среда программирования для детей. В ней можно соединять блоки, чтобы создавать анимации, игры и истории. Кот в Scratch — главный персонаж (спрайт).",
         en: "Scratch is a programming environment for kids. You can connect blocks to create animations, games, and stories. The cat in Scratch is the main character (sprite).",
+      videos: [scratchIntroVideo.url, scratchInterfaceVideo.url],
       },
     },
     {
@@ -94,7 +98,7 @@ export const lesson13: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-13/video.mp4",
+      video: scratchIntroVideo.url,
     },
     {
       type: "summary",

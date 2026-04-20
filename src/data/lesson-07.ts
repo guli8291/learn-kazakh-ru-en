@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import basicShapesVideo from "@/assets/lesson-07/videos/basic-shapes.mp4.asset.json";
+import drawShapesVideo from "@/assets/lesson-07/videos/draw-shapes.mp4.asset.json";
 export const lesson07: LessonData = {
   id: "lesson-07",
   title: { kk: "Фигуралар", ru: "Фигуры", en: "Shapes" },
@@ -41,6 +44,7 @@ export const lesson07: LessonData = {
         kk: "Tux Paint бағдарламасында «Фигуралар» құралын таңдап, шаршы, тіктөртбұрыш, үшбұрыш, дөңгелек салуға болады. Фигураны таңдап, тышқанмен сүйреп саласың.",
         ru: "В Tux Paint выбери инструмент «Фигуры» и рисуй квадрат, прямоугольник, треугольник, круг. Выбери фигуру и нарисуй мышкой.",
         en: "In Tux Paint, select the 'Shapes' tool to draw squares, rectangles, triangles, circles. Pick a shape and drag with the mouse.",
+      videos: [drawShapesVideo.url, basicShapesVideo.url],
       },
     },
     {
@@ -87,7 +91,7 @@ export const lesson07: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-07/video.mp4",
+      video: drawShapesVideo.url,
     },
     {
       type: "summary",

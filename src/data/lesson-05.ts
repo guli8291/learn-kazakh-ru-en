@@ -1,5 +1,8 @@
 import { LessonData } from "@/lib/types";
 
+
+import internetGlobeVideo from "@/assets/lesson-05/videos/internet-globe.mp4.asset.json";
+import internetSafetyVideo from "@/assets/lesson-05/videos/internet-safety.mp4.asset.json";
 export const lesson05: LessonData = {
   id: "lesson-05",
   title: { kk: "Интернет қауіпсіздігі", ru: "Безопасность в Интернете", en: "Internet Safety" },
@@ -29,6 +32,7 @@ export const lesson05: LessonData = {
         kk: "Интернет — бүкіл әлемдегі компьютерлерді біріктіретін желі. Ол арқылы ақпарат іздеуге, ойын ойнауға, хабарлама жіберуге болады.",
         ru: "Интернет — это сеть, соединяющая компьютеры по всему миру. Через него можно искать информацию, играть в игры, отправлять сообщения.",
         en: "The Internet is a network connecting computers around the world. You can search for information, play games, and send messages through it.",
+      videos: [internetGlobeVideo.url, internetSafetyVideo.url],
       },
     },
     {
@@ -99,7 +103,7 @@ export const lesson05: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-05/video.mp4",
+      video: internetSafetyVideo.url,
     },
     {
       type: "summary",

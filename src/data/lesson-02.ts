@@ -1,5 +1,9 @@
 import { LessonData } from "@/lib/types";
 
+
+import monitorVideo from "@/assets/lesson-02/videos/monitor.mp4.asset.json";
+import keyboardMouseVideo from "@/assets/lesson-02/videos/keyboard-mouse.mp4.asset.json";
+import powerOnVideo from "@/assets/lesson-02/videos/power-on.mp4.asset.json";
 export const lesson02: LessonData = {
   id: "lesson-02",
   title: { kk: "Компьютер құрылғылары", ru: "Устройства компьютера", en: "Computer Devices" },
@@ -29,6 +33,7 @@ export const lesson02: LessonData = {
         kk: "Монитор — компьютердің экраны. Ол бізге суреттер, мәтін және видео көрсетеді. Монитор — теледидарға ұқсайды.",
         ru: "Монитор — это экран компьютера. Он показывает нам картинки, текст и видео. Монитор похож на телевизор.",
         en: "The monitor is the computer screen. It shows us pictures, text, and video. The monitor looks like a TV.",
+      videos: [monitorVideo.url, keyboardMouseVideo.url, powerOnVideo.url],
       },
       image: "/lessons/lesson-02/images/monitor.jpg",
     },
@@ -108,7 +113,7 @@ export const lesson02: LessonData = {
     {
       type: "video",
       title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: "/video/lesson-02/video.mp4",
+      video: powerOnVideo.url,
     },
     {
       type: "summary",
