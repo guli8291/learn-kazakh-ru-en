@@ -2,6 +2,9 @@ import { LessonData } from "@/lib/types";
 
 import sourceReceiverImg from "@/assets/lesson-04/source-receiver.jpg";
 import infoExamplesImg from "@/assets/lesson-04/info-examples.jpg";
+import infoTypesRowImg from "@/assets/lesson-04/info-types-row.jpg";
+import infoChainImg from "@/assets/lesson-04/info-chain.jpg";
+import aliyaPhoneImg from "@/assets/lesson-04/aliya-phone-call.jpg";
 
 import infoTypesVideo from "@/assets/lesson-04/videos/info-types.mp4.asset.json";
 import sourceReceiverVideo from "@/assets/lesson-04/videos/source-receiver.mp4.asset.json";
@@ -10,59 +13,80 @@ import teacherStudentVideo from "@/assets/lesson-04/videos/teacher-student.mp4.a
 
 export const lesson04: LessonData = {
   id: "lesson-04",
-  title: { kk: "Ақпараттың ұсынылу түрлері", ru: "Виды представления информации", en: "Types of Information Representation" },
+  title: { kk: "Ақпарат және компьютер", ru: "Информация и компьютер", en: "Information and Computer" },
   description: {
-    kk: "Ақпараттың сандық, мәтіндік, графикалық, дыбыстық және бейне түрлерімен танысу",
-    ru: "Знакомство с числовой, текстовой, графической, звуковой и видеоинформацией",
-    en: "Learning about numeric, text, graphic, audio, and video information",
+    kk: "Ақпараттың түрлері, көзі, қабылдағышы және байланыс арнасы",
+    ru: "Виды информации, источник, приёмник и канал связи",
+    en: "Types of information, source, receiver and channel",
   },
   emoji: "📊",
   color: "from-purple-400 to-rose-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Ақпараттың ұсынылу түрлері", ru: "Виды представления информации", en: "Types of Information" },
+      title: { kk: "Ақпарат және компьютер", ru: "Информация и компьютер", en: "Information and Computer" },
       subtitle: {
-        kk: "Ақпарат қандай түрде болады?",
-        ru: "В каком виде бывает информация?",
-        en: "What forms can information take?",
+        kk: "Ақпарат қандай түрде беріледі?",
+        ru: "В каком виде передаётся информация?",
+        en: "In what forms is information presented?",
       },
       emoji: "📊",
       color: "from-purple-400 to-rose-500",
     },
     {
+      type: "topic",
+      title: { kk: "1-сурет. Ақпарат түрлері", ru: "Рис. 1. Виды информации", en: "Pic. 1. Types of Information" },
+      text: {
+        kk: "Ақпарат ұсынылу түрі бойынша 5-ке бөлінеді: сандық, мәтіндік, графикалық, дыбыстық және бейнелік. Барлығын компьютер өңдей алады.",
+        ru: "Информация по способу представления делится на 5 видов: числовая, текстовая, графическая, звуковая и видео. Все они обрабатываются компьютером.",
+        en: "Information has 5 forms: numeric, text, graphic, audio, and video. All can be processed by a computer.",
+      },
+      image: infoTypesRowImg,
+      videos: [infoTypesVideo.url],
+    },
+    {
       type: "rules",
-      title: { kk: "Ақпарат түрлері", ru: "Виды информации", en: "Information Types" },
+      title: { kk: "Ақпараттың 5 түрі", ru: "5 видов информации", en: "5 Information Types" },
       points: [
-        { kk: "🔢 Сандық — сандар (мысалы: 1, 2, 3...)", ru: "🔢 Числовая — числа (например: 1, 2, 3...)", en: "🔢 Numeric — numbers (e.g.: 1, 2, 3...)" },
-        { kk: "📝 Мәтіндік — әріптер мен сөздер", ru: "📝 Текстовая — буквы и слова", en: "📝 Text — letters and words" },
-        { kk: "🎨 Графикалық — суреттер, сызбалар", ru: "🎨 Графическая — рисунки, схемы", en: "🎨 Graphic — pictures, drawings" },
-        { kk: "🔊 Дыбыстық — музыка, дауыс", ru: "🔊 Звуковая — музыка, голос", en: "🔊 Audio — music, voice" },
-        { kk: "🎬 Бейне — видеолар, мультфильмдер", ru: "🎬 Видео — видеоролики, мультфильмы", en: "🎬 Video — videos, cartoons" },
+        { kk: "🔢 Сандық — сағат, телефон нөмірі (5+3=8)", ru: "🔢 Числовая — часы, номер телефона (5+3=8)", en: "🔢 Numeric — clock, phone number (5+3=8)" },
+        { kk: "📝 Мәтіндік — кітап, әріптер мен сөздер", ru: "📝 Текстовая — книга, буквы и слова", en: "📝 Text — book, letters and words" },
+        { kk: "🎨 Графикалық — сурет, сызба", ru: "🎨 Графическая — рисунок, схема", en: "🎨 Graphic — picture, diagram" },
+        { kk: "🔊 Дыбыстық — әуен, дауыс", ru: "🔊 Звуковая — мелодия, голос", en: "🔊 Audio — melody, voice" },
+        { kk: "🎬 Бейнелік — мультфильм, видео", ru: "🎬 Видео — мультфильм, видеоролик", en: "🎬 Video — cartoon, video clip" },
       ],
       emoji: "📋",
     },
     {
       type: "topic",
-      title: { kk: "Ақпарат көзі мен қабылдаушысы", ru: "Источник и приёмник информации", en: "Source and Receiver of Information" },
+      title: { kk: "Ақпарат көзі мен қабылдағыш", ru: "Источник и приёмник", en: "Source and Receiver" },
       text: {
-        kk: "Ақпарат көзі — ақпаратты беруші. Қабылдаушы — ақпаратты алушы. Арна — ақпаратты жіберу жолы. Мысалы: мұғалім (көз) → сөз (арна) → оқушы (қабылдаушы).",
-        ru: "Источник — тот, кто передаёт информацию. Приёмник — тот, кто получает. Канал — путь передачи. Пример: учитель (источник) → речь (канал) → ученик (приёмник).",
-        en: "Source — who sends information. Receiver — who gets it. Channel — the path of transmission. Example: teacher (source) → speech (channel) → student (receiver).",
+        kk: "Ақпарат көзі — ақпаратты беруші. Қабылдағыш — ақпаратты алушы. Олардың арасы — байланыс арнасы (интернет, пошта, телефон, радио, теледидар). Мысалы: компьютер — көз, адам — қабылдағыш.",
+        ru: "Источник — передаёт информацию. Приёмник — получает её. Между ними — канал связи (интернет, почта, телефон, радио, ТВ). Пример: компьютер — источник, человек — приёмник.",
+        en: "Source sends information. Receiver gets it. Between them — channel (internet, mail, phone, radio, TV). Example: computer — source, human — receiver.",
       },
-      image: sourceReceiverImg,
-      videos: [sourceReceiverVideo.url, teacherStudentVideo.url, infoTypesVideo.url],
+      image: infoChainImg,
+      videos: [sourceReceiverVideo.url, teacherStudentVideo.url],
+    },
+    {
+      type: "topic",
+      title: { kk: "4-сурет. Әлия қоңырау шалды", ru: "Рис. 4. Алия звонит", en: "Pic. 4. Aliya is calling" },
+      text: {
+        kk: "Әлия: «Жаңалықпен бөлісемін», — деп сыныптасына қоңырау шалды. Әлия — ақпарат көзі, телефон — байланыс арнасы, сыныптас — қабылдағыш.",
+        ru: "Алия: «Поделюсь новостью», — позвонила однокласснику. Алия — источник, телефон — канал, одноклассник — приёмник.",
+        en: "Aliya called her classmate: \"I'll share the news.\" Aliya — source, phone — channel, classmate — receiver.",
+      },
+      image: aliyaPhoneImg,
     },
     {
       type: "topic",
       title: { kk: "Мысалдар", ru: "Примеры", en: "Examples" },
       text: {
-        kk: "Кітап — мәтіндік ақпарат. Сурет — графикалық ақпарат. Ән — дыбыстық ақпарат. Мультфильм — бейне ақпарат. Телефон нөмірі — сандық ақпарат.",
-        ru: "Книга — текстовая информация. Рисунок — графическая. Песня — звуковая. Мультфильм — видео. Номер телефона — числовая.",
-        en: "Book — text information. Drawing — graphic. Song — audio. Cartoon — video. Phone number — numeric.",
+        kk: "Кітап → мәтіндік. Сурет → графикалық. Ән → дыбыстық. Мультфильм → бейне. Сағат → сандық.",
+        ru: "Книга → текстовая. Рисунок → графическая. Песня → звуковая. Мультфильм → видео. Часы → числовая.",
+        en: "Book → text. Picture → graphic. Song → audio. Cartoon → video. Clock → numeric.",
       },
       image: infoExamplesImg,
-      videos: [infoExamplesVideo.url, infoTypesVideo.url],
+      videos: [infoExamplesVideo.url],
     },
     {
       type: "interactive",
@@ -70,7 +94,7 @@ export const lesson04: LessonData = {
       items: [
         {
           type: "choice",
-          question: { kk: "Сурет қандай ақпарат түрі?", ru: "К какому виду информации относится рисунок?", en: "What type of information is a drawing?" },
+          question: { kk: "Сурет қандай ақпарат түрі?", ru: "Рисунок — какой вид информации?", en: "A picture is what type?" },
           options: [
             { kk: "Дыбыстық", ru: "Звуковая", en: "Audio" },
             { kk: "Графикалық", ru: "Графическая", en: "Graphic" },
@@ -80,43 +104,84 @@ export const lesson04: LessonData = {
         },
         {
           type: "choice",
-          question: { kk: "Мұғалім — ол кім?", ru: "Учитель — это кто?", en: "The teacher is what?" },
+          question: { kk: "Әлия телефонмен қоңырау шалды. Ол кім?", ru: "Алия позвонила. Она кто?", en: "Aliya called by phone. She is?" },
           options: [
-            { kk: "Қабылдаушы", ru: "Приёмник", en: "Receiver" },
-            { kk: "Арна", ru: "Канал", en: "Channel" },
+            { kk: "Қабылдағыш", ru: "Приёмник", en: "Receiver" },
+            { kk: "Байланыс арнасы", ru: "Канал связи", en: "Channel" },
             { kk: "Ақпарат көзі", ru: "Источник информации", en: "Source of information" },
           ],
           correctIndex: 2,
+        },
+        {
+          type: "choice",
+          question: { kk: "Әлия мен сыныптасының арасындағы байланыс арнасы?", ru: "Канал связи между Алиёй и одноклассником?", en: "What's the channel between Aliya and classmate?" },
+          options: [
+            { kk: "Кітап", ru: "Книга", en: "Book" },
+            { kk: "Телефон", ru: "Телефон", en: "Phone" },
+            { kk: "Теледидар", ru: "Телевизор", en: "TV" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: { kk: "Мультфильм қандай ақпарат түрі?", ru: "Мультфильм — какой вид?", en: "Cartoon is what type?" },
+          options: [
+            { kk: "Мәтіндік", ru: "Текстовая", en: "Text" },
+            { kk: "Бейнелік", ru: "Видео", en: "Video" },
+            { kk: "Сандық", ru: "Числовая", en: "Numeric" },
+          ],
+          correctIndex: 1,
         },
       ],
     },
     {
       type: "game",
-      title: { kk: "Сәйкестендіру ойыны", ru: "Игра на соответствие", en: "Matching Game" },
+      title: { kk: "Мысалды ақпарат түрімен сәйкестендір", ru: "Соедини пример с видом", en: "Match example with type" },
       items: [
         {
           type: "match",
-          instruction: { kk: "Мысалды ақпарат түрімен сәйкестендір", ru: "Соедини пример с видом информации", en: "Match the example with information type" },
+          instruction: { kk: "Әр мысалды дұрыс ақпарат түрімен сәйкестендір", ru: "Соедини каждый пример с правильным видом", en: "Match each example with the correct type" },
           pairs: [
-            { left: { kk: "Кітап", ru: "Книга", en: "Book" }, right: { kk: "Мәтіндік", ru: "Текстовая", en: "Text" } },
-            { left: { kk: "Ән", ru: "Песня", en: "Song" }, right: { kk: "Дыбыстық", ru: "Звуковая", en: "Audio" } },
-            { left: { kk: "Сурет", ru: "Рисунок", en: "Drawing" }, right: { kk: "Графикалық", ru: "Графическая", en: "Graphic" } },
+            { left: { kk: "📖 Кітап", ru: "📖 Книга", en: "📖 Book" }, right: { kk: "Мәтіндік", ru: "Текстовая", en: "Text" } },
+            { left: { kk: "🎵 Ән", ru: "🎵 Песня", en: "🎵 Song" }, right: { kk: "Дыбыстық", ru: "Звуковая", en: "Audio" } },
+            { left: { kk: "🖼️ Сурет", ru: "🖼️ Рисунок", en: "🖼️ Picture" }, right: { kk: "Графикалық", ru: "Графическая", en: "Graphic" } },
             { left: { kk: "5+3=8", ru: "5+3=8", en: "5+3=8" }, right: { kk: "Сандық", ru: "Числовая", en: "Numeric" } },
+            { left: { kk: "🎬 Мультфильм", ru: "🎬 Мультфильм", en: "🎬 Cartoon" }, right: { kk: "Бейнелік", ru: "Video", en: "Video" } },
+          ],
+        },
+        {
+          type: "match",
+          instruction: { kk: "Әр рөлді мысалмен сәйкестендір", ru: "Соедини роль с примером", en: "Match each role with an example" },
+          pairs: [
+            { left: { kk: "Ақпарат көзі", ru: "Источник", en: "Source" }, right: { kk: "Мұғалім", ru: "Учитель", en: "Teacher" } },
+            { left: { kk: "Байланыс арнасы", ru: "Канал связи", en: "Channel" }, right: { kk: "Телефон", ru: "Телефон", en: "Phone" } },
+            { left: { kk: "Қабылдағыш", ru: "Приёмник", en: "Receiver" }, right: { kk: "Оқушы", ru: "Ученик", en: "Student" } },
           ],
         },
       ],
     },
     {
+      type: "topic",
+      title: { kk: "Ақпарат көзі ↔ қабылдағыш", ru: "Источник ↔ приёмник", en: "Source ↔ receiver" },
+      text: {
+        kk: "2-суреттегі компьютер — ақпарат көзі, ал адам — қабылдағыш. Байланыс арналарына: интернет, пошта, телефон, теледидар, радио жатады.",
+        ru: "Компьютер — источник, человек — приёмник. Каналы: интернет, почта, телефон, ТВ, радио.",
+        en: "Computer is the source, human the receiver. Channels: internet, mail, phone, TV, radio.",
+      },
+      image: sourceReceiverImg,
+    },
+    {
       type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: sourceReceiverVideo.url,
+      title: { kk: "Видео: ақпарат түрлері", ru: "Видео: виды информации", en: "Video: types" },
+      video: infoTypesVideo.url,
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Ақпараттың 5 түрі бар: сандық, мәтіндік, графикалық, дыбыстық, бейне", ru: "Есть 5 видов информации: числовая, текстовая, графическая, звуковая, видео", en: "There are 5 types: numeric, text, graphic, audio, video" },
-        { kk: "Ақпарат көзден қабылдаушыға арна арқылы жетеді", ru: "Информация идёт от источника к приёмнику по каналу", en: "Information goes from source to receiver through a channel" },
+        { kk: "Ақпараттың 5 түрі: сандық, мәтіндік, графикалық, дыбыстық, бейне", ru: "5 видов: числовая, текстовая, графическая, звуковая, видео", en: "5 types: numeric, text, graphic, audio, video" },
+        { kk: "Ақпарат көзі → байланыс арнасы → қабылдағыш", ru: "Источник → канал → приёмник", en: "Source → channel → receiver" },
+        { kk: "Графика — «сызу», «жазу», «салу»", ru: "Графика — «чертить», «писать», «рисовать»", en: "Graphics — 'draw', 'write', 'paint'" },
       ],
       emoji: "🎓",
     },
