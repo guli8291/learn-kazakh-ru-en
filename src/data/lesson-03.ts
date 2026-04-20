@@ -1,6 +1,8 @@
 import { LessonData } from "@/lib/types";
 
 import sensesImg from "@/assets/lesson-03/senses.jpg";
+import winterImg from "@/assets/lesson-03/winter-senses.jpg";
+import environmentsImg from "@/assets/lesson-03/environments.jpg";
 
 import fiveSensesVideo from "@/assets/lesson-03/videos/five-senses.mp4.asset.json";
 import signalMessageVideo from "@/assets/lesson-03/videos/signal-message.mp4.asset.json";
@@ -8,33 +10,43 @@ import infoSignalVideo from "@/assets/lesson-03/videos/info-signal.mp4.asset.jso
 
 export const lesson03: LessonData = {
   id: "lesson-03",
-  title: { kk: "Адамның ақпаратты қабылдау түрлері", ru: "Виды восприятия информации", en: "How We Perceive Information" },
+  title: { kk: "Біздің айналамыздағы ақпарат", ru: "Информация вокруг нас", en: "Information Around Us" },
   description: {
-    kk: "Адам ақпаратты 5 сезім мүшесі арқылы қабылдайды",
-    ru: "Человек воспринимает информацию через 5 органов чувств",
-    en: "Humans perceive information through 5 senses",
+    kk: "Ақпаратты сезім мүшелері арқылы қабылдау",
+    ru: "Восприятие информации органами чувств",
+    en: "Perceiving information through senses",
   },
   emoji: "👁️",
   color: "from-orange-400 to-pink-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Ақпаратты қабылдау", ru: "Восприятие информации", en: "Perceiving Information" },
+      title: { kk: "Біздің айналамыздағы ақпарат", ru: "Информация вокруг нас", en: "Information Around Us" },
       subtitle: {
-        kk: "Біз ақпаратты қалай қабылдаймыз?",
-        ru: "Как мы воспринимаем информацию?",
-        en: "How do we perceive information?",
+        kk: "Біз әлемді 5 сезім мүшесі арқылы танимыз!",
+        ru: "Мы познаём мир 5 органами чувств!",
+        en: "We learn the world through 5 senses!",
       },
       emoji: "🧠",
       color: "from-orange-400 to-pink-500",
     },
     {
       type: "topic",
-      title: { kk: "5 сезім мүшесі", ru: "5 органов чувств", en: "5 Senses" },
+      title: { kk: "1-сурет. Қыс мезгілі", ru: "Рис. 1. Зима", en: "Pic. 1. Winter" },
       text: {
-        kk: "Адам ақпаратты 5 сезім мүшесі арқылы қабылдайды: көру, есту, иіс сезу, дәм сезу және сезу (жанасу).",
-        ru: "Человек воспринимает информацию через 5 органов чувств: зрение, слух, обоняние, вкус и осязание.",
-        en: "Humans perceive information through 5 senses: sight, hearing, smell, taste, and touch.",
+        kk: "Балалардың беті неге қызарған? Қай құстың даусын естіді? Сәбіздің дәмі қандай? — Біз қоршаған әлемді сезім мүшелері арқылы танимыз.",
+        ru: "Почему щёки детей покраснели? Какой птицы голос они слышали? Какой вкус у моркови? — Мы познаём окружающий мир органами чувств.",
+        en: "Why are the kids' cheeks red? Which bird did they hear? What does the carrot taste like? — We perceive the world through our senses.",
+      },
+      image: winterImg,
+    },
+    {
+      type: "topic",
+      title: { kk: "Жаңа білім", ru: "Новые знания", en: "New Knowledge" },
+      text: {
+        kk: "Біз ақпарат әлемінде өмір сүреміз. Ақпаратты қабылдау түрлері: көру, есту, иіс сезу, дәм сезу, сипап сезу. Хабар — мағынасы бар ақпарат. Сигнал — хабарды қашықтан тасымалдау тәсілі. Адам ақпаратты көз, құлақ, мұрын, тіл және тері арқылы қабылдайды.",
+        ru: "Мы живём в мире информации. Виды восприятия: зрение, слух, обоняние, вкус, осязание. Сообщение — информация со смыслом. Сигнал — способ передачи сообщения. Человек воспринимает информацию глазами, ушами, носом, языком и кожей.",
+        en: "We live in a world of information. Types of perception: sight, hearing, smell, taste, touch. A message is meaningful information. A signal is a way to transmit a message. Humans perceive through eyes, ears, nose, tongue, and skin.",
       },
       image: sensesImg,
       videos: [fiveSensesVideo.url, signalMessageVideo.url, infoSignalVideo.url],
@@ -43,31 +55,51 @@ export const lesson03: LessonData = {
       type: "rules",
       title: { kk: "Сезім мүшелері", ru: "Органы чувств", en: "Sense Organs" },
       points: [
-        { kk: "👁️ Көру — көз арқылы (суреттер, түстер)", ru: "👁️ Зрение — через глаза (картинки, цвета)", en: "👁️ Sight — through eyes (pictures, colors)" },
-        { kk: "👂 Есту — құлақ арқылы (дыбыстар, музыка)", ru: "👂 Слух — через уши (звуки, музыка)", en: "👂 Hearing — through ears (sounds, music)" },
-        { kk: "👃 Иіс сезу — мұрын арқылы (иістер)", ru: "👃 Обоняние — через нос (запахи)", en: "👃 Smell — through nose (smells)" },
-        { kk: "👅 Дәм сезу — тіл арқылы (дәмдер)", ru: "👅 Вкус — через язык (вкусы)", en: "👅 Taste — through tongue (tastes)" },
-        { kk: "✋ Сезу — тері арқылы (жылы, суық)", ru: "✋ Осязание — через кожу (тёплое, холодное)", en: "✋ Touch — through skin (warm, cold)" },
+        { kk: "👁️ Көру — көз арқылы (мультфильм, түстер)", ru: "👁️ Зрение — глазами (мультфильмы, цвета)", en: "👁️ Sight — eyes (cartoons, colors)" },
+        { kk: "👂 Есту — құлақ арқылы (әңгіме, музыка)", ru: "👂 Слух — ушами (речь, музыка)", en: "👂 Hearing — ears (speech, music)" },
+        { kk: "👃 Иіс сезу — мұрын арқылы (бауырсақтың иісі)", ru: "👃 Обоняние — носом (запах баурсака)", en: "👃 Smell — nose (smell of baursak)" },
+        { kk: "👅 Дәм сезу — тіл арқылы (құрттың дәмі)", ru: "👅 Вкус — языком (вкус курта)", en: "👅 Taste — tongue (taste of kurt)" },
+        { kk: "✋ Сипап сезу — тері арқылы (ыстық, суық)", ru: "✋ Осязание — кожей (горячо, холодно)", en: "✋ Touch — skin (hot, cold)" },
       ],
       emoji: "🧩",
     },
     {
       type: "topic",
-      title: { kk: "Ақпарат, сигнал, хабар", ru: "Информация, сигнал, сообщение", en: "Information, Signal, Message" },
+      title: { kk: "2-сурет. Бізді қоршаған орта", ru: "Рис. 2. Окружающая среда", en: "Pic. 2. Environment" },
       text: {
-        kk: "Ақпарат — бізді қоршаған орта туралы мәлімет. Сигнал — ақпаратты жеткізу тәсілі. Хабар — белгілі мағынасы бар ақпарат.",
-        ru: "Информация — сведения об окружающем мире. Сигнал — способ передачи информации. Сообщение — информация с определённым смыслом.",
-        en: "Information — data about the world around us. Signal — a way to transmit information. Message — information with a specific meaning.",
+        kk: "Орманда, жайлауда, тауда немесе шөлде қандай сезім мүшелері ақпаратты көбірек қабылдайды? Мысалы, мұрын арқылы таудың таза ауасымен дем аламыз.",
+        ru: "В лесу, на пастбище, в горах или пустыне какие органы чувств воспринимают больше информации? Например, носом дышим чистым горным воздухом.",
+        en: "In a forest, pasture, mountains or desert — which senses receive more information? For example, with our nose we breathe clean mountain air.",
       },
-      videos: [signalMessageVideo.url, infoSignalVideo.url],
+      image: environmentsImg,
     },
     {
       type: "interactive",
-      title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
+      title: { kk: "Сәйкестендір", ru: "Соедини", en: "Match" },
       items: [
         {
           type: "choice",
-          question: { kk: "Адамда неше сезім мүшесі бар?", ru: "Сколько органов чувств у человека?", en: "How many senses does a human have?" },
+          question: { kk: "Бауырсақтың иісін қай мүше арқылы сеземіз?", ru: "Каким органом чувствуем запах баурсака?", en: "Which organ senses the smell of baursak?" },
+          options: [
+            { kk: "Көз", ru: "Глаза", en: "Eyes" },
+            { kk: "Мұрын", ru: "Нос", en: "Nose" },
+            { kk: "Құлақ", ru: "Уши", en: "Ears" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: { kk: "Заттың ыстық не суық екенін қалай білеміз?", ru: "Как узнаём, горячий предмет или холодный?", en: "How do we know if an object is hot or cold?" },
+          options: [
+            { kk: "Тіл арқылы", ru: "Языком", en: "By tongue" },
+            { kk: "Тері арқылы", ru: "Кожей", en: "By skin" },
+            { kk: "Көз арқылы", ru: "Глазами", en: "By eyes" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: { kk: "Адамда неше сезім мүшесі бар?", ru: "Сколько у человека органов чувств?", en: "How many senses does a human have?" },
           options: [
             { kk: "3", ru: "3", en: "3" },
             { kk: "5", ru: "5", en: "5" },
@@ -77,11 +109,11 @@ export const lesson03: LessonData = {
         },
         {
           type: "choice",
-          question: { kk: "Музыканы қай мүше арқылы қабылдаймыз?", ru: "Каким органом мы воспринимаем музыку?", en: "Which organ perceives music?" },
+          question: { kk: "Сигнал дегеніміз не?", ru: "Что такое сигнал?", en: "What is a signal?" },
           options: [
-            { kk: "Көз", ru: "Глаза", en: "Eyes" },
-            { kk: "Құлақ", ru: "Уши", en: "Ears" },
-            { kk: "Мұрын", ru: "Нос", en: "Nose" },
+            { kk: "Сезім мүшесі", ru: "Орган чувств", en: "Sense organ" },
+            { kk: "Хабарды қашықтан тасымалдау тәсілі", ru: "Способ передачи сообщения на расстояние", en: "A way to transmit a message at a distance" },
+            { kk: "Дәмді тағам", ru: "Вкусная еда", en: "Tasty food" },
           ],
           correctIndex: 1,
         },
@@ -89,32 +121,33 @@ export const lesson03: LessonData = {
     },
     {
       type: "game",
-      title: { kk: "Сәйкестендіру ойыны", ru: "Игра на соответствие", en: "Matching Game" },
+      title: { kk: "Сезім мүшелерін сәйкестендір", ru: "Соедини органы чувств", en: "Match the senses" },
       items: [
         {
           type: "match",
-          instruction: { kk: "Сезім мүшесін ақпарат түрімен сәйкестендір", ru: "Соедини орган чувств с типом информации", en: "Match the sense organ with information type" },
+          instruction: { kk: "Әр сезім мүшесін мысалмен сәйкестендір", ru: "Соедини орган чувств с примером", en: "Match each sense with an example" },
           pairs: [
-            { left: { kk: "Көз", ru: "Глаза", en: "Eyes" }, right: { kk: "Суреттер", ru: "Картинки", en: "Pictures" } },
-            { left: { kk: "Құлақ", ru: "Уши", en: "Ears" }, right: { kk: "Дыбыстар", ru: "Звуки", en: "Sounds" } },
-            { left: { kk: "Мұрын", ru: "Нос", en: "Nose" }, right: { kk: "Иістер", ru: "Запахи", en: "Smells" } },
-            { left: { kk: "Тіл", ru: "Язык", en: "Tongue" }, right: { kk: "Дәмдер", ru: "Вкусы", en: "Tastes" } },
+            { left: { kk: "👁️ Көз", ru: "👁️ Глаза", en: "👁️ Eyes" }, right: { kk: "Мультфильм", ru: "Мультфильм", en: "Cartoon" } },
+            { left: { kk: "👂 Құлақ", ru: "👂 Уши", en: "👂 Ears" }, right: { kk: "Музыка", ru: "Музыка", en: "Music" } },
+            { left: { kk: "👃 Мұрын", ru: "👃 Нос", en: "👃 Nose" }, right: { kk: "Бауырсақтың иісі", ru: "Запах баурсака", en: "Smell of baursak" } },
+            { left: { kk: "👅 Тіл", ru: "👅 Язык", en: "👅 Tongue" }, right: { kk: "Құрттың дәмі", ru: "Вкус курта", en: "Taste of kurt" } },
+            { left: { kk: "✋ Тері", ru: "✋ Кожа", en: "✋ Skin" }, right: { kk: "Жылы шай", ru: "Тёплый чай", en: "Warm tea" } },
           ],
         },
       ],
     },
     {
       type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
+      title: { kk: "Видео: 5 сезім мүшесі", ru: "Видео: 5 чувств", en: "Video: 5 senses" },
       video: fiveSensesVideo.url,
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Адамда 5 сезім мүшесі бар", ru: "У человека 5 органов чувств", en: "Humans have 5 senses" },
-        { kk: "Ақпарат — әлем туралы мәлімет", ru: "Информация — данные о мире", en: "Information — data about the world" },
-        { kk: "Біз ақпаратты сигналдар арқылы аламыз", ru: "Мы получаем информацию через сигналы", en: "We receive information through signals" },
+        { kk: "Адамда 5 сезім мүшесі бар: көз, құлақ, мұрын, тіл, тері", ru: "5 органов чувств: глаза, уши, нос, язык, кожа", en: "5 senses: eyes, ears, nose, tongue, skin" },
+        { kk: "Ақпарат — жаңа мәлімет, жаңа білім", ru: "Информация — новые сведения, знания", en: "Information — new data, knowledge" },
+        { kk: "Хабар мағынасы бар, сигнал — оны жеткізу тәсілі", ru: "Сообщение имеет смысл, сигнал — способ его передачи", en: "Message has meaning; signal is the way to deliver it" },
       ],
       emoji: "🌟",
     },
