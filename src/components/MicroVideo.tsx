@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Play, Film, Image as ImageIcon, Sparkles, Lightbulb, Target } from "lucide-react";
-import { useLang, t, ui } from "@/lib/language";
+import { useLang, t } from "@/lib/language";
 import type { Translatable } from "@/lib/language";
 
 interface MicroVideoProps {
