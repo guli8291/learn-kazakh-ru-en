@@ -1,6 +1,8 @@
 import { LessonData } from "@/lib/types";
 
-import firstProjectImg from "@/assets/lesson-15/first-project.jpg";
+import appleTreeImg from "@/assets/lesson-15/apple-tree.jpg";
+import appleStoryImg from "@/assets/lesson-15/apple-story.jpg";
+import scriptBlocksImg from "@/assets/lesson-15/script-blocks.jpg";
 
 import projectVideo from "@/assets/lesson-15/videos/project.mp4.asset.json";
 import projectStepsVideo from "@/assets/lesson-15/videos/project-steps.mp4.asset.json";
@@ -8,66 +10,163 @@ import blocksSnapVideo from "@/assets/lesson-15/videos/blocks-snap.mp4.asset.jso
 
 export const lesson15: LessonData = {
   id: "lesson-15",
-  title: { kk: "Менің алғашқы жобам", ru: "Мой первый проект", en: "My First Project" },
+  title: { kk: "«Алмаағаш» жобасы", ru: "Проект «Яблоня»", en: "«Apple Tree» Project" },
   description: {
-    kk: "Scratch-те алғашқы жобаны жасау",
-    ru: "Создание первого проекта в Scratch",
-    en: "Creating your first project in Scratch",
+    kk: "Дайын сценарий бойынша алгоритм құру",
+    ru: "Создание алгоритма по готовому сценарию",
+    en: "Building an algorithm from a ready scenario",
   },
-  emoji: "🚀",
-  color: "from-green-400 to-emerald-500",
+  emoji: "🍎",
+  color: "from-red-400 to-rose-500",
   slides: [
     {
       type: "hero",
-      title: { kk: "Менің алғашқы жобам", ru: "Мой первый проект", en: "My First Project" },
-      subtitle: { kk: "Алғашқы бағдарламаңды жаса!", ru: "Создай свою первую программу!", en: "Create your first program!" },
-      emoji: "🚀",
-      color: "from-green-400 to-emerald-500",
+      title: { kk: "«Алмаағаш» жобасы", ru: "Проект «Яблоня»", en: "«Apple Tree» Project" },
+      subtitle: {
+        kk: "Дайын сценарийді алгоритмге айналдырамыз!",
+        ru: "Превращаем готовый сценарий в алгоритм!",
+        en: "Turning a ready scenario into an algorithm!",
+      },
+      emoji: "🍎",
+      color: "from-red-400 to-rose-500",
     },
     {
       type: "topic",
-      title: { kk: "Жоба дегеніміз не?", ru: "Что такое проект?", en: "What is a Project?" },
-      text: {
-        kk: "Жоба — Scratch-те жасалған бағдарлама. Жобада спрайттар, фон, блоктар (командалар) бар. Мысалы: мысық «Сәлем!» деп айтатын анимация — бұл қарапайым жоба. Жобаны сақтап, достарыңмен бөлісуге болады.",
-        ru: "Проект — программа, созданная в Scratch. В проекте есть спрайты, фон и блоки (команды). Например: анимация, где кот говорит «Привет!» — это простой проект. Проект можно сохранить и поделиться с друзьями.",
-        en: "A project is a program created in Scratch. It has sprites, backgrounds, and blocks (commands). For example: an animation where the cat says 'Hello!' — that's a simple project. You can save and share projects.",
+      title: {
+        kk: "Жоба тақырыбын ойлау",
+        ru: "Придумываем тему проекта",
+        en: "Choosing a Project Topic",
       },
-      image: firstProjectImg,
-      videos: [projectVideo.url, blocksSnapVideo.url, projectStepsVideo.url],
+      text: {
+        kk: "Суретке қарап, қандай тақырыпта жоба құрар едің? Суреттерге қарап, оқиға алгоритмін құрастырып көр. Ойыңды ортаға сал.",
+        ru: "Посмотри на картинку — на какую тему сделал бы проект? По картинкам составь алгоритм истории. Поделись своими мыслями.",
+        en: "Look at the picture — what topic would you make a project on? Build a story algorithm from the pictures. Share your thoughts.",
+      },
+      image: appleTreeImg,
+      videos: [projectVideo.url, projectStepsVideo.url],
+      emoji: "💭",
+    },
+    {
+      type: "topic",
+      title: {
+        kk: "Жаңа командалар",
+        ru: "Новые команды",
+        en: "New Commands",
+      },
+      text: {
+        kk: "«Сырғу» командасының екі түрі бар: тінтуір көрсеткен орынға және кез келген орынға сырғу. «Размер +20» — спрайт өлшемін 20-ға үлкейтеді, «–20» — кемітеді. «Hide / Show» — спрайтты жасырады және қайта көрсетеді.",
+        ru: "У команды «Скользить» два варианта: к указателю мыши и в любую точку. «Изменить размер на +20» — увеличивает на 20, «–20» — уменьшает. «Hide / Show» — прячет и снова показывает спрайт.",
+        en: "The «Glide» command has two forms: glide to mouse pointer and glide to any position. «Change size by +20» grows the sprite by 20, «–20» shrinks it. «Hide / Show» — hides and shows the sprite.",
+      },
+      image: scriptBlocksImg,
+      videos: [blocksSnapVideo.url, projectVideo.url, projectStepsVideo.url],
+      emoji: "🧩",
     },
     {
       type: "rules",
-      title: { kk: "Алғашқы жоба жасау қадамдары", ru: "Шаги создания первого проекта", en: "Steps to Create Your First Project" },
+      title: {
+        kk: "1-қадам. Оқиғаның мазмұны",
+        ru: "Шаг 1. Содержание истории",
+        en: "Step 1. Story Content",
+      },
       points: [
-        { kk: "1️⃣ Scratch-ты аш", ru: "1️⃣ Открой Scratch", en: "1️⃣ Open Scratch" },
-        { kk: "2️⃣ Спрайт таңда (мысалы, мысық)", ru: "2️⃣ Выбери спрайт (например, кота)", en: "2️⃣ Choose a sprite (e.g., cat)" },
-        { kk: "3️⃣ Фон таңда", ru: "3️⃣ Выбери фон", en: "3️⃣ Choose a backdrop" },
-        { kk: "4️⃣ Блоктарды қос: «Жасыл жалауша басылғанда» → «Айту: Сәлем!»", ru: "4️⃣ Добавь блоки: «Когда нажат зелёный флажок» → «Сказать: Привет!»", en: "4️⃣ Add blocks: 'When green flag clicked' → 'Say: Hello!'" },
-        { kk: "5️⃣ Жасыл жалаушаны бас — жобаңды тексер!", ru: "5️⃣ Нажми зелёный флажок — проверь проект!", en: "5️⃣ Click green flag — test your project!" },
+        { kk: "🌳 Далада өсіп тұрған алмаағаштың жемісі үлкейді", ru: "🌳 На яблоне в поле плод вырос", en: "🌳 The apple on the tree grew" },
+        { kk: "🍎 Пісіп, түсін өзгертті", ru: "🍎 Созрело и изменило цвет", en: "🍎 Ripened and changed color" },
+        { kk: "⬇️ Ағаштың түбіне түсті", ru: "⬇️ Упало под дерево", en: "⬇️ Fell to the ground" },
+        { kk: "🌀 Домалап, шөптің арасына жасырынды", ru: "🌀 Покатилось и спряталось в траве", en: "🌀 Rolled and hid in the grass" },
       ],
-      emoji: "📋",
+      emoji: "📖",
+    },
+    {
+      type: "topic",
+      title: {
+        kk: "2-қадам. Сөзбен сипатталған алгоритм",
+        ru: "Шаг 2. Алгоритм словами",
+        en: "Step 2. Algorithm in Words",
+      },
+      text: {
+        kk: "1. Алма өсіп, үлкейді. 2. Алма пісті. 3. Түсін өзгертті. 4. Жерге түсті. 5. Домалады. 6. Жасырынды.",
+        ru: "1. Яблоко росло и увеличивалось. 2. Созрело. 3. Изменило цвет. 4. Упало на землю. 5. Покатилось. 6. Спряталось.",
+        en: "1. The apple grew. 2. It ripened. 3. It changed color. 4. It fell. 5. It rolled. 6. It hid.",
+      },
+      image: appleStoryImg,
+      videos: [projectStepsVideo.url, blocksSnapVideo.url, projectVideo.url],
+      emoji: "📝",
+    },
+    {
+      type: "rules",
+      title: {
+        kk: "3-5-қадамдар. Жобаны құру",
+        ru: "Шаги 3-5. Создание проекта",
+        en: "Steps 3-5. Building the Project",
+      },
+      points: [
+        {
+          kk: "🎬 3-қадам. Спрайт пен фонды сахнаға орналастыру",
+          ru: "🎬 Шаг 3. Поставить спрайт и фон на сцену",
+          en: "🎬 Step 3. Place sprite and backdrop on the stage",
+        },
+        {
+          kk: "🧱 4-қадам. Алгоритм бойынша скрипт құру",
+          ru: "🧱 Шаг 4. Собрать скрипт по алгоритму",
+          en: "🧱 Step 4. Build the script from the algorithm",
+        },
+        {
+          kk: "▶️ 5-қадам. Жобаны іске қосу, орындалуын тексеру",
+          ru: "▶️ Шаг 5. Запустить проект и проверить",
+          en: "▶️ Step 5. Run the project and test it",
+        },
+        {
+          kk: "💾 Жобаны міндетті түрде сақтау",
+          ru: "💾 Обязательно сохранить проект",
+          en: "💾 Don't forget to save the project",
+        },
+      ],
+      emoji: "🛠️",
     },
     {
       type: "interactive",
-      title: { kk: "Білімді тексер!", ru: "Проверь знания!", en: "Test Your Knowledge!" },
+      title: { kk: "Білімді тексер", ru: "Проверь знания", en: "Test Your Knowledge" },
       items: [
         {
           type: "choice",
-          question: { kk: "Scratch-те жоба жасаудың бірінші қадамы не?", ru: "Каков первый шаг создания проекта в Scratch?", en: "What is the first step to create a project in Scratch?" },
+          question: {
+            kk: "«Размер +20» командасы не істейді?",
+            ru: "Что делает команда «Размер +20»?",
+            en: "What does «Change size by +20» do?",
+          },
           options: [
-            { kk: "Ойын ойнау", ru: "Играть в игру", en: "Play a game" },
-            { kk: "Scratch-ты ашу", ru: "Открыть Scratch", en: "Open Scratch" },
-            { kk: "Компьютерді өшіру", ru: "Выключить компьютер", en: "Turn off computer" },
+            { kk: "Спрайтты жасырады", ru: "Прячет спрайт", en: "Hides the sprite" },
+            { kk: "Спрайтты 20-ға үлкейтеді", ru: "Увеличивает на 20", en: "Grows by 20" },
+            { kk: "Спрайтты 20-ға кемітеді", ru: "Уменьшает на 20", en: "Shrinks by 20" },
           ],
           correctIndex: 1,
         },
         {
           type: "choice",
-          question: { kk: "«Айту» блогы не істейді?", ru: "Что делает блок «Сказать»?", en: "What does the 'Say' block do?" },
+          question: {
+            kk: "Спрайтты жасыру үшін қандай команда?",
+            ru: "Какая команда прячет спрайт?",
+            en: "Which command hides the sprite?",
+          },
           options: [
-            { kk: "Спрайтты жояды", ru: "Удаляет спрайт", en: "Deletes the sprite" },
-            { kk: "Спрайт мәтін көрсетеді", ru: "Спрайт показывает текст", en: "Sprite shows text" },
-            { kk: "Фонды ауыстырады", ru: "Меняет фон", en: "Changes background" },
+            { kk: "Show", ru: "Show", en: "Show" },
+            { kk: "Hide", ru: "Hide", en: "Hide" },
+            { kk: "Glide", ru: "Glide", en: "Glide" },
+          ],
+          correctIndex: 1,
+        },
+        {
+          type: "choice",
+          question: {
+            kk: "Жобаны құрастыру қай қадамнан басталады?",
+            ru: "С какого шага начинается создание проекта?",
+            en: "Which step does building a project start with?",
+          },
+          options: [
+            { kk: "Скрипт жазудан", ru: "С написания скрипта", en: "Writing the script" },
+            { kk: "Оқиғаның мазмұнын құрудан", ru: "С придумывания истории", en: "Creating the story content" },
+            { kk: "Жобаны сақтаудан", ru: "С сохранения проекта", en: "Saving the project" },
           ],
           correctIndex: 1,
         },
@@ -75,32 +174,54 @@ export const lesson15: LessonData = {
     },
     {
       type: "game",
-      title: { kk: "Жоба қадамдарын сәйкестендір", ru: "Соедини шаги проекта", en: "Match Project Steps" },
+      title: {
+        kk: "Алгоритм қадамдарын ретімен қой",
+        ru: "Расставь шаги алгоритма",
+        en: "Order the Algorithm Steps",
+      },
       items: [
         {
           type: "match",
-          instruction: { kk: "Қадамды әрекетпен сәйкестендір", ru: "Соедини шаг с действием", en: "Match step with action" },
+          instruction: {
+            kk: "Әр қадамды дұрыс реттік нөмірмен сәйкестендір",
+            ru: "Соедини каждый шаг с его порядковым номером",
+            en: "Match each step with its order number",
+          },
           pairs: [
-            { left: { kk: "1-қадам", ru: "Шаг 1", en: "Step 1" }, right: { kk: "Scratch-ты ашу", ru: "Открыть Scratch", en: "Open Scratch" } },
-            { left: { kk: "2-қадам", ru: "Шаг 2", en: "Step 2" }, right: { kk: "Спрайт таңдау", ru: "Выбрать спрайт", en: "Choose sprite" } },
-            { left: { kk: "3-қадам", ru: "Шаг 3", en: "Step 3" }, right: { kk: "Блоктарды қосу", ru: "Добавить блоки", en: "Add blocks" } },
-            { left: { kk: "4-қадам", ru: "Шаг 4", en: "Step 4" }, right: { kk: "Жобаны тексеру", ru: "Проверить проект", en: "Test project" } },
+            { left: { kk: "1", ru: "1", en: "1" }, right: { kk: "Алма өсіп үлкейді", ru: "Яблоко выросло", en: "Apple grew" } },
+            { left: { kk: "2", ru: "2", en: "2" }, right: { kk: "Пісті", ru: "Созрело", en: "Ripened" } },
+            { left: { kk: "3", ru: "3", en: "3" }, right: { kk: "Түсін өзгертті", ru: "Изменило цвет", en: "Changed color" } },
+            { left: { kk: "4", ru: "4", en: "4" }, right: { kk: "Жерге түсті", ru: "Упало", en: "Fell" } },
+            { left: { kk: "5", ru: "5", en: "5" }, right: { kk: "Домалады", ru: "Покатилось", en: "Rolled" } },
+            { left: { kk: "6", ru: "6", en: "6" }, right: { kk: "Жасырынды", ru: "Спряталось", en: "Hid" } },
           ],
         },
       ],
+      emoji: "🔢",
     },
     {
-      type: "video",
-      title: { kk: "Видео", ru: "Видео", en: "Video" },
-      video: projectStepsVideo.url,
+      type: "topic",
+      title: {
+        kk: "Шығармашылық: Әуедегі шар",
+        ru: "Творчество: Шар в небе",
+        en: "Creative: Balloon in the Sky",
+      },
+      text: {
+        kk: "Шардың спрайты мен аспан фонын таңда. Әуеде қалықтап ұшқан шар жобасын құр. Ол үшін «glide», «change size», «wait» командаларын пайдаланасың.",
+        ru: "Выбери спрайт шара и фон неба. Сделай проект «Шар парит в небе». Используй команды «glide», «change size», «wait».",
+        en: "Choose a balloon sprite and sky backdrop. Create a «Floating Balloon» project. Use «glide», «change size», «wait» commands.",
+      },
+      image: scriptBlocksImg,
+      videos: [blocksSnapVideo.url, projectVideo.url],
+      emoji: "🎈",
     },
     {
       type: "summary",
       title: { kk: "Қорытынды", ru: "Итоги", en: "Summary" },
       points: [
-        { kk: "Жоба — Scratch-тегі бағдарлама", ru: "Проект — программа в Scratch", en: "Project — a program in Scratch" },
-        { kk: "Жоба жасау: спрайт + фон + блоктар", ru: "Создание проекта: спрайт + фон + блоки", en: "Creating a project: sprite + backdrop + blocks" },
-        { kk: "Жасыл жалауша — жобаны іске қосу", ru: "Зелёный флажок — запуск проекта", en: "Green flag — run the project" },
+        { kk: "Жоба құру 5 қадамнан тұрады: оқиға → алгоритм → спрайт/фон → скрипт → іске қосу", ru: "Создание проекта — 5 шагов: история → алгоритм → спрайт/фон → скрипт → запуск", en: "Building a project = 5 steps: story → algorithm → sprite/backdrop → script → run" },
+        { kk: "«Glide», «Change size», «Hide/Show» — жиі қолданылатын командалар", ru: "«Glide», «Change size», «Hide/Show» — часто используемые команды", en: "«Glide», «Change size», «Hide/Show» — common commands" },
+        { kk: "Алдымен алгоритм құру керек, содан кейін скрипт", ru: "Сначала составь алгоритм, потом скрипт", en: "Build the algorithm first, then the script" },
       ],
       emoji: "🎓",
     },
