@@ -74,7 +74,7 @@ export default function LessonPage() {
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.25 }}
             >
-              <SlideRenderer slide={slide} />
+              <SlideRenderer slide={slide} lessonId={lesson.id} />
             </motion.div>
           </AnimatePresence>
         </div>
