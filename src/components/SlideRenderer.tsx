@@ -7,9 +7,17 @@ import SectionGames from "./sections/SectionGames";
 import SectionVideo from "./sections/SectionVideo";
 import SectionSummary from "./sections/SectionSummary";
 
-export default function SlideRenderer({ slide, lessonId }: { slide: LessonSlide; lessonId?: string }) {
+export default function SlideRenderer({
+  slide,
+  lessonId,
+  onNext,
+}: {
+  slide: LessonSlide;
+  lessonId?: string;
+  onNext?: () => void;
+}) {
   switch (slide.type) {
-    case "hero": return <SectionHero slide={slide} lessonId={lessonId} />;
+    case "hero": return <SectionHero slide={slide} lessonId={lessonId} onNext={onNext} />;
     case "topic": return <SectionTopic slide={slide} />;
     case "rules": return <SectionRules slide={slide} />;
     case "interactive": return <SectionInteractive slide={slide} />;
