@@ -1,14 +1,16 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import { useLang, t } from "@/lib/language";
 import type { Translatable } from "@/lib/language";
 import { Volume2, VolumeX } from "lucide-react";
 import { motion } from "framer-motion";
+import { useAudioState } from "@/lib/audioState";
 
 interface AudioButtonProps {
   src?: string;
   text?: Translatable;
   className?: string;
   size?: "sm" | "md";
+  audioId?: string;
 }
 
 const langMap: Record<string, string> = {
@@ -22,10 +24,20 @@ const langMap: Record<string, string> = {
  * Plays an audio src if available, otherwise speaks the text via TTS
  * in the currently selected language.
  */
-export default function AudioButton({ src, text, className = "", size = "md" }: AudioButtonProps) {
+export default function AudioButton({ src, text, className = "", size = "md", audioId }: AudioButtonProps) {
   const { lang } = useLang();
-  const [playing, setPlaying] = useState(false);
+  const [playing, setPlayingLocal] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+  const { setPlaying: setGlobalPlaying } = useAudioState();
+
+  const setPlaying = (v: boolean) => {
+    setPlayingLocal(v);
+    if (audioId) setGlobalPlaying(v ? audioId : null);
+  };
+
+  useEffect(() => () => {
+    if (audioId) setGlobalPlaying(null);
+  }, [audioId, setGlobalPlaying]);
 
   const stop = () => {
     audioRef.current?.pause();
